@@ -206,6 +206,7 @@
             // 
             // pbBack
             // 
+            this.pbBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbBack.Image = ((System.Drawing.Image)(resources.GetObject("pbBack.Image")));
             this.pbBack.ImageRotate = 0F;
             this.pbBack.Location = new System.Drawing.Point(48, 33);
