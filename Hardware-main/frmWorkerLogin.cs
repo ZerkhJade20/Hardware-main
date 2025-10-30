@@ -16,5 +16,12 @@ namespace Hardware_main
         {
             InitializeComponent();
         }
+
+        private void pbBack_Click(object sender, EventArgs e)
+        {
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.Show();
+            this.Hide();
+        }
     }
 }

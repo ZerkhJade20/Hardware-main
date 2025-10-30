@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAdmin = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnWorker = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -43,8 +43,8 @@
             // guna2ShadowPanel1
             // 
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel1.Controls.Add(this.guna2Button1);
-            this.guna2ShadowPanel1.Controls.Add(this.guna2Button2);
+            this.guna2ShadowPanel1.Controls.Add(this.btnWorker);
+            this.guna2ShadowPanel1.Controls.Add(this.btnAdmin);
             this.guna2ShadowPanel1.Controls.Add(this.panel1);
             this.guna2ShadowPanel1.Controls.Add(this.guna2PictureBox1);
             this.guna2ShadowPanel1.Controls.Add(this.label1);
@@ -56,22 +56,25 @@
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(1037, 563);
             this.guna2ShadowPanel1.TabIndex = 2;
             // 
-            // guna2Button2
+            // btnAdmin
             // 
-            this.guna2Button2.Animated = true;
-            this.guna2Button2.BorderRadius = 15;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.Silver;
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button2.Location = new System.Drawing.Point(561, 210);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(441, 53);
-            this.guna2Button2.TabIndex = 4;
-            this.guna2Button2.Text = "Admin";
+            this.btnAdmin.Animated = true;
+            this.btnAdmin.BorderRadius = 15;
+            this.btnAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdmin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdmin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdmin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAdmin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAdmin.FillColor = System.Drawing.Color.Silver;
+            this.btnAdmin.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.btnAdmin.ForeColor = System.Drawing.Color.Black;
+            this.btnAdmin.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btnAdmin.Location = new System.Drawing.Point(561, 210);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(441, 53);
+            this.btnAdmin.TabIndex = 4;
+            this.btnAdmin.Text = "Admin";
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
             // panel1
             // 
@@ -104,22 +107,25 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Welcome!";
             // 
-            // guna2Button1
+            // btnWorker
             // 
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.BorderRadius = 15;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.Silver;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.Location = new System.Drawing.Point(561, 308);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(441, 53);
-            this.guna2Button1.TabIndex = 5;
-            this.guna2Button1.Text = "Worker";
+            this.btnWorker.Animated = true;
+            this.btnWorker.BorderRadius = 15;
+            this.btnWorker.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnWorker.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnWorker.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnWorker.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnWorker.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnWorker.FillColor = System.Drawing.Color.Silver;
+            this.btnWorker.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.btnWorker.ForeColor = System.Drawing.Color.Black;
+            this.btnWorker.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btnWorker.Location = new System.Drawing.Point(561, 308);
+            this.btnWorker.Name = "btnWorker";
+            this.btnWorker.Size = new System.Drawing.Size(441, 53);
+            this.btnWorker.TabIndex = 5;
+            this.btnWorker.Text = "Worker";
+            this.btnWorker.Click += new System.EventHandler(this.btnWorker_Click);
             // 
             // frmLogin
             // 
@@ -131,6 +137,7 @@
             this.Controls.Add(this.guna2ShadowPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel1.PerformLayout();
@@ -143,11 +150,11 @@
 
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button btnAdmin;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnWorker;
     }
 }
 

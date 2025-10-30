@@ -21,5 +21,19 @@ namespace Hardware_main
         {
 
         }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            frmAdminLogin frmAdminLogin = new frmAdminLogin();
+            frmAdminLogin.Show();
+            this.Hide();
+        }
+
+        private void btnWorker_Click(object sender, EventArgs e)
+        {
+            frmWorkerLogin frmWorkerLogin = new frmWorkerLogin();
+            frmWorkerLogin.Show();
+            this.Hide();
+        }
     }
 }
