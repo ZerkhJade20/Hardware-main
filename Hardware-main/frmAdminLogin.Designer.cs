@@ -86,6 +86,7 @@
             this.btnAdminLogin.Size = new System.Drawing.Size(259, 53);
             this.btnAdminLogin.TabIndex = 4;
             this.btnAdminLogin.Text = "Log in";
+            this.btnAdminLogin.Click += new System.EventHandler(this.btnAdminLogin_Click);
             // 
             // panel1
             // 

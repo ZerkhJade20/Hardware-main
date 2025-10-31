@@ -28,5 +28,12 @@ namespace Hardware_main
             frmLogin.Show();
             this.Hide();
         }
+
+        private void btnAdminLogin_Click(object sender, EventArgs e)
+        {
+            frmMain frmMain = new frmMain();
+            frmMain.Show();
+            this.Hide();
+        }
     }
 }
