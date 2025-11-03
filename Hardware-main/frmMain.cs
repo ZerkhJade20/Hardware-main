@@ -68,5 +68,10 @@ namespace Hardware_main
             UC_Staff uC_Staff = new UC_Staff();
             addUserControl(uC_Staff);
         }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

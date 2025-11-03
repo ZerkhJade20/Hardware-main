@@ -63,6 +63,7 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1450, 81);
             this.guna2Panel1.TabIndex = 0;
+            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // guna2Panel2
             // 
@@ -106,7 +107,11 @@
             // btnDashboard
             // 
             this.btnDashboard.Animated = true;
-            this.btnDashboard.BorderRadius = 15;
+            this.btnDashboard.BackColor = System.Drawing.Color.White;
+            this.btnDashboard.BorderColor = System.Drawing.Color.Maroon;
+            this.btnDashboard.BorderRadius = 5;
+            this.btnDashboard.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnDashboard.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.btnDashboard.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnDashboard.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnDashboard.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -114,7 +119,8 @@
             this.btnDashboard.FillColor = System.Drawing.Color.White;
             this.btnDashboard.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.ForeColor = System.Drawing.Color.DimGray;
-            this.btnDashboard.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnDashboard.HoverState.CustomBorderColor = System.Drawing.Color.Maroon;
+            this.btnDashboard.HoverState.FillColor = System.Drawing.Color.Salmon;
             this.btnDashboard.Location = new System.Drawing.Point(0, 0);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(231, 56);
@@ -125,7 +131,9 @@
             // btnInventory
             // 
             this.btnInventory.Animated = true;
-            this.btnInventory.BorderRadius = 15;
+            this.btnInventory.BorderRadius = 10;
+            this.btnInventory.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnInventory.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.btnInventory.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnInventory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnInventory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -133,26 +141,30 @@
             this.btnInventory.FillColor = System.Drawing.Color.White;
             this.btnInventory.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInventory.ForeColor = System.Drawing.Color.DimGray;
-            this.btnInventory.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnInventory.HoverState.CustomBorderColor = System.Drawing.Color.Maroon;
+            this.btnInventory.HoverState.FillColor = System.Drawing.Color.Salmon;
             this.btnInventory.Location = new System.Drawing.Point(237, 0);
             this.btnInventory.Name = "btnInventory";
             this.btnInventory.Size = new System.Drawing.Size(235, 56);
             this.btnInventory.TabIndex = 3;
-            this.btnInventory.Text = "btnInventory";
+            this.btnInventory.Text = "Inventory";
             this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
             // 
             // btnSalesTrans
             // 
             this.btnSalesTrans.Animated = true;
-            this.btnSalesTrans.BorderRadius = 15;
+            this.btnSalesTrans.BorderRadius = 10;
+            this.btnSalesTrans.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnSalesTrans.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.btnSalesTrans.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSalesTrans.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSalesTrans.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSalesTrans.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSalesTrans.FillColor = System.Drawing.Color.White;
-            this.btnSalesTrans.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalesTrans.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnSalesTrans.ForeColor = System.Drawing.Color.DimGray;
-            this.btnSalesTrans.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnSalesTrans.HoverState.CustomBorderColor = System.Drawing.Color.Maroon;
+            this.btnSalesTrans.HoverState.FillColor = System.Drawing.Color.Salmon;
             this.btnSalesTrans.Location = new System.Drawing.Point(478, 0);
             this.btnSalesTrans.Name = "btnSalesTrans";
             this.btnSalesTrans.Size = new System.Drawing.Size(292, 56);
@@ -163,7 +175,9 @@
             // btnSupplier
             // 
             this.btnSupplier.Animated = true;
-            this.btnSupplier.BorderRadius = 15;
+            this.btnSupplier.BorderRadius = 10;
+            this.btnSupplier.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnSupplier.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.btnSupplier.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSupplier.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSupplier.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -171,7 +185,8 @@
             this.btnSupplier.FillColor = System.Drawing.Color.White;
             this.btnSupplier.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSupplier.ForeColor = System.Drawing.Color.DimGray;
-            this.btnSupplier.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnSupplier.HoverState.CustomBorderColor = System.Drawing.Color.Maroon;
+            this.btnSupplier.HoverState.FillColor = System.Drawing.Color.Salmon;
             this.btnSupplier.Location = new System.Drawing.Point(776, 0);
             this.btnSupplier.Name = "btnSupplier";
             this.btnSupplier.Size = new System.Drawing.Size(202, 56);
@@ -182,7 +197,9 @@
             // btnReports
             // 
             this.btnReports.Animated = true;
-            this.btnReports.BorderRadius = 15;
+            this.btnReports.BorderRadius = 10;
+            this.btnReports.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnReports.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.btnReports.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnReports.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnReports.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -190,7 +207,8 @@
             this.btnReports.FillColor = System.Drawing.Color.White;
             this.btnReports.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReports.ForeColor = System.Drawing.Color.DimGray;
-            this.btnReports.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnReports.HoverState.CustomBorderColor = System.Drawing.Color.Maroon;
+            this.btnReports.HoverState.FillColor = System.Drawing.Color.Salmon;
             this.btnReports.Location = new System.Drawing.Point(984, 0);
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(253, 56);
@@ -201,7 +219,9 @@
             // btnStaffs
             // 
             this.btnStaffs.Animated = true;
-            this.btnStaffs.BorderRadius = 15;
+            this.btnStaffs.BorderRadius = 10;
+            this.btnStaffs.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnStaffs.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.btnStaffs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnStaffs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnStaffs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -209,7 +229,8 @@
             this.btnStaffs.FillColor = System.Drawing.Color.White;
             this.btnStaffs.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStaffs.ForeColor = System.Drawing.Color.DimGray;
-            this.btnStaffs.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnStaffs.HoverState.CustomBorderColor = System.Drawing.Color.Maroon;
+            this.btnStaffs.HoverState.FillColor = System.Drawing.Color.Salmon;
             this.btnStaffs.Location = new System.Drawing.Point(1243, 0);
             this.btnStaffs.Name = "btnStaffs";
             this.btnStaffs.Size = new System.Drawing.Size(207, 56);
@@ -219,7 +240,7 @@
             // 
             // panelContainer
             // 
-            this.panelContainer.BackColor = System.Drawing.Color.LightGray;
+            this.panelContainer.BackColor = System.Drawing.Color.Gainsboro;
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 143);
             this.panelContainer.Name = "panelContainer";
