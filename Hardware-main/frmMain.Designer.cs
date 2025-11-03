@@ -1,4 +1,6 @@
-﻿namespace Hardware_main
+﻿using System.Windows.Forms;
+
+namespace Hardware_main
 {
     partial class frmMain
     {
@@ -52,7 +54,7 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.SaddleBrown;
+            this.guna2Panel1.BackColor = System.Drawing.Color.DimGray;
             this.guna2Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.guna2Panel1.Controls.Add(this.label2);
             this.guna2Panel1.Controls.Add(this.guna2CirclePictureBox1);
@@ -60,9 +62,9 @@
             this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1087, 66);
+            this.guna2Panel1.Size = new System.Drawing.Size(1449, 81);
             this.guna2Panel1.TabIndex = 0;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
@@ -71,10 +73,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(895, 15);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(1193, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 32);
+            this.label2.Size = new System.Drawing.Size(168, 40);
             this.label2.TabIndex = 3;
             this.label2.Text = "Miguelito";
             // 
@@ -82,24 +83,24 @@
             // 
             this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
             this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(1031, 6);
-            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(1375, 7);
+            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(48, 52);
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(64, 64);
             this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2CirclePictureBox1.TabIndex = 2;
             this.guna2CirclePictureBox1.TabStop = false;
+            this.guna2CirclePictureBox1.Click += new System.EventHandler(this.guna2CirclePictureBox1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(75, 15);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(100, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(283, 32);
+            this.label1.Size = new System.Drawing.Size(358, 40);
             this.label1.TabIndex = 1;
             this.label1.Text = "Seminiano Enterprise";
             // 
@@ -109,10 +110,10 @@
             this.guna2PictureBox1.BorderRadius = 30;
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(9, 2);
-            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(12, 2);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(48, 56);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(64, 69);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
@@ -127,10 +128,10 @@
             this.guna2Panel2.Controls.Add(this.btnInventory);
             this.guna2Panel2.Controls.Add(this.btnDashboard);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 66);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 81);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1087, 50);
+            this.guna2Panel2.Size = new System.Drawing.Size(1449, 62);
             this.guna2Panel2.TabIndex = 1;
             // 
             // btnStaffs
@@ -147,12 +148,13 @@
             this.btnStaffs.FillColor = System.Drawing.Color.White;
             this.btnStaffs.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStaffs.ForeColor = System.Drawing.Color.DimGray;
-            this.btnStaffs.HoverState.CustomBorderColor = System.Drawing.Color.Maroon;
-            this.btnStaffs.HoverState.FillColor = System.Drawing.Color.Salmon;
-            this.btnStaffs.Location = new System.Drawing.Point(932, 0);
-            this.btnStaffs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStaffs.HoverState.CustomBorderColor = System.Drawing.Color.DarkBlue;
+            this.btnStaffs.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
+            this.btnStaffs.Image = ((System.Drawing.Image)(resources.GetObject("btnStaffs.Image")));
+            this.btnStaffs.Location = new System.Drawing.Point(1243, 0);
+            this.btnStaffs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStaffs.Name = "btnStaffs";
-            this.btnStaffs.Size = new System.Drawing.Size(155, 46);
+            this.btnStaffs.Size = new System.Drawing.Size(207, 57);
             this.btnStaffs.TabIndex = 6;
             this.btnStaffs.Text = "Staffs";
             this.btnStaffs.Click += new System.EventHandler(this.btnStaffs_Click);
@@ -171,12 +173,13 @@
             this.btnReports.FillColor = System.Drawing.Color.White;
             this.btnReports.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReports.ForeColor = System.Drawing.Color.DimGray;
-            this.btnReports.HoverState.CustomBorderColor = System.Drawing.Color.Maroon;
-            this.btnReports.HoverState.FillColor = System.Drawing.Color.Salmon;
-            this.btnReports.Location = new System.Drawing.Point(738, 0);
-            this.btnReports.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReports.HoverState.CustomBorderColor = System.Drawing.Color.DarkBlue;
+            this.btnReports.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
+            this.btnReports.Image = ((System.Drawing.Image)(resources.GetObject("btnReports.Image")));
+            this.btnReports.Location = new System.Drawing.Point(984, 0);
+            this.btnReports.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(190, 46);
+            this.btnReports.Size = new System.Drawing.Size(253, 57);
             this.btnReports.TabIndex = 6;
             this.btnReports.Text = "Reports";
             this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
@@ -195,12 +198,13 @@
             this.btnSupplier.FillColor = System.Drawing.Color.White;
             this.btnSupplier.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSupplier.ForeColor = System.Drawing.Color.DimGray;
-            this.btnSupplier.HoverState.CustomBorderColor = System.Drawing.Color.Maroon;
-            this.btnSupplier.HoverState.FillColor = System.Drawing.Color.Salmon;
-            this.btnSupplier.Location = new System.Drawing.Point(582, 0);
-            this.btnSupplier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSupplier.HoverState.CustomBorderColor = System.Drawing.Color.DarkBlue;
+            this.btnSupplier.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
+            this.btnSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btnSupplier.Image")));
+            this.btnSupplier.Location = new System.Drawing.Point(776, 0);
+            this.btnSupplier.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSupplier.Name = "btnSupplier";
-            this.btnSupplier.Size = new System.Drawing.Size(152, 46);
+            this.btnSupplier.Size = new System.Drawing.Size(203, 57);
             this.btnSupplier.TabIndex = 5;
             this.btnSupplier.Text = "Supplier";
             this.btnSupplier.Click += new System.EventHandler(this.btnSupplier_Click);
@@ -219,12 +223,13 @@
             this.btnSalesTrans.FillColor = System.Drawing.Color.White;
             this.btnSalesTrans.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnSalesTrans.ForeColor = System.Drawing.Color.DimGray;
-            this.btnSalesTrans.HoverState.CustomBorderColor = System.Drawing.Color.Maroon;
-            this.btnSalesTrans.HoverState.FillColor = System.Drawing.Color.Salmon;
-            this.btnSalesTrans.Location = new System.Drawing.Point(358, 0);
-            this.btnSalesTrans.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSalesTrans.HoverState.CustomBorderColor = System.Drawing.Color.DarkBlue;
+            this.btnSalesTrans.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
+            this.btnSalesTrans.Image = ((System.Drawing.Image)(resources.GetObject("btnSalesTrans.Image")));
+            this.btnSalesTrans.Location = new System.Drawing.Point(477, 0);
+            this.btnSalesTrans.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSalesTrans.Name = "btnSalesTrans";
-            this.btnSalesTrans.Size = new System.Drawing.Size(219, 46);
+            this.btnSalesTrans.Size = new System.Drawing.Size(292, 57);
             this.btnSalesTrans.TabIndex = 4;
             this.btnSalesTrans.Text = "Sales / Transactions";
             this.btnSalesTrans.Click += new System.EventHandler(this.btnSalesTrans_Click);
@@ -243,12 +248,13 @@
             this.btnInventory.FillColor = System.Drawing.Color.White;
             this.btnInventory.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInventory.ForeColor = System.Drawing.Color.DimGray;
-            this.btnInventory.HoverState.CustomBorderColor = System.Drawing.Color.Maroon;
-            this.btnInventory.HoverState.FillColor = System.Drawing.Color.Salmon;
-            this.btnInventory.Location = new System.Drawing.Point(178, 0);
-            this.btnInventory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnInventory.HoverState.CustomBorderColor = System.Drawing.Color.DarkBlue;
+            this.btnInventory.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
+            this.btnInventory.Image = ((System.Drawing.Image)(resources.GetObject("btnInventory.Image")));
+            this.btnInventory.Location = new System.Drawing.Point(237, 0);
+            this.btnInventory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInventory.Name = "btnInventory";
-            this.btnInventory.Size = new System.Drawing.Size(176, 46);
+            this.btnInventory.Size = new System.Drawing.Size(235, 57);
             this.btnInventory.TabIndex = 3;
             this.btnInventory.Text = "Inventory";
             this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
@@ -269,26 +275,28 @@
             this.btnDashboard.FillColor = System.Drawing.Color.White;
             this.btnDashboard.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.ForeColor = System.Drawing.Color.DimGray;
-            this.btnDashboard.HoverState.CustomBorderColor = System.Drawing.Color.Maroon;
-            this.btnDashboard.HoverState.FillColor = System.Drawing.Color.Salmon;
+            this.btnDashboard.HoverState.CustomBorderColor = System.Drawing.Color.DarkBlue;
+            this.btnDashboard.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
+            this.btnDashboard.Image = ((System.Drawing.Image)(resources.GetObject("btnDashboard.Image")));
             this.btnDashboard.Location = new System.Drawing.Point(0, 0);
-            this.btnDashboard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDashboard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(173, 46);
+            this.btnDashboard.Size = new System.Drawing.Size(231, 57);
             this.btnDashboard.TabIndex = 2;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // panelContainer
             // 
-            this.panelContainer.BackColor = System.Drawing.Color.Gainsboro;
+            this.panelContainer.BackColor = System.Drawing.Color.Lavender;
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContainer.Location = new System.Drawing.Point(0, 116);
-            this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelContainer.FillColor = System.Drawing.Color.Transparent;
+            this.panelContainer.Location = new System.Drawing.Point(0, 143);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1087, 524);
+            this.panelContainer.Size = new System.Drawing.Size(1449, 645);
             this.panelContainer.TabIndex = 2;
-            this.panelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContainer_Paint);
+            this.panelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContainer_Paint_1);
             // 
             // guna2DragControl1
             // 
@@ -298,16 +306,17 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1087, 640);
+            this.ClientSize = new System.Drawing.Size(1449, 788);
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmMain";
             this.Text = "frmMain";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
@@ -333,5 +342,6 @@
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
+        private PaintEventHandler panelContainer_Paint;
     }
 }

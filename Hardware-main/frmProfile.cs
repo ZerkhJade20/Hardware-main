@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hardware_main.UserControls
+namespace Hardware_main
 {
-    public partial class itemList : UserControl
+    public partial class frmProfile : Form
     {
-        public itemList()
+        public frmProfile()
         {
             InitializeComponent();
-        }
-
-        private void itemList_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

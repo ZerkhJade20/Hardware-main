@@ -16,6 +16,7 @@ namespace Hardware_main
         public frmMain()
         {
             InitializeComponent();
+            
             UC_Dashboard uC_Dashboard = new UC_Dashboard();
             addUserControl(uC_Dashboard);
         }
@@ -26,11 +27,7 @@ namespace Hardware_main
             panelContainer.Controls.Add(userControl);
             userControl.BringToFront();
         }
-
-        private void panelContainer_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
@@ -72,6 +69,23 @@ namespace Hardware_main
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void panelContainer_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
+        {
+            frmProfile frmProfile = new frmProfile();
+            frmProfile.ShowDialog();
+            this.Hide();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

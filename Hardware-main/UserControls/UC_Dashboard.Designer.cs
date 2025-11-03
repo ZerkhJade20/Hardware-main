@@ -34,11 +34,11 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblTotalSalesUpdate = new System.Windows.Forms.Label();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2CirclePictureBox3 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.lblTotalSalesUpdate = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2CirclePictureBox2 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2CirclePictureBox4 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -46,30 +46,30 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblNameOfProduct = new System.Windows.Forms.Label();
-            this.lblCategOfProd = new System.Windows.Forms.Label();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblUpdatingLowStock = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.lblUpdatingLowStock = new System.Windows.Forms.Label();
+            this.lblCategOfProd = new System.Windows.Forms.Label();
+            this.lblNameOfProduct = new System.Windows.Forms.Label();
+            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.listViewTransactionsRecent = new System.Windows.Forms.ListView();
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox4)).BeginInit();
             this.guna2Panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel6.SuspendLayout();
             this.guna2Panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -137,53 +137,6 @@
             this.guna2Panel2.Size = new System.Drawing.Size(259, 135);
             this.guna2Panel2.TabIndex = 3;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("MS UI Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(16, 20);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(142, 25);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Total Sales";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("MS UI Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(24, 69);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 34);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "₱";
-            // 
-            // lblTotalSalesUpdate
-            // 
-            this.lblTotalSalesUpdate.AutoSize = true;
-            this.lblTotalSalesUpdate.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalSalesUpdate.Font = new System.Drawing.Font("MS UI Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalSalesUpdate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblTotalSalesUpdate.Location = new System.Drawing.Point(55, 69);
-            this.lblTotalSalesUpdate.Name = "lblTotalSalesUpdate";
-            this.lblTotalSalesUpdate.Size = new System.Drawing.Size(87, 34);
-            this.lblTotalSalesUpdate.TabIndex = 6;
-            this.lblTotalSalesUpdate.Text = "1000";
-            // 
-            // guna2CirclePictureBox1
-            // 
-            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.PowderBlue;
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(164, -50);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(159, 138);
-            this.guna2CirclePictureBox1.TabIndex = 7;
-            this.guna2CirclePictureBox1.TabStop = false;
-            // 
             // guna2CirclePictureBox3
             // 
             this.guna2CirclePictureBox3.FillColor = System.Drawing.Color.Transparent;
@@ -197,6 +150,53 @@
             this.guna2CirclePictureBox3.TabIndex = 8;
             this.guna2CirclePictureBox3.TabStop = false;
             this.guna2CirclePictureBox3.UseTransparentBackground = true;
+            // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.PowderBlue;
+            this.guna2CirclePictureBox1.ImageRotate = 0F;
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(164, -50);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(159, 138);
+            this.guna2CirclePictureBox1.TabIndex = 7;
+            this.guna2CirclePictureBox1.TabStop = false;
+            // 
+            // lblTotalSalesUpdate
+            // 
+            this.lblTotalSalesUpdate.AutoSize = true;
+            this.lblTotalSalesUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalSalesUpdate.Font = new System.Drawing.Font("MS UI Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalSalesUpdate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblTotalSalesUpdate.Location = new System.Drawing.Point(55, 69);
+            this.lblTotalSalesUpdate.Name = "lblTotalSalesUpdate";
+            this.lblTotalSalesUpdate.Size = new System.Drawing.Size(87, 34);
+            this.lblTotalSalesUpdate.TabIndex = 6;
+            this.lblTotalSalesUpdate.Text = "1000";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("MS UI Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(24, 69);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 34);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "₱";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("MS UI Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
+            this.label4.Location = new System.Drawing.Point(16, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(142, 25);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Total Sales";
             // 
             // guna2Panel3
             // 
@@ -288,39 +288,6 @@
             this.guna2Panel4.Size = new System.Drawing.Size(534, 187);
             this.guna2Panel4.TabIndex = 9;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.DimGray;
-            this.label12.Location = new System.Drawing.Point(56, 16);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(221, 30);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "Low stock alert";
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(21, 16);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(31, 34);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 10;
-            this.guna2PictureBox1.TabStop = false;
-            this.guna2PictureBox1.UseTransparentBackground = true;
-            // 
-            // guna2Panel5
-            // 
-            this.guna2Panel5.BorderRadius = 5;
-            this.guna2Panel5.FillColor = System.Drawing.Color.Gray;
-            this.guna2Panel5.Location = new System.Drawing.Point(21, 56);
-            this.guna2Panel5.Name = "guna2Panel5";
-            this.guna2Panel5.Size = new System.Drawing.Size(500, 10);
-            this.guna2Panel5.TabIndex = 11;
-            // 
             // guna2Panel6
             // 
             this.guna2Panel6.BorderRadius = 10;
@@ -334,26 +301,6 @@
             this.guna2Panel6.Size = new System.Drawing.Size(500, 99);
             this.guna2Panel6.TabIndex = 12;
             // 
-            // lblNameOfProduct
-            // 
-            this.lblNameOfProduct.AutoSize = true;
-            this.lblNameOfProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameOfProduct.Location = new System.Drawing.Point(15, 23);
-            this.lblNameOfProduct.Name = "lblNameOfProduct";
-            this.lblNameOfProduct.Size = new System.Drawing.Size(140, 29);
-            this.lblNameOfProduct.TabIndex = 0;
-            this.lblNameOfProduct.Text = "Dealdough";
-            // 
-            // lblCategOfProd
-            // 
-            this.lblCategOfProd.AutoSize = true;
-            this.lblCategOfProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategOfProd.Location = new System.Drawing.Point(16, 52);
-            this.lblCategOfProd.Name = "lblCategOfProd";
-            this.lblCategOfProd.Size = new System.Drawing.Size(84, 20);
-            this.lblCategOfProd.TabIndex = 1;
-            this.lblCategOfProd.Text = "Fasteners";
-            // 
             // guna2Panel7
             // 
             this.guna2Panel7.BorderRadius = 10;
@@ -364,6 +311,17 @@
             this.guna2Panel7.Name = "guna2Panel7";
             this.guna2Panel7.Size = new System.Drawing.Size(143, 49);
             this.guna2Panel7.TabIndex = 2;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(92, 10);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(48, 26);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Left";
             // 
             // lblUpdatingLowStock
             // 
@@ -376,16 +334,58 @@
             this.lblUpdatingLowStock.TabIndex = 0;
             this.lblUpdatingLowStock.Text = "0";
             // 
-            // label14
+            // lblCategOfProd
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(92, 10);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(48, 26);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "Left";
+            this.lblCategOfProd.AutoSize = true;
+            this.lblCategOfProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategOfProd.Location = new System.Drawing.Point(16, 52);
+            this.lblCategOfProd.Name = "lblCategOfProd";
+            this.lblCategOfProd.Size = new System.Drawing.Size(84, 20);
+            this.lblCategOfProd.TabIndex = 1;
+            this.lblCategOfProd.Text = "Fasteners";
+            // 
+            // lblNameOfProduct
+            // 
+            this.lblNameOfProduct.AutoSize = true;
+            this.lblNameOfProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameOfProduct.Location = new System.Drawing.Point(15, 23);
+            this.lblNameOfProduct.Name = "lblNameOfProduct";
+            this.lblNameOfProduct.Size = new System.Drawing.Size(140, 29);
+            this.lblNameOfProduct.TabIndex = 0;
+            this.lblNameOfProduct.Text = "Dealdough";
+            // 
+            // guna2Panel5
+            // 
+            this.guna2Panel5.BorderRadius = 5;
+            this.guna2Panel5.FillColor = System.Drawing.Color.Gray;
+            this.guna2Panel5.Location = new System.Drawing.Point(21, 56);
+            this.guna2Panel5.Name = "guna2Panel5";
+            this.guna2Panel5.Size = new System.Drawing.Size(500, 10);
+            this.guna2Panel5.TabIndex = 11;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(21, 16);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(31, 34);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 10;
+            this.guna2PictureBox1.TabStop = false;
+            this.guna2PictureBox1.UseTransparentBackground = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.DimGray;
+            this.label12.Location = new System.Drawing.Point(56, 16);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(221, 30);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Low stock alert";
             // 
             // listViewTransactionsRecent
             // 
@@ -407,6 +407,18 @@
             this.guna2Panel8.Size = new System.Drawing.Size(1411, 197);
             this.guna2Panel8.TabIndex = 11;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.DimGray;
+            this.label6.Location = new System.Drawing.Point(58, 14);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(292, 30);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Recent Transactions";
+            // 
             // guna2PictureBox2
             // 
             this.guna2PictureBox2.BackColor = System.Drawing.Color.Transparent;
@@ -420,23 +432,11 @@
             this.guna2PictureBox2.TabStop = false;
             this.guna2PictureBox2.UseTransparentBackground = true;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.DimGray;
-            this.label6.Location = new System.Drawing.Point(58, 14);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(292, 30);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Recent Transactions";
-            // 
             // UC_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.BackColor = System.Drawing.Color.Lavender;
             this.Controls.Add(this.listViewTransactionsRecent);
             this.Controls.Add(this.guna2Panel4);
             this.Controls.Add(this.guna2Panel3);
@@ -451,19 +451,19 @@
             this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox4)).EndInit();
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2Panel6.ResumeLayout(false);
             this.guna2Panel6.PerformLayout();
             this.guna2Panel7.ResumeLayout(false);
             this.guna2Panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2Panel8.ResumeLayout(false);
             this.guna2Panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();

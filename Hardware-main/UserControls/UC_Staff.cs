@@ -15,6 +15,22 @@ namespace Hardware_main.UserControls
         public UC_Staff()
         {
             InitializeComponent();
+            panelAddNewStaff.Hide();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            panelAddNewStaff.Show();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            panelAddNewStaff.Hide();
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            panelAddNewStaff.Hide();
         }
     }
 }

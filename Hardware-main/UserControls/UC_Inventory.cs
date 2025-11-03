@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,14 +21,20 @@ namespace Hardware_main.UserControls
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            
+
             guna2Panel4.Show();
+
+           
+
+            
 
         }
        
 
         private void UC_Inventory_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void guna2Panel4_Paint(object sender, PaintEventArgs e)

@@ -21,12 +21,6 @@ namespace Hardware_main
         {
 
         }
-
-        private void pbBack_Click(object sender, EventArgs e)
-        {
-          
-        }
-
         private void btnAdminLogin_Click(object sender, EventArgs e)
         {
             frmMain frmMain = new frmMain();

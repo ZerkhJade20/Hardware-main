@@ -16,5 +16,10 @@ namespace Hardware_main.UserControls
         {
             InitializeComponent();
         }
+
+        private void UC_Reports_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
