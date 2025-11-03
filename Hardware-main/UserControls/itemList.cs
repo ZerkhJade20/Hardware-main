@@ -8,20 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hardware_main
+namespace Hardware_main.UserControls
 {
-    public partial class frmWorkerLogin : Form
+    public partial class itemList : UserControl
     {
-        public frmWorkerLogin()
+        public itemList()
         {
             InitializeComponent();
         }
 
-        private void pbBack_Click(object sender, EventArgs e)
+        private void itemList_Load(object sender, EventArgs e)
         {
-            frmLogin frmLogin = new frmLogin();
-            frmLogin.Show();
-            this.Hide();
+
         }
     }
 }

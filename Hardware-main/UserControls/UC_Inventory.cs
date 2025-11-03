@@ -15,6 +15,34 @@ namespace Hardware_main.UserControls
         public UC_Inventory()
         {
             InitializeComponent();
+            guna2Panel4.Hide();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            guna2Panel4.Show();
+
+        }
+       
+
+        private void UC_Inventory_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            guna2Panel4.Hide();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            guna2Panel4.Hide();
         }
     }
 }
