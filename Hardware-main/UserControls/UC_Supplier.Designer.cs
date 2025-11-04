@@ -378,6 +378,7 @@
             this.btnAddSupp.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnAddSupp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnAddSupp.ForeColor = System.Drawing.Color.White;
+            this.btnAddSupp.HoverState.FillColor = System.Drawing.Color.Blue;
             this.btnAddSupp.Location = new System.Drawing.Point(69, 450);
             this.btnAddSupp.Name = "btnAddSupp";
             this.btnAddSupp.Size = new System.Drawing.Size(235, 44);
@@ -396,6 +397,7 @@
             this.btnCancel.FillColor = System.Drawing.Color.Silver;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.HoverState.FillColor = System.Drawing.Color.Red;
             this.btnCancel.Location = new System.Drawing.Point(319, 450);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(235, 44);

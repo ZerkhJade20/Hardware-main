@@ -151,6 +151,7 @@
             this.btnExport.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnExport.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.btnExport.ForeColor = System.Drawing.Color.White;
+            this.btnExport.HoverState.FillColor = System.Drawing.Color.Blue;
             this.btnExport.Location = new System.Drawing.Point(45, 503);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(254, 102);

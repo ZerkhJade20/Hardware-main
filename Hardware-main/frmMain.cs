@@ -13,13 +13,16 @@ namespace Hardware_main
 {
     public partial class frmMain : Form
     {
+        
         public frmMain()
         {
             InitializeComponent();
-            
+
             UC_Dashboard uC_Dashboard = new UC_Dashboard();
             addUserControl(uC_Dashboard);
+           
         }
+       
         private void addUserControl(UserControl userControl)
         {
             userControl.Dock = DockStyle.Fill;
@@ -78,9 +81,7 @@ namespace Hardware_main
 
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
         {
-            frmProfile frmProfile = new frmProfile();
-            frmProfile.ShowDialog();
-            this.Hide();
+            
         }
 
         private void frmMain_Load(object sender, EventArgs e)

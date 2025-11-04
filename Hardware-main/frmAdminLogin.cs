@@ -23,6 +23,30 @@ namespace Hardware_main
         }
         private void btnAdminLogin_Click(object sender, EventArgs e)
         {
+            
+            if (string.IsNullOrWhiteSpace(txtUsername.Text))
+            {
+                MessageBox.Show("Please fill in the username.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtUsername.Focus(); 
+                return;
+            }
+            
+            if (string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                MessageBox.Show("Please fill in the password.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPassword.Focus(); 
+                return;
+            }
+            // If both are filled, proceed with login logic 
+            
+            // if (AuthenticateUser(txtUsername.Text, txtPassword.Text))
+            // {
+            //     // Open main form or proceed
+            // }
+            // else
+            // {
+            //     MessageBox.Show("Invalid credentials.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            // }
             frmMain frmMain = new frmMain();
             frmMain.Show();
             this.Hide();
