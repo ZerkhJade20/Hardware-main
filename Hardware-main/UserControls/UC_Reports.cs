@@ -18,7 +18,7 @@ namespace Hardware_main.UserControls
         private PrintDocument printDocument;
         public UC_Reports()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
         private void UC_Reports_Load(object sender, EventArgs e)
