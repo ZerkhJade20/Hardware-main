@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Hardware_main
 {
@@ -18,9 +19,11 @@ namespace Hardware_main
         {
             InitializeComponent();
 
+
             UC_Dashboard uC_Dashboard = new UC_Dashboard();
             addUserControl(uC_Dashboard);
-           
+            
+
         }
        
         private void addUserControl(UserControl userControl)
@@ -81,9 +84,18 @@ namespace Hardware_main
 
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
         {
-            
+            Profile profile = new Profile(this);
+            panelContainer.Controls.Clear();
+            panelContainer.Controls.Add(profile);
+            profile.Dock = DockStyle.Fill;
         }
-
+        public void UpdateProfile(Image image, string name)
+        {
+            // Update the PictureBox with the new image.
+            pbProfilePic.Image = image;
+            // Update the Label with the new name.
+            lblUserName.Text = name;
+        }
         private void frmMain_Load(object sender, EventArgs e)
         {
             
