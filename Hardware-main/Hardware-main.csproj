@@ -36,6 +36,15 @@
     <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.7\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -57,6 +66,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseHelper.cs" />
     <Compile Include="frmAdminLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,11 +81,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\AllProducts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AllProducts.Designer.cs">
+      <DependentUpon>AllProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Profile.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\Profile.Designer.cs">
       <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Tools.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Tools.Designer.cs">
+      <DependentUpon>Tools.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_Cart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UC_Cart.Designer.cs">
+      <DependentUpon>UC_Cart.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UC_Dashboard.cs">
       <SubType>UserControl</SubType>
@@ -88,6 +116,12 @@
     </Compile>
     <Compile Include="UserControls\UC_Inventory.Designer.cs">
       <DependentUpon>UC_Inventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_Products.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UC_Products.Designer.cs">
+      <DependentUpon>UC_Products.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UC_Reports.cs">
       <SubType>UserControl</SubType>
@@ -113,6 +147,12 @@
     <Compile Include="UserControls\UC_Supplier.Designer.cs">
       <DependentUpon>UC_Supplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="WorkerUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkerUI.Designer.cs">
+      <DependentUpon>WorkerUI.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmAdminLogin.resx">
       <DependentUpon>frmAdminLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,14 +168,26 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\AllProducts.resx">
+      <DependentUpon>AllProducts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Profile.resx">
       <DependentUpon>Profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Tools.resx">
+      <DependentUpon>Tools.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UC_Cart.resx">
+      <DependentUpon>UC_Cart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UC_Dashboard.resx">
       <DependentUpon>UC_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UC_Inventory.resx">
       <DependentUpon>UC_Inventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UC_Products.resx">
+      <DependentUpon>UC_Products.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UC_Reports.resx">
       <DependentUpon>UC_Reports.cs</DependentUpon>
@@ -148,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UC_Supplier.resx">
       <DependentUpon>UC_Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkerUI.resx">
+      <DependentUpon>WorkerUI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

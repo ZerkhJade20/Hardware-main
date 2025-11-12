@@ -56,5 +56,12 @@ namespace Hardware_main.UserControls
             // For now, it stays visible so the user can make further edits.
             this.Visible = false;
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            WorkerUI workerUI = new WorkerUI();
+            workerUI.Show();
+            
+        }
     }
 }

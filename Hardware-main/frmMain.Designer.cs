@@ -81,6 +81,7 @@ namespace Hardware_main
             // 
             // pbProfilePic
             // 
+            this.pbProfilePic.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbProfilePic.Image = ((System.Drawing.Image)(resources.GetObject("pbProfilePic.Image")));
             this.pbProfilePic.ImageRotate = 0F;
             this.pbProfilePic.Location = new System.Drawing.Point(1375, 7);

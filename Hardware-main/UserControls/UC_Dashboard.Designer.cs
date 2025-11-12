@@ -55,10 +55,10 @@
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.listViewTransactionsRecent = new System.Windows.Forms.ListView();
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).BeginInit();
@@ -391,19 +391,11 @@
             this.label12.TabIndex = 4;
             this.label12.Text = "Low stock alert";
             // 
-            // listViewTransactionsRecent
-            // 
-            this.listViewTransactionsRecent.HideSelection = false;
-            this.listViewTransactionsRecent.Location = new System.Drawing.Point(27, 498);
-            this.listViewTransactionsRecent.Name = "listViewTransactionsRecent";
-            this.listViewTransactionsRecent.Size = new System.Drawing.Size(1384, 134);
-            this.listViewTransactionsRecent.TabIndex = 10;
-            this.listViewTransactionsRecent.UseCompatibleStateImageBehavior = false;
-            // 
             // guna2Panel8
             // 
             this.guna2Panel8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.guna2Panel8.BorderRadius = 15;
+            this.guna2Panel8.Controls.Add(this.listView1);
             this.guna2Panel8.Controls.Add(this.label6);
             this.guna2Panel8.Controls.Add(this.guna2PictureBox2);
             this.guna2Panel8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
@@ -437,12 +429,20 @@
             this.guna2PictureBox2.TabStop = false;
             this.guna2PictureBox2.UseTransparentBackground = true;
             // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(21, 50);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(1364, 134);
+            this.listView1.TabIndex = 14;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // UC_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(247)))), ((int)(((byte)(254)))));
-            this.Controls.Add(this.listViewTransactionsRecent);
             this.Controls.Add(this.guna2Panel4);
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel2);
@@ -505,9 +505,9 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblUpdatingLowStock;
-        private System.Windows.Forms.ListView listViewTransactionsRecent;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
+        private System.Windows.Forms.ListView listView1;
     }
 }
