@@ -31,7 +31,7 @@ namespace Hardware_main.UserControls
 
         private void Profile_Load(object sender, EventArgs e)
         {
-
+             
         }
 
         private void btnUpload_Click(object sender, EventArgs e)

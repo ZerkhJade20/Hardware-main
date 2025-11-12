@@ -56,5 +56,17 @@ namespace Hardware_main
         {
 
         }
+
+        private void ckbShow_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbShow.Checked == true)
+            {
+                txtPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtPassword.UseSystemPasswordChar = true;
+            }
+        }
     }
 }

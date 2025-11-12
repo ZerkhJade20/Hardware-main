@@ -54,7 +54,7 @@ namespace Hardware_main
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.DimGray;
+            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(52)))));
             this.guna2Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.guna2Panel1.Controls.Add(this.lblUserName);
             this.guna2Panel1.Controls.Add(this.pbProfilePic);
@@ -149,7 +149,7 @@ namespace Hardware_main
             this.btnStaffs.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStaffs.ForeColor = System.Drawing.Color.DimGray;
             this.btnStaffs.HoverState.CustomBorderColor = System.Drawing.Color.DarkBlue;
-            this.btnStaffs.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
+            this.btnStaffs.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
             this.btnStaffs.Image = ((System.Drawing.Image)(resources.GetObject("btnStaffs.Image")));
             this.btnStaffs.Location = new System.Drawing.Point(1243, 0);
             this.btnStaffs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -174,7 +174,7 @@ namespace Hardware_main
             this.btnReports.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReports.ForeColor = System.Drawing.Color.DimGray;
             this.btnReports.HoverState.CustomBorderColor = System.Drawing.Color.DarkBlue;
-            this.btnReports.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
+            this.btnReports.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
             this.btnReports.Image = ((System.Drawing.Image)(resources.GetObject("btnReports.Image")));
             this.btnReports.Location = new System.Drawing.Point(984, 0);
             this.btnReports.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -199,7 +199,7 @@ namespace Hardware_main
             this.btnSupplier.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSupplier.ForeColor = System.Drawing.Color.DimGray;
             this.btnSupplier.HoverState.CustomBorderColor = System.Drawing.Color.DarkBlue;
-            this.btnSupplier.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
+            this.btnSupplier.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
             this.btnSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btnSupplier.Image")));
             this.btnSupplier.Location = new System.Drawing.Point(776, 0);
             this.btnSupplier.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -224,7 +224,7 @@ namespace Hardware_main
             this.btnSalesTrans.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnSalesTrans.ForeColor = System.Drawing.Color.DimGray;
             this.btnSalesTrans.HoverState.CustomBorderColor = System.Drawing.Color.DarkBlue;
-            this.btnSalesTrans.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
+            this.btnSalesTrans.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
             this.btnSalesTrans.Image = ((System.Drawing.Image)(resources.GetObject("btnSalesTrans.Image")));
             this.btnSalesTrans.Location = new System.Drawing.Point(477, 0);
             this.btnSalesTrans.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -249,7 +249,7 @@ namespace Hardware_main
             this.btnInventory.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInventory.ForeColor = System.Drawing.Color.DimGray;
             this.btnInventory.HoverState.CustomBorderColor = System.Drawing.Color.DarkBlue;
-            this.btnInventory.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
+            this.btnInventory.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
             this.btnInventory.Image = ((System.Drawing.Image)(resources.GetObject("btnInventory.Image")));
             this.btnInventory.Location = new System.Drawing.Point(237, 0);
             this.btnInventory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -276,7 +276,7 @@ namespace Hardware_main
             this.btnDashboard.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.ForeColor = System.Drawing.Color.DimGray;
             this.btnDashboard.HoverState.CustomBorderColor = System.Drawing.Color.DarkBlue;
-            this.btnDashboard.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
+            this.btnDashboard.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
             this.btnDashboard.Image = ((System.Drawing.Image)(resources.GetObject("btnDashboard.Image")));
             this.btnDashboard.Location = new System.Drawing.Point(0, 0);
             this.btnDashboard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -288,7 +288,7 @@ namespace Hardware_main
             // 
             // panelContainer
             // 
-            this.panelContainer.BackColor = System.Drawing.Color.Lavender;
+            this.panelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.FillColor = System.Drawing.Color.Transparent;
             this.panelContainer.Location = new System.Drawing.Point(0, 143);

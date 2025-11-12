@@ -41,6 +41,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ckbShow = new Guna.UI2.WinForms.Guna2CheckBox();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -48,6 +49,7 @@
             // guna2ShadowPanel1
             // 
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel1.Controls.Add(this.ckbShow);
             this.guna2ShadowPanel1.Controls.Add(this.label6);
             this.guna2ShadowPanel1.Controls.Add(this.txtPassword);
             this.guna2ShadowPanel1.Controls.Add(this.label5);
@@ -59,7 +61,7 @@
             this.guna2ShadowPanel1.Controls.Add(this.panel1);
             this.guna2ShadowPanel1.Controls.Add(this.guna2PictureBox1);
             this.guna2ShadowPanel1.Controls.Add(this.label1);
-            this.guna2ShadowPanel1.FillColor = System.Drawing.Color.DimGray;
+            this.guna2ShadowPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
             this.guna2ShadowPanel1.Location = new System.Drawing.Point(95, 55);
             this.guna2ShadowPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
@@ -100,26 +102,27 @@
             this.txtPassword.SelectedText = "";
             this.txtPassword.Size = new System.Drawing.Size(427, 48);
             this.txtPassword.TabIndex = 10;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Californian FB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label5.Location = new System.Drawing.Point(561, 325);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 23);
+            this.label5.Size = new System.Drawing.Size(98, 24);
             this.label5.TabIndex = 9;
             this.label5.Text = "Password:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Californian FB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label4.Location = new System.Drawing.Point(555, 226);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 23);
+            this.label4.Size = new System.Drawing.Size(102, 24);
             this.label4.TabIndex = 8;
             this.label4.Text = "Username:";
             // 
@@ -175,10 +178,10 @@
             this.btnAdminLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAdminLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAdminLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAdminLogin.FillColor = System.Drawing.Color.RoyalBlue;
+            this.btnAdminLogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
             this.btnAdminLogin.Font = new System.Drawing.Font("Segoe UI", 15F);
             this.btnAdminLogin.ForeColor = System.Drawing.Color.Black;
-            this.btnAdminLogin.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btnAdminLogin.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(88)))), ((int)(((byte)(12)))));
             this.btnAdminLogin.Location = new System.Drawing.Point(661, 448);
             this.btnAdminLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdminLogin.Name = "btnAdminLogin";
@@ -220,6 +223,26 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Welcome";
             // 
+            // ckbShow
+            // 
+            this.ckbShow.Animated = true;
+            this.ckbShow.AutoSize = true;
+            this.ckbShow.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ckbShow.CheckedState.BorderRadius = 0;
+            this.ckbShow.CheckedState.BorderThickness = 0;
+            this.ckbShow.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ckbShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbShow.Location = new System.Drawing.Point(565, 421);
+            this.ckbShow.Name = "ckbShow";
+            this.ckbShow.Size = new System.Drawing.Size(84, 29);
+            this.ckbShow.TabIndex = 12;
+            this.ckbShow.Text = "Show";
+            this.ckbShow.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.ckbShow.UncheckedState.BorderRadius = 0;
+            this.ckbShow.UncheckedState.BorderThickness = 0;
+            this.ckbShow.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.ckbShow.CheckedChanged += new System.EventHandler(this.ckbShow_CheckedChanged);
+            // 
             // frmAdminLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -255,5 +278,6 @@
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2TextBox txtUsername;
         private System.Windows.Forms.Label label6;
+        private Guna.UI2.WinForms.Guna2CheckBox ckbShow;
     }
 }
