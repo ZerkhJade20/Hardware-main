@@ -105,6 +105,7 @@
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.guna2Panel1.BorderRadius = 20;
             this.guna2Panel1.Controls.Add(this.cartesianChart1);
+            this.guna2Panel1.Controls.Add(this.label3);
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
             this.guna2Panel1.Location = new System.Drawing.Point(16, 102);
             this.guna2Panel1.Name = "guna2Panel1";
@@ -118,7 +119,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("MS UI Gothic", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(647, 21);
+            this.label3.Location = new System.Drawing.Point(11, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(336, 47);
             this.label3.TabIndex = 3;
@@ -441,10 +442,9 @@
             // 
             // cartesianChart1
             // 
-            this.cartesianChart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cartesianChart1.Location = new System.Drawing.Point(0, 0);
+            this.cartesianChart1.Location = new System.Drawing.Point(18, 69);
             this.cartesianChart1.Name = "cartesianChart1";
-            this.cartesianChart1.Size = new System.Drawing.Size(855, 340);
+            this.cartesianChart1.Size = new System.Drawing.Size(818, 255);
             this.cartesianChart1.TabIndex = 4;
             this.cartesianChart1.Text = "cartesianChart1";
             // 
@@ -453,7 +453,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(247)))), ((int)(((byte)(254)))));
             this.Controls.Add(this.guna2Panel4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.label2);
@@ -464,6 +463,7 @@
             this.Size = new System.Drawing.Size(1450, 648);
             this.Load += new System.EventHandler(this.UC_Dashboard_Load);
             this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).EndInit();
