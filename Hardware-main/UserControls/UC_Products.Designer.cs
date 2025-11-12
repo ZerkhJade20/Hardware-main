@@ -185,16 +185,15 @@
             // 
             // panelProductsCon
             // 
-            this.panelProductsCon.Location = new System.Drawing.Point(4, 123);
+            this.panelProductsCon.Location = new System.Drawing.Point(4, 166);
             this.panelProductsCon.Name = "panelProductsCon";
-            this.panelProductsCon.Size = new System.Drawing.Size(1442, 655);
+            this.panelProductsCon.Size = new System.Drawing.Size(1442, 612);
             this.panelProductsCon.TabIndex = 29;
             this.panelProductsCon.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
             // 
             // UC_Products
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.panelProductsCon);
             this.Controls.Add(this.guna2Panel1);
             this.Name = "UC_Products";

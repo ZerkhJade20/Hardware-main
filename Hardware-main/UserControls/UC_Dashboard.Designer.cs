@@ -59,6 +59,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).BeginInit();
@@ -103,7 +104,7 @@
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.guna2Panel1.BorderRadius = 20;
-            this.guna2Panel1.Controls.Add(this.label3);
+            this.guna2Panel1.Controls.Add(this.cartesianChart1);
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
             this.guna2Panel1.Location = new System.Drawing.Point(16, 102);
             this.guna2Panel1.Name = "guna2Panel1";
@@ -117,7 +118,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("MS UI Gothic", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(10, 10);
+            this.label3.Location = new System.Drawing.Point(647, 21);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(336, 47);
             this.label3.TabIndex = 3;
@@ -438,12 +439,21 @@
             this.listView1.TabIndex = 14;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
+            // cartesianChart1
+            // 
+            this.cartesianChart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cartesianChart1.Location = new System.Drawing.Point(0, 0);
+            this.cartesianChart1.Name = "cartesianChart1";
+            this.cartesianChart1.Size = new System.Drawing.Size(855, 340);
+            this.cartesianChart1.TabIndex = 4;
+            this.cartesianChart1.Text = "cartesianChart1";
+            // 
             // UC_Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(247)))), ((int)(((byte)(254)))));
             this.Controls.Add(this.guna2Panel4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.label2);
@@ -452,8 +462,8 @@
             this.Controls.Add(this.guna2Panel8);
             this.Name = "UC_Dashboard";
             this.Size = new System.Drawing.Size(1450, 648);
+            this.Load += new System.EventHandler(this.UC_Dashboard_Load);
             this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).EndInit();
@@ -509,5 +519,6 @@
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private System.Windows.Forms.ListView listView1;
+        private LiveCharts.WinForms.CartesianChart cartesianChart1;
     }
 }

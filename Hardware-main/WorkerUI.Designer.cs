@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.panelWorkerContainer = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,10 +96,15 @@
             this.panelWorkerContainer.TabIndex = 1;
             this.panelWorkerContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
             // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl1.TargetControl = this.guna2Panel1;
+            this.guna2DragControl1.UseTransparentDrag = true;
+            // 
             // WorkerUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.ClientSize = new System.Drawing.Size(1449, 894);
             this.Controls.Add(this.panelWorkerContainer);
@@ -116,5 +123,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Panel panelWorkerContainer;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
     }
 }

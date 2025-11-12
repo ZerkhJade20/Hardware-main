@@ -51,8 +51,7 @@
             // 
             // Tools
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.guna2Button4);
             this.Name = "Tools";
             this.Size = new System.Drawing.Size(1442, 655);
