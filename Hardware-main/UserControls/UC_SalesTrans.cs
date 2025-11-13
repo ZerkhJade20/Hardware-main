@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LiveCharts;
+using LiveCharts.Defaults;
+using LiveCharts.Wpf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +18,26 @@ namespace Hardware_main.UserControls
         public UC_SalesTrans()
         {
             InitializeComponent();
+            chartWeeklySalesOverview.Series = new SeriesCollection
+            {
+            new LineSeries
+            {
+                Values = new ChartValues<ObservablePoint>
+                    {
+                        new ObservablePoint(0, 10),
+                        new ObservablePoint(4, 7),
+                        new ObservablePoint(5, 8),
+                        new ObservablePoint(6, 9),
+                        new ObservablePoint(7, 10),
+                    },
+                PointGeometrySize = 15
+            }
+            };
+        }
+
+        private void UC_SalesTrans_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

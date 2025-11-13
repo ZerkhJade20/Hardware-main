@@ -45,5 +45,36 @@ namespace Hardware_main.UserControls
             addUserControl(tool);
 
         }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+            PaintandSupplies paintandSupplies = new PaintandSupplies();
+            addUserControl(paintandSupplies);
+        }
+
+        private void guna2Button6_Click(object sender, EventArgs e)
+        {
+            Electrical electrical = new Electrical();
+            addUserControl(electrical);
+        }
+
+        private void guna2Button7_Click(object sender, EventArgs e)
+        {
+            plumbing plumbing = new plumbing();
+            addUserControl(plumbing);
+        }
+
+        private void guna2Button8_Click(object sender, EventArgs e)
+        {
+            Lumber lumber = new Lumber();
+            addUserControl(lumber);
+
+        }
+
+        private void guna2Button9_Click(object sender, EventArgs e)
+        {
+            SafetyEquipment safety = new SafetyEquipment();
+            addUserControl(safety);
+        }
     }
 }

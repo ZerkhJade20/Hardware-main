@@ -1,14 +1,17 @@
-﻿using System;
+﻿using LiveCharts;
+using LiveCharts.Defaults;
+using LiveCharts.Wpf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing.Printing;
 
 
 namespace Hardware_main.UserControls
@@ -23,6 +26,23 @@ namespace Hardware_main.UserControls
         {
             InitializeComponent();
             btnPrint.Click += BtnPrint_Click;
+            chartSalesTrendAnalysis.Series = new SeriesCollection
+            { 
+            new LineSeries
+            {
+                Values = new ChartValues<ObservablePoint>
+                    {
+                        new ObservablePoint(0, 10),
+                        new ObservablePoint(4, 7),
+                        new ObservablePoint(5, 8),
+                        new ObservablePoint(6, 9),
+                        new ObservablePoint(7, 10),
+                    },
+                PointGeometrySize = 15
+            }
+            };
+
+
         }
         private void BtnPrint_Click(object sender, EventArgs e)
         {

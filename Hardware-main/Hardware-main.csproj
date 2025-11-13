@@ -88,11 +88,41 @@
     <Compile Include="UserControls\AllProducts.Designer.cs">
       <DependentUpon>AllProducts.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Electrical.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Electrical.Designer.cs">
+      <DependentUpon>Electrical.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Lumber.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Lumber.Designer.cs">
+      <DependentUpon>Lumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PaintandSupplies.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\PaintandSupplies.Designer.cs">
+      <DependentUpon>PaintandSupplies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\plumbing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\plumbing.Designer.cs">
+      <DependentUpon>plumbing.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Profile.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\Profile.Designer.cs">
       <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SafetyEquipment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\SafetyEquipment.Designer.cs">
+      <DependentUpon>SafetyEquipment.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Tools.cs">
       <SubType>UserControl</SubType>
@@ -172,8 +202,23 @@
     <EmbeddedResource Include="UserControls\AllProducts.resx">
       <DependentUpon>AllProducts.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Electrical.resx">
+      <DependentUpon>Electrical.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Lumber.resx">
+      <DependentUpon>Lumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\PaintandSupplies.resx">
+      <DependentUpon>PaintandSupplies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\plumbing.resx">
+      <DependentUpon>plumbing.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Profile.resx">
       <DependentUpon>Profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SafetyEquipment.resx">
+      <DependentUpon>SafetyEquipment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Tools.resx">
       <DependentUpon>Tools.cs</DependentUpon>

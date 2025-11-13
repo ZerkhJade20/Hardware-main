@@ -52,6 +52,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.chartWeeklySalesOverview = new LiveCharts.WinForms.CartesianChart();
+            this.listView1 = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel4.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
@@ -98,11 +100,12 @@
             // guna2Panel4
             // 
             this.guna2Panel4.BorderRadius = 15;
+            this.guna2Panel4.Controls.Add(this.chartWeeklySalesOverview);
             this.guna2Panel4.Controls.Add(this.label5);
             this.guna2Panel4.FillColor = System.Drawing.Color.White;
             this.guna2Panel4.Location = new System.Drawing.Point(337, 99);
             this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.Size = new System.Drawing.Size(1277, 259);
+            this.guna2Panel4.Size = new System.Drawing.Size(1094, 259);
             this.guna2Panel4.TabIndex = 13;
             // 
             // label5
@@ -121,11 +124,12 @@
             // guna2Panel5
             // 
             this.guna2Panel5.BorderRadius = 15;
+            this.guna2Panel5.Controls.Add(this.listView1);
             this.guna2Panel5.Controls.Add(this.label6);
             this.guna2Panel5.FillColor = System.Drawing.Color.White;
             this.guna2Panel5.Location = new System.Drawing.Point(337, 375);
             this.guna2Panel5.Name = "guna2Panel5";
-            this.guna2Panel5.Size = new System.Drawing.Size(1277, 259);
+            this.guna2Panel5.Size = new System.Drawing.Size(1094, 259);
             this.guna2Panel5.TabIndex = 15;
             // 
             // label6
@@ -347,11 +351,29 @@
             this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
             this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button1.ImageOffset = new System.Drawing.Point(15, 0);
-            this.guna2Button1.Location = new System.Drawing.Point(1319, 16);
+            this.guna2Button1.Location = new System.Drawing.Point(1159, 16);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(295, 59);
+            this.guna2Button1.Size = new System.Drawing.Size(272, 56);
             this.guna2Button1.TabIndex = 19;
             this.guna2Button1.Text = "New Transaction";
+            // 
+            // chartWeeklySalesOverview
+            // 
+            this.chartWeeklySalesOverview.ForeColor = System.Drawing.Color.White;
+            this.chartWeeklySalesOverview.Location = new System.Drawing.Point(19, 60);
+            this.chartWeeklySalesOverview.Name = "chartWeeklySalesOverview";
+            this.chartWeeklySalesOverview.Size = new System.Drawing.Size(1049, 183);
+            this.chartWeeklySalesOverview.TabIndex = 15;
+            this.chartWeeklySalesOverview.Text = "cartesianChart1";
+            // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(19, 41);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(1055, 198);
+            this.listView1.TabIndex = 15;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // UC_SalesTrans
             // 
@@ -368,7 +390,8 @@
             this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.label1);
             this.Name = "UC_SalesTrans";
-            this.Size = new System.Drawing.Size(1635, 651);
+            this.Size = new System.Drawing.Size(1451, 647);
+            this.Load += new System.EventHandler(this.UC_SalesTrans_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
@@ -410,5 +433,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label19;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private LiveCharts.WinForms.CartesianChart chartWeeklySalesOverview;
+        private System.Windows.Forms.ListView listView1;
     }
 }

@@ -42,5 +42,10 @@ namespace Hardware_main
             UC_Cart uC_Cart = new UC_Cart();
             addUserControl(uC_Cart);
         }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -447,6 +447,7 @@
             this.cartesianChart1.Size = new System.Drawing.Size(818, 255);
             this.cartesianChart1.TabIndex = 4;
             this.cartesianChart1.Text = "cartesianChart1";
+            this.cartesianChart1.ChildChanged += new System.EventHandler<System.Windows.Forms.Integration.ChildChangedEventArgs>(this.cartesianChart1_ChildChanged);
             // 
             // UC_Dashboard
             // 
