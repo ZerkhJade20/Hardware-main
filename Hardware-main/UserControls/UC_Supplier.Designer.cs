@@ -133,10 +133,10 @@
             this.btnAddNewSupplier.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAddNewSupplier.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAddNewSupplier.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddNewSupplier.FillColor = System.Drawing.Color.RoyalBlue;
+            this.btnAddNewSupplier.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
             this.btnAddNewSupplier.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnAddNewSupplier.ForeColor = System.Drawing.Color.White;
-            this.btnAddNewSupplier.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btnAddNewSupplier.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(88)))), ((int)(((byte)(12)))));
             this.btnAddNewSupplier.Location = new System.Drawing.Point(1179, 30);
             this.btnAddNewSupplier.Name = "btnAddNewSupplier";
             this.btnAddNewSupplier.Size = new System.Drawing.Size(235, 44);
@@ -170,7 +170,7 @@
             this.panelAddNewSupplier.Controls.Add(this.label4);
             this.panelAddNewSupplier.Controls.Add(this.label3);
             this.panelAddNewSupplier.EdgeWidth = 2;
-            this.panelAddNewSupplier.FillColor = System.Drawing.Color.DimGray;
+            this.panelAddNewSupplier.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
             this.panelAddNewSupplier.Location = new System.Drawing.Point(442, 30);
             this.panelAddNewSupplier.Name = "panelAddNewSupplier";
             this.panelAddNewSupplier.Radius = 15;
@@ -189,7 +189,7 @@
             this.btnCancel.FillColor = System.Drawing.Color.Silver;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnCancel.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(162)))), ((int)(((byte)(73)))));
             this.btnCancel.Location = new System.Drawing.Point(319, 450);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(235, 44);
@@ -205,10 +205,10 @@
             this.btnAddSupp.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAddSupp.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAddSupp.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddSupp.FillColor = System.Drawing.Color.RoyalBlue;
+            this.btnAddSupp.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
             this.btnAddSupp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnAddSupp.ForeColor = System.Drawing.Color.White;
-            this.btnAddSupp.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btnAddSupp.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(88)))), ((int)(((byte)(12)))));
             this.btnAddSupp.Location = new System.Drawing.Point(69, 450);
             this.btnAddSupp.Name = "btnAddSupp";
             this.btnAddSupp.Size = new System.Drawing.Size(235, 44);
@@ -408,7 +408,7 @@
             // UC_Supplier
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.Lavender;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
             this.Controls.Add(this.panelAddNewSupplier);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.btnAddNewSupplier);

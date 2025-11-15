@@ -67,7 +67,6 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseHelper.cs" />
     <Compile Include="frmAdminLogin.cs">
       <SubType>Form</SubType>
     </Compile>

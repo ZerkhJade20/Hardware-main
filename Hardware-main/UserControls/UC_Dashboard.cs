@@ -18,7 +18,7 @@ namespace Hardware_main.UserControls
         public UC_Dashboard()
         {
             InitializeComponent();
-            cartesianChart1.Series = new SeriesCollection
+            chartSalesAnalytics.Series = new SeriesCollection
             {
                 new LineSeries
                 {

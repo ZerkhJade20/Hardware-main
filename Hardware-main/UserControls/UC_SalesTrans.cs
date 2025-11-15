@@ -1,4 +1,5 @@
-﻿using LiveCharts;
+﻿using Guna.UI2.WinForms;
+using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
 using System;
@@ -18,6 +19,7 @@ namespace Hardware_main.UserControls
         public UC_SalesTrans()
         {
             InitializeComponent();
+            guna2Panel1.Hide();
             chartWeeklySalesOverview.Series = new SeriesCollection
             {
             new LineSeries
@@ -38,6 +40,21 @@ namespace Hardware_main.UserControls
         private void UC_SalesTrans_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnNewTransactions_Click(object sender, EventArgs e)
+        {
+            guna2Panel1.Show();
+        }
+
+        private void btnTransactionCancel_Click(object sender, EventArgs e)
+        {
+            guna2Panel1.Hide();
+        }
+
+        private void btnCreateTransaction_Click(object sender, EventArgs e)
+        {
+            guna2Panel1.Hide();
         }
     }
 }

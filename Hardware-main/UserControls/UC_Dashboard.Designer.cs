@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.chartSalesAnalytics = new LiveCharts.WinForms.CartesianChart();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2CirclePictureBox3 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -46,20 +47,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lblUpdatingLowStock = new System.Windows.Forms.Label();
-            this.lblCategOfProd = new System.Windows.Forms.Label();
-            this.lblNameOfProduct = new System.Windows.Forms.Label();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lvRecentTransactions = new System.Windows.Forms.ListView();
             this.label6 = new System.Windows.Forms.Label();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
+            this.lvLowStockAlert = new System.Windows.Forms.ListView();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).BeginInit();
@@ -68,8 +63,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox4)).BeginInit();
             this.guna2Panel4.SuspendLayout();
-            this.guna2Panel6.SuspendLayout();
-            this.guna2Panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
@@ -104,7 +97,7 @@
             this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.guna2Panel1.BorderRadius = 20;
-            this.guna2Panel1.Controls.Add(this.cartesianChart1);
+            this.guna2Panel1.Controls.Add(this.chartSalesAnalytics);
             this.guna2Panel1.Controls.Add(this.label3);
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
             this.guna2Panel1.Location = new System.Drawing.Point(16, 102);
@@ -112,6 +105,15 @@
             this.guna2Panel1.ShadowDecoration.BorderRadius = 25;
             this.guna2Panel1.Size = new System.Drawing.Size(855, 340);
             this.guna2Panel1.TabIndex = 2;
+            // 
+            // chartSalesAnalytics
+            // 
+            this.chartSalesAnalytics.Location = new System.Drawing.Point(18, 69);
+            this.chartSalesAnalytics.Name = "chartSalesAnalytics";
+            this.chartSalesAnalytics.Size = new System.Drawing.Size(818, 255);
+            this.chartSalesAnalytics.TabIndex = 4;
+            this.chartSalesAnalytics.Text = "cartesianChart1";
+            this.chartSalesAnalytics.ChildChanged += new System.EventHandler<System.Windows.Forms.Integration.ChildChangedEventArgs>(this.cartesianChart1_ChildChanged);
             // 
             // label3
             // 
@@ -284,7 +286,7 @@
             this.guna2Panel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.guna2Panel4.BorderRadius = 15;
-            this.guna2Panel4.Controls.Add(this.guna2Panel6);
+            this.guna2Panel4.Controls.Add(this.lvLowStockAlert);
             this.guna2Panel4.Controls.Add(this.guna2Panel5);
             this.guna2Panel4.Controls.Add(this.guna2PictureBox1);
             this.guna2Panel4.Controls.Add(this.label12);
@@ -293,72 +295,6 @@
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Size = new System.Drawing.Size(534, 187);
             this.guna2Panel4.TabIndex = 9;
-            // 
-            // guna2Panel6
-            // 
-            this.guna2Panel6.BorderRadius = 10;
-            this.guna2Panel6.BorderThickness = 3;
-            this.guna2Panel6.Controls.Add(this.guna2Panel7);
-            this.guna2Panel6.Controls.Add(this.lblCategOfProd);
-            this.guna2Panel6.Controls.Add(this.lblNameOfProduct);
-            this.guna2Panel6.FillColor = System.Drawing.Color.MistyRose;
-            this.guna2Panel6.Location = new System.Drawing.Point(21, 72);
-            this.guna2Panel6.Name = "guna2Panel6";
-            this.guna2Panel6.Size = new System.Drawing.Size(500, 99);
-            this.guna2Panel6.TabIndex = 12;
-            // 
-            // guna2Panel7
-            // 
-            this.guna2Panel7.BorderRadius = 10;
-            this.guna2Panel7.Controls.Add(this.label14);
-            this.guna2Panel7.Controls.Add(this.lblUpdatingLowStock);
-            this.guna2Panel7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.guna2Panel7.Location = new System.Drawing.Point(335, 23);
-            this.guna2Panel7.Name = "guna2Panel7";
-            this.guna2Panel7.Size = new System.Drawing.Size(143, 49);
-            this.guna2Panel7.TabIndex = 2;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(92, 10);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(48, 26);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "Left";
-            // 
-            // lblUpdatingLowStock
-            // 
-            this.lblUpdatingLowStock.AutoSize = true;
-            this.lblUpdatingLowStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdatingLowStock.ForeColor = System.Drawing.Color.White;
-            this.lblUpdatingLowStock.Location = new System.Drawing.Point(3, 10);
-            this.lblUpdatingLowStock.Name = "lblUpdatingLowStock";
-            this.lblUpdatingLowStock.Size = new System.Drawing.Size(26, 29);
-            this.lblUpdatingLowStock.TabIndex = 0;
-            this.lblUpdatingLowStock.Text = "0";
-            // 
-            // lblCategOfProd
-            // 
-            this.lblCategOfProd.AutoSize = true;
-            this.lblCategOfProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategOfProd.Location = new System.Drawing.Point(16, 52);
-            this.lblCategOfProd.Name = "lblCategOfProd";
-            this.lblCategOfProd.Size = new System.Drawing.Size(84, 20);
-            this.lblCategOfProd.TabIndex = 1;
-            this.lblCategOfProd.Text = "Fasteners";
-            // 
-            // lblNameOfProduct
-            // 
-            this.lblNameOfProduct.AutoSize = true;
-            this.lblNameOfProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameOfProduct.Location = new System.Drawing.Point(15, 23);
-            this.lblNameOfProduct.Name = "lblNameOfProduct";
-            this.lblNameOfProduct.Size = new System.Drawing.Size(140, 29);
-            this.lblNameOfProduct.TabIndex = 0;
-            this.lblNameOfProduct.Text = "Dealdough";
             // 
             // guna2Panel5
             // 
@@ -397,7 +333,7 @@
             // 
             this.guna2Panel8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.guna2Panel8.BorderRadius = 15;
-            this.guna2Panel8.Controls.Add(this.listView1);
+            this.guna2Panel8.Controls.Add(this.lvRecentTransactions);
             this.guna2Panel8.Controls.Add(this.label6);
             this.guna2Panel8.Controls.Add(this.guna2PictureBox2);
             this.guna2Panel8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
@@ -405,6 +341,15 @@
             this.guna2Panel8.Name = "guna2Panel8";
             this.guna2Panel8.Size = new System.Drawing.Size(1411, 197);
             this.guna2Panel8.TabIndex = 11;
+            // 
+            // lvRecentTransactions
+            // 
+            this.lvRecentTransactions.HideSelection = false;
+            this.lvRecentTransactions.Location = new System.Drawing.Point(21, 50);
+            this.lvRecentTransactions.Name = "lvRecentTransactions";
+            this.lvRecentTransactions.Size = new System.Drawing.Size(1364, 134);
+            this.lvRecentTransactions.TabIndex = 14;
+            this.lvRecentTransactions.UseCompatibleStateImageBehavior = false;
             // 
             // label6
             // 
@@ -431,23 +376,14 @@
             this.guna2PictureBox2.TabStop = false;
             this.guna2PictureBox2.UseTransparentBackground = true;
             // 
-            // listView1
+            // lvLowStockAlert
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(21, 50);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1364, 134);
-            this.listView1.TabIndex = 14;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // cartesianChart1
-            // 
-            this.cartesianChart1.Location = new System.Drawing.Point(18, 69);
-            this.cartesianChart1.Name = "cartesianChart1";
-            this.cartesianChart1.Size = new System.Drawing.Size(818, 255);
-            this.cartesianChart1.TabIndex = 4;
-            this.cartesianChart1.Text = "cartesianChart1";
-            this.cartesianChart1.ChildChanged += new System.EventHandler<System.Windows.Forms.Integration.ChildChangedEventArgs>(this.cartesianChart1_ChildChanged);
+            this.lvLowStockAlert.HideSelection = false;
+            this.lvLowStockAlert.Location = new System.Drawing.Point(21, 74);
+            this.lvLowStockAlert.Name = "lvLowStockAlert";
+            this.lvLowStockAlert.Size = new System.Drawing.Size(500, 97);
+            this.lvLowStockAlert.TabIndex = 12;
+            this.lvLowStockAlert.UseCompatibleStateImageBehavior = false;
             // 
             // UC_Dashboard
             // 
@@ -475,10 +411,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox4)).EndInit();
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
-            this.guna2Panel6.ResumeLayout(false);
-            this.guna2Panel6.PerformLayout();
-            this.guna2Panel7.ResumeLayout(false);
-            this.guna2Panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2Panel8.ResumeLayout(false);
             this.guna2Panel8.PerformLayout();
@@ -510,16 +442,11 @@
         private System.Windows.Forms.Label label12;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
-        private System.Windows.Forms.Label lblCategOfProd;
-        private System.Windows.Forms.Label lblNameOfProduct;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label lblUpdatingLowStock;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
-        private System.Windows.Forms.ListView listView1;
-        private LiveCharts.WinForms.CartesianChart cartesianChart1;
+        private System.Windows.Forms.ListView lvRecentTransactions;
+        private LiveCharts.WinForms.CartesianChart chartSalesAnalytics;
+        private System.Windows.Forms.ListView lvLowStockAlert;
     }
 }

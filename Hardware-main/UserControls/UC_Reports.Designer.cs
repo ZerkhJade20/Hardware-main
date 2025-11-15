@@ -37,32 +37,31 @@
             this.label2 = new System.Windows.Forms.Label();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblUpdatingTotalRevenue = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblUpdatingTotalTransactions = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.guna2GradientPanel4 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.lblUpdatingAverageSales = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.chartSalesTrendAnalysis = new LiveCharts.WinForms.CartesianChart();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.btnPrint = new Guna.UI2.WinForms.Guna2Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.chartSalesByCategory = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnPrintReport = new Guna.UI2.WinForms.Guna2Button();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.chartSalesTrendAnalysis = new LiveCharts.WinForms.CartesianChart();
-            this.label11 = new System.Windows.Forms.Label();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
@@ -72,7 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartSalesByCategory)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -112,7 +111,7 @@
             // 
             this.guna2GradientPanel1.BorderRadius = 15;
             this.guna2GradientPanel1.Controls.Add(this.guna2PictureBox2);
-            this.guna2GradientPanel1.Controls.Add(this.label6);
+            this.guna2GradientPanel1.Controls.Add(this.lblUpdatingTotalRevenue);
             this.guna2GradientPanel1.Controls.Add(this.label5);
             this.guna2GradientPanel1.Controls.Add(this.label4);
             this.guna2GradientPanel1.Controls.Add(this.label3);
@@ -137,17 +136,17 @@
             this.guna2PictureBox2.TabStop = false;
             this.guna2PictureBox2.UseTransparentBackground = true;
             // 
-            // label6
+            // lblUpdatingTotalRevenue
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Bookman Old Style", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(60, 43);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(101, 38);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "1100";
+            this.lblUpdatingTotalRevenue.AutoSize = true;
+            this.lblUpdatingTotalRevenue.BackColor = System.Drawing.Color.Transparent;
+            this.lblUpdatingTotalRevenue.Font = new System.Drawing.Font("Bookman Old Style", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpdatingTotalRevenue.ForeColor = System.Drawing.Color.White;
+            this.lblUpdatingTotalRevenue.Location = new System.Drawing.Point(60, 43);
+            this.lblUpdatingTotalRevenue.Name = "lblUpdatingTotalRevenue";
+            this.lblUpdatingTotalRevenue.Size = new System.Drawing.Size(101, 38);
+            this.lblUpdatingTotalRevenue.TabIndex = 11;
+            this.lblUpdatingTotalRevenue.Text = "1100";
             // 
             // label5
             // 
@@ -189,7 +188,7 @@
             // 
             this.guna2GradientPanel2.BorderRadius = 15;
             this.guna2GradientPanel2.Controls.Add(this.guna2PictureBox3);
-            this.guna2GradientPanel2.Controls.Add(this.label7);
+            this.guna2GradientPanel2.Controls.Add(this.lblUpdatingTotalTransactions);
             this.guna2GradientPanel2.Controls.Add(this.label8);
             this.guna2GradientPanel2.Controls.Add(this.label9);
             this.guna2GradientPanel2.Controls.Add(this.label10);
@@ -214,17 +213,17 @@
             this.guna2PictureBox3.TabStop = false;
             this.guna2PictureBox3.UseTransparentBackground = true;
             // 
-            // label7
+            // lblUpdatingTotalTransactions
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Bookman Old Style", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(60, 43);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(101, 38);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "1100";
+            this.lblUpdatingTotalTransactions.AutoSize = true;
+            this.lblUpdatingTotalTransactions.BackColor = System.Drawing.Color.Transparent;
+            this.lblUpdatingTotalTransactions.Font = new System.Drawing.Font("Bookman Old Style", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpdatingTotalTransactions.ForeColor = System.Drawing.Color.White;
+            this.lblUpdatingTotalTransactions.Location = new System.Drawing.Point(60, 43);
+            this.lblUpdatingTotalTransactions.Name = "lblUpdatingTotalTransactions";
+            this.lblUpdatingTotalTransactions.Size = new System.Drawing.Size(101, 38);
+            this.lblUpdatingTotalTransactions.TabIndex = 11;
+            this.lblUpdatingTotalTransactions.Text = "1100";
             // 
             // label8
             // 
@@ -266,7 +265,7 @@
             // 
             this.guna2GradientPanel4.BorderRadius = 15;
             this.guna2GradientPanel4.Controls.Add(this.guna2PictureBox6);
-            this.guna2GradientPanel4.Controls.Add(this.label19);
+            this.guna2GradientPanel4.Controls.Add(this.lblUpdatingAverageSales);
             this.guna2GradientPanel4.Controls.Add(this.label20);
             this.guna2GradientPanel4.Controls.Add(this.label21);
             this.guna2GradientPanel4.Controls.Add(this.label22);
@@ -291,17 +290,17 @@
             this.guna2PictureBox6.TabStop = false;
             this.guna2PictureBox6.UseTransparentBackground = true;
             // 
-            // label19
+            // lblUpdatingAverageSales
             // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Bookman Old Style", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(60, 43);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(101, 38);
-            this.label19.TabIndex = 11;
-            this.label19.Text = "1100";
+            this.lblUpdatingAverageSales.AutoSize = true;
+            this.lblUpdatingAverageSales.BackColor = System.Drawing.Color.Transparent;
+            this.lblUpdatingAverageSales.Font = new System.Drawing.Font("Bookman Old Style", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpdatingAverageSales.ForeColor = System.Drawing.Color.White;
+            this.lblUpdatingAverageSales.Location = new System.Drawing.Point(60, 43);
+            this.lblUpdatingAverageSales.Name = "lblUpdatingAverageSales";
+            this.lblUpdatingAverageSales.Size = new System.Drawing.Size(101, 38);
+            this.lblUpdatingAverageSales.TabIndex = 11;
+            this.lblUpdatingAverageSales.Text = "1100";
             // 
             // label20
             // 
@@ -350,70 +349,6 @@
             this.guna2Panel1.Size = new System.Drawing.Size(754, 397);
             this.guna2Panel1.TabIndex = 14;
             // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.BorderRadius = 15;
-            this.guna2Panel2.Controls.Add(this.label12);
-            this.guna2Panel2.Controls.Add(this.chart1);
-            this.guna2Panel2.FillColor = System.Drawing.Color.White;
-            this.guna2Panel2.Location = new System.Drawing.Point(800, 235);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(619, 397);
-            this.guna2Panel2.TabIndex = 15;
-            // 
-            // guna2ComboBox1
-            // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderRadius = 10;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(1019, 34);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(199, 36);
-            this.guna2ComboBox1.TabIndex = 0;
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Animated = true;
-            this.btnPrint.BorderRadius = 15;
-            this.btnPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPrint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
-            this.btnPrint.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(88)))), ((int)(((byte)(12)))));
-            this.btnPrint.Location = new System.Drawing.Point(1239, 18);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(180, 66);
-            this.btnPrint.TabIndex = 16;
-            this.btnPrint.Text = "Print Report";
-            this.btnPrint.Click += new System.EventHandler(this.guna2Button1_Click);
-            // 
-            // printPreviewDialog1
-            // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
-            // 
-            // chartSalesTrendAnalysis
-            // 
-            this.chartSalesTrendAnalysis.Location = new System.Drawing.Point(24, 67);
-            this.chartSalesTrendAnalysis.Name = "chartSalesTrendAnalysis";
-            this.chartSalesTrendAnalysis.Size = new System.Drawing.Size(708, 306);
-            this.chartSalesTrendAnalysis.TabIndex = 0;
-            this.chartSalesTrendAnalysis.Text = "cartesianChart1";
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -424,22 +359,25 @@
             this.label11.TabIndex = 17;
             this.label11.Text = "Sales Trend Analysis";
             // 
-            // chart1
+            // chartSalesTrendAnalysis
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(20, 67);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(575, 300);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
+            this.chartSalesTrendAnalysis.BackColorTransparent = true;
+            this.chartSalesTrendAnalysis.Location = new System.Drawing.Point(24, 67);
+            this.chartSalesTrendAnalysis.Name = "chartSalesTrendAnalysis";
+            this.chartSalesTrendAnalysis.Size = new System.Drawing.Size(708, 306);
+            this.chartSalesTrendAnalysis.TabIndex = 0;
+            this.chartSalesTrendAnalysis.Text = "cartesianChart1";
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.BorderRadius = 15;
+            this.guna2Panel2.Controls.Add(this.label12);
+            this.guna2Panel2.Controls.Add(this.chartSalesByCategory);
+            this.guna2Panel2.FillColor = System.Drawing.Color.White;
+            this.guna2Panel2.Location = new System.Drawing.Point(800, 235);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(619, 397);
+            this.guna2Panel2.TabIndex = 15;
             // 
             // label12
             // 
@@ -451,12 +389,57 @@
             this.label12.TabIndex = 18;
             this.label12.Text = "Sales by Category";
             // 
+            // chartSalesByCategory
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartSalesByCategory.ChartAreas.Add(chartArea1);
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.chartSalesByCategory.Legends.Add(legend1);
+            this.chartSalesByCategory.Location = new System.Drawing.Point(20, 67);
+            this.chartSalesByCategory.Name = "chartSalesByCategory";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartSalesByCategory.Series.Add(series1);
+            this.chartSalesByCategory.Size = new System.Drawing.Size(575, 300);
+            this.chartSalesByCategory.TabIndex = 0;
+            this.chartSalesByCategory.Text = "chart1";
+            // 
+            // btnPrintReport
+            // 
+            this.btnPrintReport.Animated = true;
+            this.btnPrintReport.BorderRadius = 15;
+            this.btnPrintReport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrintReport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrintReport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrintReport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPrintReport.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
+            this.btnPrintReport.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnPrintReport.ForeColor = System.Drawing.Color.White;
+            this.btnPrintReport.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(88)))), ((int)(((byte)(12)))));
+            this.btnPrintReport.Location = new System.Drawing.Point(1239, 18);
+            this.btnPrintReport.Name = "btnPrintReport";
+            this.btnPrintReport.Size = new System.Drawing.Size(180, 66);
+            this.btnPrintReport.TabIndex = 16;
+            this.btnPrintReport.Text = "Print Report";
+            this.btnPrintReport.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
             // UC_Reports
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            this.Controls.Add(this.btnPrint);
-            this.Controls.Add(this.guna2ComboBox1);
+            this.Controls.Add(this.btnPrintReport);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2GradientPanel4);
@@ -482,7 +465,7 @@
             this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartSalesByCategory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -495,31 +478,30 @@
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblUpdatingTotalRevenue;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblUpdatingTotalTransactions;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel4;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox6;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lblUpdatingAverageSales;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
-        private Guna.UI2.WinForms.Guna2Button btnPrint;
+        private Guna.UI2.WinForms.Guna2Button btnPrintReport;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.Label label11;
         private LiveCharts.WinForms.CartesianChart chartSalesTrendAnalysis;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartSalesByCategory;
     }
 }

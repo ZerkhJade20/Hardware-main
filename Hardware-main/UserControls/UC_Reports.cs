@@ -25,7 +25,7 @@ namespace Hardware_main.UserControls
         public UC_Reports()
         {
             InitializeComponent();
-            btnPrint.Click += BtnPrint_Click;
+            btnPrintReport.Click += BtnPrint_Click;
             chartSalesTrendAnalysis.Series = new SeriesCollection
             { 
             new LineSeries
