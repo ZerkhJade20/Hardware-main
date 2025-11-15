@@ -15,6 +15,18 @@ namespace Hardware_main.UserControls
         public UC_Cart()
         {
             InitializeComponent();
+           
+        }
+       
+        private void checkoutContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnCheckout_Click(object sender, EventArgs e)
+        {
+            Checkout checkout = new Checkout();
+            checkout.Show();
         }
     }
 }

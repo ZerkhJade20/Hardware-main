@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -11,18 +13,40 @@ using System.Windows.Forms;
 
 namespace Hardware_main.UserControls
 {
+    
     public partial class Profile : UserControl
     {
+        private string connectionString = "Data Source=ZERKH\\SQLEXPRESS;Initial Catalog=InventoryDB;Integrated Security=True;TrustServerCertificate=True";
         private frmMain dashboard;
-        public Profile(frmMain dash)
+        private int userID;
+        private string username;
+        private byte[] photo;
+        private frmMain frmMain;
+
+        public Profile(int userID, string username, byte[] photo, frmMain dash)
         {
             InitializeComponent();
-            dashboard = dash;
+            this.userID = userID;
+            this.username = username;
+            this.photo = photo;
+            this.frmMain = dash;
+            LoadProfileData();
 
-           
+
         }
-       
-        
+        private void LoadProfileData()
+        {
+            txtUsername.Text = username;
+            if (photo != null)
+            {
+                using (MemoryStream ms = new MemoryStream(photo))
+                {
+                    pbPicture.Image = Image.FromStream(ms);
+                }
+            }
+        }
+
+
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
@@ -36,32 +60,68 @@ namespace Hardware_main.UserControls
 
         private void btnUpload_Click(object sender, EventArgs e)
         {
-            // Create and configure the OpenFileDialog for image files.
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"; // Restrict to common image formats.
-            openFileDialog.Title = "Select a Profile Picture";
-            // Show the dialog and load the selected image if the user clicks OK.
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                // Load the image from the selected file path and display it in the edit PictureBox.
-                pbPicture.Image = Image.FromFile(openFileDialog.FileName);
+                ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    pbPicture.Image = Image.FromFile(ofd.FileName);
+                    // Convert to byte[] for saving
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        pbPicture.Image.Save(ms, pbPicture.Image.RawFormat);
+                        photo = ms.ToArray();
+                    }
+                }
             }
         }
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
-            // Call the dashboard's update method to reflect changes instantly.
-            dashboard.UpdateProfile(pbPicture.Image, txtUsername.Text);
-            // Optional: You could add logic here to hide the control or show a success message.
-            // For now, it stays visible so the user can make further edits.
+            string newUsername = txtUsername.Text.Trim();
+            if (string.IsNullOrEmpty(newUsername))
+            {
+                MessageBox.Show("Username cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "UPDATE tblUsers SET Username = @Username, Photo = @Photo WHERE UserID = @UserID";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Username", newUsername);
+                        cmd.Parameters.AddWithValue("@Photo", photo ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@UserID", userID);
+                        cmd.ExecuteNonQuery();
+                    }
+                    MessageBox.Show("Profile updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Refresh dashboard UI
+                    if (frmMain is frmMain adminDash)
+                    {
+                        adminDash.RefreshUserData(newUsername, photo);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
             this.Visible = false;
+
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            WorkerUI workerUI = new WorkerUI();
-            workerUI.Show();
             
+            
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
         }
     }
 }

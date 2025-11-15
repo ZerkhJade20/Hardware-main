@@ -42,7 +42,6 @@
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.lblTotalSales = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.lblTotalTransactions = new System.Windows.Forms.Label();
@@ -51,7 +50,6 @@
             this.guna2GradientPanel3 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.lblAverageTransactions = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.btnNewTransactions = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -64,6 +62,11 @@
             this.cmbPaymentMethod = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnCreateTransaction = new Guna.UI2.WinForms.Guna2Button();
             this.btnTransactionCancel = new Guna.UI2.WinForms.Guna2Button();
+            this.TransactionID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel4.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
@@ -79,7 +82,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bookman Old Style", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(77, 16);
+            this.label1.Location = new System.Drawing.Point(90, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(409, 40);
             this.label1.TabIndex = 2;
@@ -90,7 +93,7 @@
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(23, 16);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(36, 16);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.Size = new System.Drawing.Size(48, 44);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -103,7 +106,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(19, 63);
+            this.label2.Location = new System.Drawing.Point(32, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(520, 46);
             this.label2.TabIndex = 4;
@@ -115,9 +118,9 @@
             this.guna2Panel4.Controls.Add(this.chartWeeklySalesOverview);
             this.guna2Panel4.Controls.Add(this.label5);
             this.guna2Panel4.FillColor = System.Drawing.Color.White;
-            this.guna2Panel4.Location = new System.Drawing.Point(337, 99);
+            this.guna2Panel4.Location = new System.Drawing.Point(41, 233);
             this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.Size = new System.Drawing.Size(1094, 259);
+            this.guna2Panel4.Size = new System.Drawing.Size(1851, 335);
             this.guna2Panel4.TabIndex = 13;
             // 
             // chartWeeklySalesOverview
@@ -126,7 +129,7 @@
             this.chartWeeklySalesOverview.ForeColor = System.Drawing.Color.White;
             this.chartWeeklySalesOverview.Location = new System.Drawing.Point(19, 60);
             this.chartWeeklySalesOverview.Name = "chartWeeklySalesOverview";
-            this.chartWeeklySalesOverview.Size = new System.Drawing.Size(1049, 183);
+            this.chartWeeklySalesOverview.Size = new System.Drawing.Size(1816, 256);
             this.chartWeeklySalesOverview.TabIndex = 15;
             this.chartWeeklySalesOverview.Text = "cartesianChart1";
             // 
@@ -149,19 +152,26 @@
             this.guna2Panel5.Controls.Add(this.lvTransactionHistory);
             this.guna2Panel5.Controls.Add(this.label6);
             this.guna2Panel5.FillColor = System.Drawing.Color.White;
-            this.guna2Panel5.Location = new System.Drawing.Point(337, 375);
+            this.guna2Panel5.Location = new System.Drawing.Point(41, 577);
             this.guna2Panel5.Name = "guna2Panel5";
-            this.guna2Panel5.Size = new System.Drawing.Size(1094, 259);
+            this.guna2Panel5.Size = new System.Drawing.Size(1851, 259);
             this.guna2Panel5.TabIndex = 15;
             // 
             // lvTransactionHistory
             // 
+            this.lvTransactionHistory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.TransactionID,
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
             this.lvTransactionHistory.HideSelection = false;
             this.lvTransactionHistory.Location = new System.Drawing.Point(19, 41);
             this.lvTransactionHistory.Name = "lvTransactionHistory";
-            this.lvTransactionHistory.Size = new System.Drawing.Size(1055, 198);
+            this.lvTransactionHistory.Size = new System.Drawing.Size(1816, 198);
             this.lvTransactionHistory.TabIndex = 15;
             this.lvTransactionHistory.UseCompatibleStateImageBehavior = false;
+            this.lvTransactionHistory.View = System.Windows.Forms.View.Details;
             // 
             // label6
             // 
@@ -184,13 +194,13 @@
             this.btnExport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnExport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnExport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnExport.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
+            this.btnExport.FillColor = System.Drawing.Color.Gray;
             this.btnExport.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.btnExport.ForeColor = System.Drawing.Color.White;
             this.btnExport.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(88)))), ((int)(((byte)(12)))));
-            this.btnExport.Location = new System.Drawing.Point(45, 503);
+            this.btnExport.Location = new System.Drawing.Point(1380, 16);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(254, 102);
+            this.btnExport.Size = new System.Drawing.Size(218, 55);
             this.btnExport.TabIndex = 16;
             this.btnExport.Text = "Export";
             // 
@@ -199,13 +209,12 @@
             this.guna2GradientPanel1.BorderRadius = 15;
             this.guna2GradientPanel1.Controls.Add(this.lblTotalSales);
             this.guna2GradientPanel1.Controls.Add(this.label4);
-            this.guna2GradientPanel1.Controls.Add(this.label7);
             this.guna2GradientPanel1.Controls.Add(this.label9);
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.RoyalBlue;
             this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.RoyalBlue;
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(23, 100);
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(41, 97);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(293, 118);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(573, 118);
             this.guna2GradientPanel1.TabIndex = 17;
             // 
             // lblTotalSales
@@ -214,7 +223,7 @@
             this.lblTotalSales.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalSales.Font = new System.Drawing.Font("Bookman Old Style", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalSales.ForeColor = System.Drawing.Color.White;
-            this.lblTotalSales.Location = new System.Drawing.Point(40, 42);
+            this.lblTotalSales.Location = new System.Drawing.Point(12, 42);
             this.lblTotalSales.Name = "lblTotalSales";
             this.lblTotalSales.Size = new System.Drawing.Size(101, 38);
             this.lblTotalSales.TabIndex = 11;
@@ -231,18 +240,6 @@
             this.label4.Size = new System.Drawing.Size(89, 23);
             this.label4.TabIndex = 10;
             this.label4.Text = "All Time";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Bookman Old Style", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(9, 42);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(39, 38);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "₱";
             // 
             // label9
             // 
@@ -264,9 +261,9 @@
             this.guna2GradientPanel2.Controls.Add(this.label18);
             this.guna2GradientPanel2.FillColor = System.Drawing.Color.Green;
             this.guna2GradientPanel2.FillColor2 = System.Drawing.Color.Green;
-            this.guna2GradientPanel2.Location = new System.Drawing.Point(23, 224);
+            this.guna2GradientPanel2.Location = new System.Drawing.Point(645, 97);
             this.guna2GradientPanel2.Name = "guna2GradientPanel2";
-            this.guna2GradientPanel2.Size = new System.Drawing.Size(293, 118);
+            this.guna2GradientPanel2.Size = new System.Drawing.Size(588, 118);
             this.guna2GradientPanel2.TabIndex = 18;
             // 
             // lblTotalTransactions
@@ -310,13 +307,12 @@
             this.guna2GradientPanel3.BorderRadius = 15;
             this.guna2GradientPanel3.Controls.Add(this.lblAverageTransactions);
             this.guna2GradientPanel3.Controls.Add(this.label11);
-            this.guna2GradientPanel3.Controls.Add(this.label13);
             this.guna2GradientPanel3.Controls.Add(this.label19);
             this.guna2GradientPanel3.FillColor = System.Drawing.Color.DarkViolet;
             this.guna2GradientPanel3.FillColor2 = System.Drawing.Color.RoyalBlue;
-            this.guna2GradientPanel3.Location = new System.Drawing.Point(23, 348);
+            this.guna2GradientPanel3.Location = new System.Drawing.Point(1262, 97);
             this.guna2GradientPanel3.Name = "guna2GradientPanel3";
-            this.guna2GradientPanel3.Size = new System.Drawing.Size(293, 118);
+            this.guna2GradientPanel3.Size = new System.Drawing.Size(630, 118);
             this.guna2GradientPanel3.TabIndex = 18;
             // 
             // lblAverageTransactions
@@ -325,7 +321,7 @@
             this.lblAverageTransactions.BackColor = System.Drawing.Color.Transparent;
             this.lblAverageTransactions.Font = new System.Drawing.Font("Bookman Old Style", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAverageTransactions.ForeColor = System.Drawing.Color.White;
-            this.lblAverageTransactions.Location = new System.Drawing.Point(40, 42);
+            this.lblAverageTransactions.Location = new System.Drawing.Point(9, 42);
             this.lblAverageTransactions.Name = "lblAverageTransactions";
             this.lblAverageTransactions.Size = new System.Drawing.Size(101, 38);
             this.lblAverageTransactions.TabIndex = 11;
@@ -342,18 +338,6 @@
             this.label11.Size = new System.Drawing.Size(90, 23);
             this.label11.TabIndex = 10;
             this.label11.Text = "Per Sale";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Bookman Old Style", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(9, 42);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(39, 38);
-            this.label13.TabIndex = 9;
-            this.label13.Text = "₱";
             // 
             // label19
             // 
@@ -382,7 +366,7 @@
             this.btnNewTransactions.Image = ((System.Drawing.Image)(resources.GetObject("btnNewTransactions.Image")));
             this.btnNewTransactions.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnNewTransactions.ImageOffset = new System.Drawing.Point(15, 0);
-            this.btnNewTransactions.Location = new System.Drawing.Point(1159, 16);
+            this.btnNewTransactions.Location = new System.Drawing.Point(1604, 16);
             this.btnNewTransactions.Name = "btnNewTransactions";
             this.btnNewTransactions.Size = new System.Drawing.Size(272, 56);
             this.btnNewTransactions.TabIndex = 19;
@@ -402,7 +386,7 @@
             this.guna2Panel1.Controls.Add(this.label8);
             this.guna2Panel1.Controls.Add(this.label3);
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            this.guna2Panel1.Location = new System.Drawing.Point(506, 42);
+            this.guna2Panel1.Location = new System.Drawing.Point(714, 37);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(554, 475);
             this.guna2Panel1.TabIndex = 20;
@@ -552,6 +536,31 @@
             this.btnTransactionCancel.Text = "Cancel";
             this.btnTransactionCancel.Click += new System.EventHandler(this.btnTransactionCancel_Click);
             // 
+            // TransactionID
+            // 
+            this.TransactionID.Text = "Transaction ID";
+            this.TransactionID.Width = 200;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Customer Name";
+            this.columnHeader1.Width = 400;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Total Amount";
+            this.columnHeader2.Width = 317;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Payment Method";
+            this.columnHeader3.Width = 300;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Date Created";
+            this.columnHeader4.Width = 500;
+            // 
             // UC_SalesTrans
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -568,7 +577,7 @@
             this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.label1);
             this.Name = "UC_SalesTrans";
-            this.Size = new System.Drawing.Size(1451, 647);
+            this.Size = new System.Drawing.Size(1918, 857);
             this.Load += new System.EventHandler(this.UC_SalesTrans_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2Panel4.ResumeLayout(false);
@@ -602,7 +611,6 @@
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private System.Windows.Forms.Label lblTotalSales;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
         private System.Windows.Forms.Label lblTotalTransactions;
@@ -611,7 +619,6 @@
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel3;
         private System.Windows.Forms.Label lblAverageTransactions;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label19;
         private Guna.UI2.WinForms.Guna2Button btnNewTransactions;
         private LiveCharts.WinForms.CartesianChart chartWeeklySalesOverview;
@@ -626,5 +633,10 @@
         private Guna.UI2.WinForms.Guna2ComboBox cmbPaymentMethod;
         private System.Windows.Forms.Label label14;
         private Guna.UI2.WinForms.Guna2NumericUpDown nudTotalAmmount;
+        private System.Windows.Forms.ColumnHeader TransactionID;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

@@ -67,6 +67,18 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminAccountDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdminAccountDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Checkout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Checkout.Designer.cs">
+      <DependentUpon>Checkout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DBHelper.cs" />
     <Compile Include="frmAdminLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +195,9 @@
     <Compile Include="WorkerUI.Designer.cs">
       <DependentUpon>WorkerUI.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Checkout.resx">
+      <DependentUpon>Checkout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdminLogin.resx">
       <DependentUpon>frmAdminLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -249,7 +264,19 @@
     <EmbeddedResource Include="WorkerUI.resx">
       <DependentUpon>WorkerUI.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="AdminAccountDataSet.xsc">
+      <DependentUpon>AdminAccountDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AdminAccountDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AdminAccountDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AdminAccountDataSet.xss">
+      <DependentUpon>AdminAccountDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\ItemsInInventory.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

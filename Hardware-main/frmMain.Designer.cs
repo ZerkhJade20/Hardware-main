@@ -64,7 +64,7 @@ namespace Hardware_main
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1449, 81);
+            this.guna2Panel1.Size = new System.Drawing.Size(1918, 81);
             this.guna2Panel1.TabIndex = 0;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
@@ -73,7 +73,7 @@ namespace Hardware_main
             this.lblUserName.AutoSize = true;
             this.lblUserName.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserName.ForeColor = System.Drawing.Color.White;
-            this.lblUserName.Location = new System.Drawing.Point(1193, 18);
+            this.lblUserName.Location = new System.Drawing.Point(1638, 18);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(168, 40);
             this.lblUserName.TabIndex = 3;
@@ -84,7 +84,7 @@ namespace Hardware_main
             this.pbProfilePic.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbProfilePic.Image = ((System.Drawing.Image)(resources.GetObject("pbProfilePic.Image")));
             this.pbProfilePic.ImageRotate = 0F;
-            this.pbProfilePic.Location = new System.Drawing.Point(1375, 7);
+            this.pbProfilePic.Location = new System.Drawing.Point(1820, 7);
             this.pbProfilePic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbProfilePic.Name = "pbProfilePic";
             this.pbProfilePic.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -132,7 +132,7 @@ namespace Hardware_main
             this.guna2Panel2.Location = new System.Drawing.Point(0, 81);
             this.guna2Panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1449, 62);
+            this.guna2Panel2.Size = new System.Drawing.Size(1918, 62);
             this.guna2Panel2.TabIndex = 1;
             // 
             // btnStaffs
@@ -152,10 +152,10 @@ namespace Hardware_main
             this.btnStaffs.HoverState.CustomBorderColor = System.Drawing.Color.DarkBlue;
             this.btnStaffs.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
             this.btnStaffs.Image = ((System.Drawing.Image)(resources.GetObject("btnStaffs.Image")));
-            this.btnStaffs.Location = new System.Drawing.Point(1243, 0);
+            this.btnStaffs.Location = new System.Drawing.Point(1645, 0);
             this.btnStaffs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStaffs.Name = "btnStaffs";
-            this.btnStaffs.Size = new System.Drawing.Size(207, 57);
+            this.btnStaffs.Size = new System.Drawing.Size(261, 57);
             this.btnStaffs.TabIndex = 6;
             this.btnStaffs.Text = "Staffs";
             this.btnStaffs.Click += new System.EventHandler(this.btnStaffs_Click);
@@ -177,10 +177,10 @@ namespace Hardware_main
             this.btnReports.HoverState.CustomBorderColor = System.Drawing.Color.DarkBlue;
             this.btnReports.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
             this.btnReports.Image = ((System.Drawing.Image)(resources.GetObject("btnReports.Image")));
-            this.btnReports.Location = new System.Drawing.Point(984, 0);
+            this.btnReports.Location = new System.Drawing.Point(1326, 0);
             this.btnReports.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(253, 57);
+            this.btnReports.Size = new System.Drawing.Size(313, 57);
             this.btnReports.TabIndex = 6;
             this.btnReports.Text = "Reports";
             this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
@@ -202,10 +202,10 @@ namespace Hardware_main
             this.btnSupplier.HoverState.CustomBorderColor = System.Drawing.Color.DarkBlue;
             this.btnSupplier.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
             this.btnSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btnSupplier.Image")));
-            this.btnSupplier.Location = new System.Drawing.Point(776, 0);
+            this.btnSupplier.Location = new System.Drawing.Point(1009, 0);
             this.btnSupplier.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSupplier.Name = "btnSupplier";
-            this.btnSupplier.Size = new System.Drawing.Size(203, 57);
+            this.btnSupplier.Size = new System.Drawing.Size(311, 57);
             this.btnSupplier.TabIndex = 5;
             this.btnSupplier.Text = "Supplier";
             this.btnSupplier.Click += new System.EventHandler(this.btnSupplier_Click);
@@ -227,10 +227,10 @@ namespace Hardware_main
             this.btnSalesTrans.HoverState.CustomBorderColor = System.Drawing.Color.DarkBlue;
             this.btnSalesTrans.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
             this.btnSalesTrans.Image = ((System.Drawing.Image)(resources.GetObject("btnSalesTrans.Image")));
-            this.btnSalesTrans.Location = new System.Drawing.Point(477, 0);
+            this.btnSalesTrans.Location = new System.Drawing.Point(599, 0);
             this.btnSalesTrans.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSalesTrans.Name = "btnSalesTrans";
-            this.btnSalesTrans.Size = new System.Drawing.Size(292, 57);
+            this.btnSalesTrans.Size = new System.Drawing.Size(404, 57);
             this.btnSalesTrans.TabIndex = 4;
             this.btnSalesTrans.Text = "Sales / Transactions";
             this.btnSalesTrans.Click += new System.EventHandler(this.btnSalesTrans_Click);
@@ -252,10 +252,10 @@ namespace Hardware_main
             this.btnInventory.HoverState.CustomBorderColor = System.Drawing.Color.DarkBlue;
             this.btnInventory.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
             this.btnInventory.Image = ((System.Drawing.Image)(resources.GetObject("btnInventory.Image")));
-            this.btnInventory.Location = new System.Drawing.Point(237, 0);
+            this.btnInventory.Location = new System.Drawing.Point(299, 0);
             this.btnInventory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInventory.Name = "btnInventory";
-            this.btnInventory.Size = new System.Drawing.Size(235, 57);
+            this.btnInventory.Size = new System.Drawing.Size(294, 57);
             this.btnInventory.TabIndex = 3;
             this.btnInventory.Text = "Inventory";
             this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
@@ -282,7 +282,7 @@ namespace Hardware_main
             this.btnDashboard.Location = new System.Drawing.Point(0, 0);
             this.btnDashboard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(231, 57);
+            this.btnDashboard.Size = new System.Drawing.Size(293, 57);
             this.btnDashboard.TabIndex = 2;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
@@ -295,7 +295,7 @@ namespace Hardware_main
             this.panelContainer.Location = new System.Drawing.Point(0, 143);
             this.panelContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1449, 645);
+            this.panelContainer.Size = new System.Drawing.Size(1918, 857);
             this.panelContainer.TabIndex = 2;
             this.panelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContainer_Paint_1);
             // 
@@ -308,13 +308,17 @@ namespace Hardware_main
             // frmMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1449, 788);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1918, 1000);
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(4000, 2000);
+            this.MinimumSize = new System.Drawing.Size(1918, 1000);
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMain";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.guna2Panel1.ResumeLayout(false);

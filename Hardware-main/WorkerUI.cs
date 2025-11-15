@@ -15,7 +15,7 @@ namespace Hardware_main
     {
         public WorkerUI()
         {
-            InitializeComponent();
+            InitializeComponent();           
             UC_Products uC_Products = new UC_Products();
             addUserControl(uC_Products);
         }
@@ -26,6 +26,7 @@ namespace Hardware_main
             panelWorkerContainer.Controls.Add(userControl);
             userControl.BringToFront();
         }
+        
         private void guna2Panel2_Paint(object sender, PaintEventArgs e)
         {
 

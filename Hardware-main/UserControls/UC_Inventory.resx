@@ -121,7 +121,7 @@
   <data name="guna2PictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADIbSURBVHhe7d1p
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADIbSURBVHhe7d1p
         7B3Xed/xRyYlcZVESiJFUhRJLZSolXKQupCEommaAkWhpkia2GkTpXBiA20DCEhQBC1QgH3TBC0alKlb
         wG5qJO6LtunyRm0MNAkS1JLdNtZm7bR2Ugu1kOIiipRktXisc6zxw8O5/7n/c595Zub7AX5AENvS/Z87
         d+7vzpxzRgTAFKwTkc+JyFdE5M9E5A0R+TBF/+//m/4z/e/ofxcAAAzYZ0Tkd0XkXRH5f0uM/nf1f6P/
@@ -543,10 +543,13 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAIBD9P8AhdFV45RhPoMAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="Delete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="btnAddNewItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAA24SURBVHhe7d3L
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAA24SURBVHhe7d3L
         jmx1GcZhhZGKYMJp4BEBAbkFEJWoI6dG40hBbsFoJIqgUUJMRIHgwERivAETBDyMvAKzRYPgiZPniRg3
         DnjN2ikJfLZt70N316r3eZKV7KyqWrX+g97fr7tWVb3mNcBOS3JVkk8luT/Jj5L8KsnfkvwryYubfy/7
         ltvuS3JrkivncQCALZfkuiRfTvKbnLlfJ/lSkmvn8QGALZLkhiTfn5P8HPhpkg/P5wMAjlGSa5L8cE7t
@@ -608,4 +611,10 @@
         r0le3Gx/2exbblvu84nlXQbzOMBu+TcwzoamNboJOAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="adminAccountDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="usersTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>415, 17</value>
+  </metadata>
 </root>

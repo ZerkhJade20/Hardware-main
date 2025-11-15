@@ -58,5 +58,10 @@ namespace Hardware_main.UserControls
         {
 
         }
+
+        private void chartSalesTrendAnalysis_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
+        {
+
+        }
     }
 }

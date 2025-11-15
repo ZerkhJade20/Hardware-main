@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,18 +15,45 @@ namespace Hardware_main
 {
     public partial class frmMain : Form
     {
-        
-        public frmMain()
+        private string connectionString = "Data Source=ZERKH\\SQLEXPRESS;Initial Catalog=InventoryDB;Integrated Security=True;TrustServerCertificate=True";
+        private int userID;
+        private string username;
+        private byte[] photo;
+
+
+        public frmMain(int userID, string username, byte[] photo)
         {
             InitializeComponent();
+            this.userID = userID;
+            this.username = username;
+            this.photo = photo;
+            LoadUserData();
 
 
             UC_Dashboard uC_Dashboard = new UC_Dashboard();
             addUserControl(uC_Dashboard);
-            
-
         }
-       
+
+        public frmMain()
+        {
+        }
+
+        private void LoadUserData()
+        {
+            lblUserName.Text = username;
+            if (photo != null)
+            {
+                using (MemoryStream ms = new MemoryStream(photo))
+                {
+                    pbProfilePic.Image = Image.FromStream(ms);
+                }
+            }
+            else
+            {
+                pbProfilePic.Image = null; // Or set a default image
+            }
+        }
+
         private void addUserControl(UserControl userControl)
         {
             userControl.Dock = DockStyle.Fill;
@@ -84,10 +112,16 @@ namespace Hardware_main
 
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
         {
-            Profile profile = new Profile(this);
+            Profile profile = new Profile(userID, username, photo, this);
             panelContainer.Controls.Clear();
             panelContainer.Controls.Add(profile);
             profile.Dock = DockStyle.Fill;
+        }
+        public void RefreshUserData(string newUsername, byte[] newPhoto)
+        {
+            this.username = newUsername;
+            this.photo = newPhoto;
+            LoadUserData();
         }
         public void UpdateProfile(Image image, string name)
         {

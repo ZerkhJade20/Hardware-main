@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Reports));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -120,7 +120,7 @@
             this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
             this.guna2GradientPanel1.Location = new System.Drawing.Point(27, 111);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(470, 118);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(623, 118);
             this.guna2GradientPanel1.TabIndex = 7;
             // 
             // guna2PictureBox2
@@ -128,7 +128,7 @@
             this.guna2PictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
             this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(357, 9);
+            this.guna2PictureBox2.Location = new System.Drawing.Point(521, 9);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
             this.guna2PictureBox2.Size = new System.Drawing.Size(63, 56);
             this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -195,9 +195,9 @@
             this.guna2GradientPanel2.FillColor = System.Drawing.Color.MediumBlue;
             this.guna2GradientPanel2.FillColor2 = System.Drawing.Color.RoyalBlue;
             this.guna2GradientPanel2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.guna2GradientPanel2.Location = new System.Drawing.Point(520, 111);
+            this.guna2GradientPanel2.Location = new System.Drawing.Point(682, 111);
             this.guna2GradientPanel2.Name = "guna2GradientPanel2";
-            this.guna2GradientPanel2.Size = new System.Drawing.Size(460, 118);
+            this.guna2GradientPanel2.Size = new System.Drawing.Size(624, 118);
             this.guna2GradientPanel2.TabIndex = 12;
             // 
             // guna2PictureBox3
@@ -205,7 +205,7 @@
             this.guna2PictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox3.Image")));
             this.guna2PictureBox3.ImageRotate = 0F;
-            this.guna2PictureBox3.Location = new System.Drawing.Point(374, 22);
+            this.guna2PictureBox3.Location = new System.Drawing.Point(523, 22);
             this.guna2PictureBox3.Name = "guna2PictureBox3";
             this.guna2PictureBox3.Size = new System.Drawing.Size(54, 43);
             this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -272,9 +272,9 @@
             this.guna2GradientPanel4.FillColor = System.Drawing.Color.DarkOrchid;
             this.guna2GradientPanel4.FillColor2 = System.Drawing.Color.Blue;
             this.guna2GradientPanel4.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.guna2GradientPanel4.Location = new System.Drawing.Point(996, 111);
+            this.guna2GradientPanel4.Location = new System.Drawing.Point(1333, 111);
             this.guna2GradientPanel4.Name = "guna2GradientPanel4";
-            this.guna2GradientPanel4.Size = new System.Drawing.Size(423, 118);
+            this.guna2GradientPanel4.Size = new System.Drawing.Size(547, 118);
             this.guna2GradientPanel4.TabIndex = 13;
             // 
             // guna2PictureBox6
@@ -282,7 +282,7 @@
             this.guna2PictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox6.Image")));
             this.guna2PictureBox6.ImageRotate = 0F;
-            this.guna2PictureBox6.Location = new System.Drawing.Point(339, 22);
+            this.guna2PictureBox6.Location = new System.Drawing.Point(455, 22);
             this.guna2PictureBox6.Name = "guna2PictureBox6";
             this.guna2PictureBox6.Size = new System.Drawing.Size(60, 43);
             this.guna2PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -344,9 +344,9 @@
             this.guna2Panel1.Controls.Add(this.label11);
             this.guna2Panel1.Controls.Add(this.chartSalesTrendAnalysis);
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
-            this.guna2Panel1.Location = new System.Drawing.Point(27, 235);
+            this.guna2Panel1.Location = new System.Drawing.Point(27, 248);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(754, 397);
+            this.guna2Panel1.Size = new System.Drawing.Size(978, 597);
             this.guna2Panel1.TabIndex = 14;
             // 
             // label11
@@ -364,9 +364,10 @@
             this.chartSalesTrendAnalysis.BackColorTransparent = true;
             this.chartSalesTrendAnalysis.Location = new System.Drawing.Point(24, 67);
             this.chartSalesTrendAnalysis.Name = "chartSalesTrendAnalysis";
-            this.chartSalesTrendAnalysis.Size = new System.Drawing.Size(708, 306);
+            this.chartSalesTrendAnalysis.Size = new System.Drawing.Size(938, 513);
             this.chartSalesTrendAnalysis.TabIndex = 0;
             this.chartSalesTrendAnalysis.Text = "cartesianChart1";
+            this.chartSalesTrendAnalysis.ChildChanged += new System.EventHandler<System.Windows.Forms.Integration.ChildChangedEventArgs>(this.chartSalesTrendAnalysis_ChildChanged);
             // 
             // guna2Panel2
             // 
@@ -374,9 +375,9 @@
             this.guna2Panel2.Controls.Add(this.label12);
             this.guna2Panel2.Controls.Add(this.chartSalesByCategory);
             this.guna2Panel2.FillColor = System.Drawing.Color.White;
-            this.guna2Panel2.Location = new System.Drawing.Point(800, 235);
+            this.guna2Panel2.Location = new System.Drawing.Point(1025, 248);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(619, 397);
+            this.guna2Panel2.Size = new System.Drawing.Size(855, 597);
             this.guna2Panel2.TabIndex = 15;
             // 
             // label12
@@ -391,18 +392,18 @@
             // 
             // chartSalesByCategory
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartSalesByCategory.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.chartSalesByCategory.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chartSalesByCategory.ChartAreas.Add(chartArea2);
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            this.chartSalesByCategory.Legends.Add(legend2);
             this.chartSalesByCategory.Location = new System.Drawing.Point(20, 67);
             this.chartSalesByCategory.Name = "chartSalesByCategory";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartSalesByCategory.Series.Add(series1);
-            this.chartSalesByCategory.Size = new System.Drawing.Size(575, 300);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartSalesByCategory.Series.Add(series2);
+            this.chartSalesByCategory.Size = new System.Drawing.Size(810, 513);
             this.chartSalesByCategory.TabIndex = 0;
             this.chartSalesByCategory.Text = "chart1";
             // 
@@ -418,7 +419,7 @@
             this.btnPrintReport.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnPrintReport.ForeColor = System.Drawing.Color.White;
             this.btnPrintReport.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(88)))), ((int)(((byte)(12)))));
-            this.btnPrintReport.Location = new System.Drawing.Point(1239, 18);
+            this.btnPrintReport.Location = new System.Drawing.Point(1700, 18);
             this.btnPrintReport.Name = "btnPrintReport";
             this.btnPrintReport.Size = new System.Drawing.Size(180, 66);
             this.btnPrintReport.TabIndex = 16;
@@ -449,7 +450,7 @@
             this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.label1);
             this.Name = "UC_Reports";
-            this.Size = new System.Drawing.Size(1451, 647);
+            this.Size = new System.Drawing.Size(1918, 857);
             this.Load += new System.EventHandler(this.UC_Reports_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2GradientPanel1.ResumeLayout(false);
