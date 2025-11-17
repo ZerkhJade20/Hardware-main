@@ -55,6 +55,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvStaff = new System.Windows.Forms.DataGridView();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.panelAddNewStaff.SuspendLayout();
@@ -88,6 +90,7 @@
             // guna2CustomGradientPanel1
             // 
             this.guna2CustomGradientPanel1.BorderRadius = 20;
+            this.guna2CustomGradientPanel1.Controls.Add(this.guna2Button1);
             this.guna2CustomGradientPanel1.Controls.Add(this.txtSearchInStaffs);
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(28, 107);
             this.guna2CustomGradientPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -115,7 +118,7 @@
             this.txtSearchInStaffs.Name = "txtSearchInStaffs";
             this.txtSearchInStaffs.PlaceholderText = "";
             this.txtSearchInStaffs.SelectedText = "";
-            this.txtSearchInStaffs.Size = new System.Drawing.Size(1794, 48);
+            this.txtSearchInStaffs.Size = new System.Drawing.Size(1588, 48);
             this.txtSearchInStaffs.TabIndex = 0;
             // 
             // label2
@@ -449,6 +452,8 @@
             // 
             this.dgvStaff.BackgroundColor = System.Drawing.Color.White;
             this.dgvStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStaff.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Delete});
             this.dgvStaff.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStaff.Location = new System.Drawing.Point(0, 0);
             this.dgvStaff.Name = "dgvStaff";
@@ -458,6 +463,33 @@
             this.dgvStaff.TabIndex = 0;
             this.dgvStaff.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStaff_CellValueChanged);
             this.dgvStaff.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvStaff_UserDeletingRow);
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 125;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.Animated = true;
+            this.guna2Button1.BorderRadius = 15;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(88)))), ((int)(((byte)(12)))));
+            this.guna2Button1.Location = new System.Drawing.Point(1644, 15);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(196, 65);
+            this.guna2Button1.TabIndex = 12;
+            this.guna2Button1.Text = "Search";
             // 
             // UC_Staff
             // 
@@ -512,5 +544,7 @@
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.DataGridView dgvStaff;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

@@ -78,35 +78,56 @@ namespace Hardware_main.UserControls
 
         private void UC_Staff_Load(object sender, EventArgs e)
         {
-
+            cmbStaffPosition.Items.AddRange(new object[]
+           {
+                "Worker",
+                
+           });
+            cmbStaffStatus.Items.AddRange(new object[]
+           {
+                "Active",
+                "In Active"
+           });
         }
 
         private void dgvStaff_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            // Ignore header row or invalid rows
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            // Ignore the new row placeholder
+            if (dgvStaff.Rows[e.RowIndex].IsNewRow)
+                return;
             var row = dgvStaff.Rows[e.RowIndex];
+
             int id = Convert.ToInt32(row.Cells["StaffID"].Value);
-            string name = row.Cells["Name"].Value?.ToString() ?? "";
-            string position = row.Cells["Position"].Value?.ToString() ?? "";
-            string phone = row.Cells["PhoneNumber"].Value?.ToString() ?? "";
-            string email = row.Cells["Email"].Value?.ToString() ?? "";
-            string location = row.Cells["Location"].Value?.ToString() ?? "";
+            string name = row.Cells["Name"].Value?.ToString();
+            string position = row.Cells["Position"].Value?.ToString();
+            string phone = row.Cells["PhoneNumber"].Value?.ToString();
+            string email = row.Cells["Email"].Value?.ToString();
+            string location = row.Cells["Location"].Value?.ToString();
             DateTime hireDate = Convert.ToDateTime(row.Cells["HireDate"].Value);
-            string status = row.Cells["Status"].Value?.ToString() ?? "";
+            string status = row.Cells["Status"].Value?.ToString();
 
-            string sql = @"UPDATE tblStaff SET Name=@Name, Position=@Position, PhoneNumber=@Phone, Email=@Email,
-                       Location=@Location, HireDate=@HireDate, Status=@Status WHERE StaffID=@ID";
-            SqlParameter[] parameters = {
-            new SqlParameter("@Name", name),
-            new SqlParameter("@Position", position),
-            new SqlParameter("@Phone", phone),
-            new SqlParameter("@Email", email),
-            new SqlParameter("@Location", location),
-            new SqlParameter("@HireDate", hireDate),
-            new SqlParameter("@Status", status),
-            new SqlParameter("@ID", id)
-        };
+            string sql = @"UPDATE tblStaff 
+                   SET Name=@Name, Position=@Position, PhoneNumber=@Phone, 
+                       Email=@Email, Location=@Location, 
+                       HireDate=@HireDate, Status=@Status 
+                   WHERE StaffID=@ID";
+            SqlParameter[] parameters =
+   {
+        new SqlParameter("@ID", id),
+        new SqlParameter("@Name", name),
+        new SqlParameter("@Position", position),
+        new SqlParameter("@Phone", phone),
+        new SqlParameter("@Email", email),
+        new SqlParameter("@Location", location),
+        new SqlParameter("@HireDate", hireDate),
+        new SqlParameter("@Status", status)
+    };
+
             DBHelper.ExecuteNonQuery(sql, parameters);
-
         }
 
         private void dgvStaff_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Drawing.Printing;
@@ -12,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 
 namespace Hardware_main.UserControls
@@ -26,74 +28,128 @@ namespace Hardware_main.UserControls
         {
             InitializeComponent();
             LoadReportData();
+        }
+        public static void RefreshReport()
+        {
+            // Call on instance.
+        }
+        public void LoadReportData()
+        {
+            UpdateLabels();
+            LoadTrendChart();
+            LoadCategoryChart();
+        }
+        private void UpdateLabels()
+        {
+            // Total Revenue: Sum TotalAmount from tblTransactions.
+            string queryRevenue = "SELECT SUM(TotalAmount) FROM tblTransactions";
+            DataTable dtRevenue = DBHelper.ExecuteSelect(queryRevenue);
+            lblUpdatingTotalRevenue.Text = " " + (dtRevenue.Rows.Count > 0 && dtRevenue.Rows[0][0] != DBNull.Value ? dtRevenue.Rows[0][0].ToString() : "0");
+            // Total Transactions.
+            string queryTrans = "SELECT COUNT(*) FROM tblTransactions";
+            DataTable dtTrans = DBHelper.ExecuteSelect(queryTrans);
+            lblUpdatingTotalTransactions.Text = " " + dtTrans.Rows[0][0].ToString();
+            // Average Sale.
+            string queryAvg = "SELECT AVG(TotalAmount) FROM tblTransactions";
+            DataTable dtAvg = DBHelper.ExecuteSelect(queryAvg);
 
-            btnPrintReport.Click += BtnPrint_Click;
+            if (dtAvg.Rows.Count > 0 && dtAvg.Rows[0][0] != DBNull.Value)
+            {
+                decimal average = Convert.ToDecimal(dtAvg.Rows[0][0]);
+                lblUpdatingAverageSales.Text = " " + average.ToString("0.00");
+            }
             
-
-
         }
-        private void LoadReportData()
+        private void LoadTrendChart()
         {
-            var totalRevenue = DBHelper.ExecuteScalar("SELECT ISNULL(SUM(TotalAmount),0) FROM tblTransactions");
-            var totalTransactions = DBHelper.ExecuteScalar("SELECT COUNT(*) FROM tblTransactions");
-            decimal avgSale = 0;
-            if (Convert.ToInt32(totalTransactions) > 0)
-                avgSale = Convert.ToDecimal(totalRevenue) / Convert.ToInt32(totalTransactions);
+            string query = @"
+        SELECT DATENAME(week, DateCreated) AS [Week], 
+               SUM(TotalAmount) AS TotalSales
+        FROM tblTransactions
+        GROUP BY DATENAME(week, DateCreated)
+        ORDER BY MIN(DateCreated)";
 
-            lblUpdatingTotalRevenue.Text = Convert.ToDecimal(totalRevenue).ToString("C2");
-            lblUpdatingTotalTransactions.Text = totalTransactions.ToString();
-            lblUpdatingAverageSales.Text = avgSale.ToString("C2");
+            DataTable dt = DBHelper.ExecuteSelect(query);
 
-            LoadSalesTrendChart();
-            LoadSalesByCategoryChart();
-        }
-        private void LoadSalesTrendChart()
-        {
-            var dt = DBHelper.ExecuteSelect(@"
-            SELECT DATEPART(WK, DateCreated) AS WeekNumber, SUM(TotalAmount) AS WeeklySales 
-            FROM tblTransactions GROUP BY DATEPART(WK, DateCreated) ORDER BY WeekNumber");
+            // Prepare collections
+            var salesValues = new LiveCharts.ChartValues<decimal>();
+            var weekLabels = new List<string>();
 
-            var weeks = dt.AsEnumerable().Select(r => "W" + r.Field<int>("WeekNumber")).ToArray();
-            var sales = dt.AsEnumerable().Select(r => r.Field<decimal>("WeeklySales")).ToArray();
+            foreach (DataRow row in dt.Rows)
+            {
+                weekLabels.Add(row["Week"].ToString());
+                salesValues.Add(Convert.ToDecimal(row["TotalSales"]));
+            }
 
             chartSalesTrendAnalysis.Series.Clear();
-            chartSalesTrendAnalysis.AxisX.Clear();
-            chartSalesTrendAnalysis.AxisY.Clear();
 
-            chartSalesTrendAnalysis.Series.Add(new LineSeries
-            {
-                Title = "Sales Trend",
-                Values = new ChartValues<decimal>(sales)
-            });
-
-            chartSalesTrendAnalysis.AxisX.Add(new Axis { Title = "Week", Labels = weeks });
-            chartSalesTrendAnalysis.AxisY.Add(new Axis { Title = "Amount", LabelFormatter = value => value.ToString("C") });
-        }
-        private void LoadSalesByCategoryChart()
+            chartSalesTrendAnalysis.Series = new LiveCharts.SeriesCollection
+    {
+        new LiveCharts.Wpf.LineSeries
         {
-            string sql = @"
-            SELECT Category, SUM(i.Price * t.Quantity) AS TotalSales
-            FROM tblItems i
-            JOIN (SELECT ItemID, SUM(Quantity) AS Quantity FROM tblTransactionsItems GROUP BY ItemID) t ON i.ItemID = t.ItemID
-            GROUP BY Category";
+            Title = "Total Sales",
+            Values = salesValues,
+            PointGeometrySize = 10
+        }
+    };
 
-            var dt = DBHelper.ExecuteSelect(sql);
-            var categories = dt.AsEnumerable().Select(r => r.Field<string>("Category")).ToArray();
-            var totals = dt.AsEnumerable().Select(r => r.Field<decimal>("TotalSales")).ToArray();
-
-            chartSalesByCategory.Series.Clear();
-            chartSalesByCategory.AxisX.Clear();
-            chartSalesByCategory.AxisY.Clear();
-
-            chartSalesByCategory.Series.Add(new ColumnSeries
+            chartSalesTrendAnalysis.AxisX.Clear();
+            chartSalesTrendAnalysis.AxisX.Add(new LiveCharts.Wpf.Axis
             {
-                Title = "Sales by Category",
-                Values = new ChartValues<decimal>(totals)
+                Title = "Week",
+                Labels = weekLabels
             });
 
-            chartSalesByCategory.AxisX.Add(new Axis { Title = "Category", Labels = categories });
-            chartSalesByCategory.AxisY.Add(new Axis { Title = "Sales", LabelFormatter = val => val.ToString("C") });
+            chartSalesTrendAnalysis.AxisY.Clear();
+            chartSalesTrendAnalysis.AxisY.Add(new LiveCharts.Wpf.Axis
+            {
+                Title = "Sales",
+                LabelFormatter = value => value.ToString("C")
+            });
         }
+        private void LoadCategoryChart()
+        {
+            string query = @"
+        SELECT Category, SUM(Price * Quantity) AS TotalValue
+        FROM tblItems
+        GROUP BY Category";
+
+            DataTable dt = DBHelper.ExecuteSelect(query);
+
+            var categories = new List<string>();
+            var values = new LiveCharts.ChartValues<decimal>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                categories.Add(row["Category"].ToString());
+                values.Add(Convert.ToDecimal(row["TotalValue"]));
+            }
+
+            chartSalesByCategory.Series = new LiveCharts.SeriesCollection
+    {
+        new LiveCharts.Wpf.ColumnSeries
+        {
+            Title = "Sales by Category",
+            Values = values
+        }
+    };
+
+            chartSalesByCategory.AxisX.Clear();
+            chartSalesByCategory.AxisX.Add(new LiveCharts.Wpf.Axis
+            {
+                Title = "Category",
+                Labels = categories
+            });
+
+            chartSalesByCategory.AxisY.Clear();
+            chartSalesByCategory.AxisY.Add(new LiveCharts.Wpf.Axis
+            {
+                Title = "Total Sales",
+                LabelFormatter = value => value.ToString("C")
+            });
+        }
+
+
 
 
         private void BtnPrint_Click(object sender, EventArgs e)

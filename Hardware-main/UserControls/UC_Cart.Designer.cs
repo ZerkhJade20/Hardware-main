@@ -155,9 +155,9 @@
             // checkoutContainer
             // 
             this.checkoutContainer.Controls.Add(this.dgvCart);
-            this.checkoutContainer.Location = new System.Drawing.Point(3, 3);
+            this.checkoutContainer.Location = new System.Drawing.Point(3, 69);
             this.checkoutContainer.Name = "checkoutContainer";
-            this.checkoutContainer.Size = new System.Drawing.Size(1443, 748);
+            this.checkoutContainer.Size = new System.Drawing.Size(1443, 682);
             this.checkoutContainer.TabIndex = 3;
             this.checkoutContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.checkoutContainer_Paint);
             // 
@@ -184,6 +184,7 @@
             this.Controls.Add(this.checkoutContainer);
             this.Name = "UC_Cart";
             this.Size = new System.Drawing.Size(1449, 794);
+            this.Load += new System.EventHandler(this.UC_Cart_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);

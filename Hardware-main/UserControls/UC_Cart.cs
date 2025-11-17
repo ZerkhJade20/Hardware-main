@@ -13,18 +13,24 @@ namespace Hardware_main.UserControls
 {
     public partial class UC_Cart : UserControl
     {
+        
         private DataTable cartItems = new DataTable();
+        private DataTable cartTable;
 
         public UC_Cart()
         {
             InitializeComponent();
-            cartItems.Columns.Add("ItemID", typeof(int));
-            cartItems.Columns.Add("ItemName", typeof(string));
-            cartItems.Columns.Add("Quantity", typeof(int));
-            cartItems.Columns.Add("Price", typeof(decimal));
 
-            dgvCart.DataSource = cartItems;
-            UpdateTotalAmount();
+            // Initialize cart data table
+            cartTable = new DataTable();
+            cartTable.Columns.Add("ItemID", typeof(int));
+            cartTable.Columns.Add("ProductName", typeof(string));
+            cartTable.Columns.Add("Price", typeof(decimal));
+            cartTable.Columns.Add("Quantity", typeof(int));
+            cartTable.Columns.Add("Total", typeof(decimal));
+
+            // Bind table to dgvCart
+            dgvCart.DataSource = cartTable;
 
 
         }
@@ -33,7 +39,17 @@ namespace Hardware_main.UserControls
             decimal total = cartItems.AsEnumerable().Sum(row => row.Field<int>("Quantity") * row.Field<decimal>("Price"));
             lblTotalValue.Text = total.ToString("C2");
         }
+        private void UC_Cart_Load(object sender, EventArgs e)
+        {
+            cartTable = new DataTable();
+            cartTable.Columns.Add("ItemID", typeof(int));
+            cartTable.Columns.Add("ItemName", typeof(string));
+            cartTable.Columns.Add("Price", typeof(decimal));
+            cartTable.Columns.Add("Quantity", typeof(int));
+            cartTable.Columns.Add("Total", typeof(decimal));
 
+            dgvCart.DataSource = cartTable;
+        }
 
         private void checkoutContainer_Paint(object sender, PaintEventArgs e)
         {
@@ -89,14 +105,6 @@ namespace Hardware_main.UserControls
                         tran.Rollback();
                         MessageBox.Show("Checkout failed: " + ex.Message);
                     }
-
-
-
-
-
-
-
-
                 }
             }
             Checkout checkout = new Checkout();
@@ -104,10 +112,31 @@ namespace Hardware_main.UserControls
 
         }
 
+        public void AddItemToCart(int id, string name, decimal price)
+        {
+            // 1. Check if the product already exists in cart
+            DataRow existing = cartTable.Rows
+                .Cast<DataRow>()
+                .FirstOrDefault(r => Convert.ToInt32(r["ItemID"]) == id);
+
+            if (existing != null)
+            {
+                // Update quantity
+                int qty = Convert.ToInt32(existing["Quantity"]) + 1;
+                existing["Quantity"] = qty;
+                existing["Total"] = qty * price;
+            }
+            else
+            {
+                // Add new row
+                cartTable.Rows.Add(id, name, price, 1, price);
+            }
+        }
 
 
-                
-        
+
+
+
 
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -134,5 +163,7 @@ namespace Hardware_main.UserControls
             }
 
         }
+
+        
     }
 }

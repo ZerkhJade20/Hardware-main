@@ -12,13 +12,23 @@ using System.Windows.Forms;
 namespace Hardware_main
 {
     public partial class WorkerUI : Form
-    {
+    {       
+        private UC_Cart cartControl;
+        private UC_Products productsControl;
+
         public WorkerUI()
         {
-            InitializeComponent();           
-            UC_Products uC_Products = new UC_Products();
+            InitializeComponent();
+            cartControl = new UC_Cart();
+            productsControl = new UC_Products(cartControl);
+
+            addUserControl(productsControl);
+
+            UC_Cart uC_Cart = new UC_Cart();
+            UC_Products uC_Products = new UC_Products(uC_Cart);
             addUserControl(uC_Products);
         }
+        
         private void addUserControl(UserControl userControl)
         {
             userControl.Dock = DockStyle.Fill;
@@ -34,7 +44,8 @@ namespace Hardware_main
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            UC_Products uC_Products = new UC_Products();
+            UC_Cart uC_Cart = new UC_Cart();
+            UC_Products uC_Products = new UC_Products(uC_Cart);
             addUserControl(uC_Products);
         }
 

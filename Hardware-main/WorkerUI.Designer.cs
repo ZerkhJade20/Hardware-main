@@ -110,10 +110,9 @@
             // panelWorkerContainer
             // 
             this.panelWorkerContainer.BackColor = System.Drawing.Color.White;
-            this.panelWorkerContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelWorkerContainer.Location = new System.Drawing.Point(0, 100);
+            this.panelWorkerContainer.Location = new System.Drawing.Point(0, 161);
             this.panelWorkerContainer.Name = "panelWorkerContainer";
-            this.panelWorkerContainer.Size = new System.Drawing.Size(1449, 794);
+            this.panelWorkerContainer.Size = new System.Drawing.Size(1449, 733);
             this.panelWorkerContainer.TabIndex = 1;
             this.panelWorkerContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
             // 

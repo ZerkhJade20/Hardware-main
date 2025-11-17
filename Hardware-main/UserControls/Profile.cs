@@ -123,5 +123,7 @@ namespace Hardware_main.UserControls
         {
             this.Visible = false;
         }
+
+        
     }
 }

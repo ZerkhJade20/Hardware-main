@@ -52,7 +52,12 @@ namespace Hardware_main.UserControls
 
         private void UC_Supplier_Load(object sender, EventArgs e)
         {
+            cmbStatus.Items.AddRange(new object[]
+           {
+                "Active",
+                "In Active"
 
+           });
         }
 
         private void btnAddNewSupplier_Click(object sender, EventArgs e)

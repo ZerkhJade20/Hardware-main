@@ -51,11 +51,11 @@
             this.label11 = new System.Windows.Forms.Label();
             this.chartSalesTrendAnalysis = new LiveCharts.WinForms.CartesianChart();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.chartSalesByCategory = new LiveCharts.WinForms.CartesianChart();
             this.label12 = new System.Windows.Forms.Label();
             this.btnPrintReport = new Guna.UI2.WinForms.Guna2Button();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.chartSalesByCategory = new LiveCharts.WinForms.CartesianChart();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
@@ -320,7 +320,7 @@
             this.chartSalesTrendAnalysis.Name = "chartSalesTrendAnalysis";
             this.chartSalesTrendAnalysis.Size = new System.Drawing.Size(938, 513);
             this.chartSalesTrendAnalysis.TabIndex = 0;
-            this.chartSalesTrendAnalysis.Text = "cartesianChart1";
+            this.chartSalesTrendAnalysis.Text = "chartTrend";
             this.chartSalesTrendAnalysis.ChildChanged += new System.EventHandler<System.Windows.Forms.Integration.ChildChangedEventArgs>(this.chartSalesTrendAnalysis_ChildChanged);
             // 
             // guna2Panel2
@@ -333,6 +333,14 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(855, 597);
             this.guna2Panel2.TabIndex = 15;
+            // 
+            // chartSalesByCategory
+            // 
+            this.chartSalesByCategory.Location = new System.Drawing.Point(34, 67);
+            this.chartSalesByCategory.Name = "chartSalesByCategory";
+            this.chartSalesByCategory.Size = new System.Drawing.Size(789, 496);
+            this.chartSalesByCategory.TabIndex = 19;
+            this.chartSalesByCategory.Text = "cartesianChart1";
             // 
             // label12
             // 
@@ -372,14 +380,6 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
-            // 
-            // chartSalesByCategory
-            // 
-            this.chartSalesByCategory.Location = new System.Drawing.Point(34, 67);
-            this.chartSalesByCategory.Name = "chartSalesByCategory";
-            this.chartSalesByCategory.Size = new System.Drawing.Size(789, 496);
-            this.chartSalesByCategory.TabIndex = 19;
-            this.chartSalesByCategory.Text = "cartesianChart1";
             // 
             // UC_Reports
             // 
