@@ -15,11 +15,37 @@ namespace Hardware_main.UserControls
         public UC_Products()
         {
             InitializeComponent();
+            LoadProducts();
+
             AllProducts allProducts = new AllProducts();
             addUserControl(allProducts);
 
 
         }
+        public void LoadProducts()
+        {
+            var dt = DBHelper.ExecuteSelect("SELECT * FROM tblItems WHERE Status='In Stock'");
+            dgvProducts.DataSource = dt;
+        }
+        public void SubscribeToInventory(UC_Inventory inventoryCtrl)
+        {
+            inventoryCtrl.InventoryChanged += (s, e) => LoadProducts();
+        }
+        private void btnAddToCart_Click(object sender, EventArgs e)
+        {
+            if (dgvProducts.CurrentRow == null) return;
+            DataRowView drv = dgvProducts.CurrentRow.DataBoundItem as DataRowView;
+            if (drv == null) return;
+
+            int itemId = (int)drv["ItemID"];
+            string name = (string)drv["ItemName"];
+            decimal price = (decimal)drv["Price"];
+            int quantity = 1; // or prompt user
+
+            // Raise event or integrate with Cart UserControl accordingly
+        }
+
+
         private void addUserControl(UserControl userControl)
         {
             userControl.Dock = DockStyle.Fill;

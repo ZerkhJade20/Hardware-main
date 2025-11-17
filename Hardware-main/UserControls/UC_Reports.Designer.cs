@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Reports));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,29 +36,26 @@
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lblUpdatingTotalRevenue = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lblUpdatingTotalTransactions = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.guna2GradientPanel4 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lblUpdatingAverageSales = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.chartSalesTrendAnalysis = new LiveCharts.WinForms.CartesianChart();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label12 = new System.Windows.Forms.Label();
-            this.chartSalesByCategory = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btnPrintReport = new Guna.UI2.WinForms.Guna2Button();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.chartSalesByCategory = new LiveCharts.WinForms.CartesianChart();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
@@ -71,7 +65,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartSalesByCategory)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -113,7 +106,6 @@
             this.guna2GradientPanel1.Controls.Add(this.guna2PictureBox2);
             this.guna2GradientPanel1.Controls.Add(this.lblUpdatingTotalRevenue);
             this.guna2GradientPanel1.Controls.Add(this.label5);
-            this.guna2GradientPanel1.Controls.Add(this.label4);
             this.guna2GradientPanel1.Controls.Add(this.label3);
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.DarkGreen;
             this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.ForestGreen;
@@ -142,7 +134,7 @@
             this.lblUpdatingTotalRevenue.BackColor = System.Drawing.Color.Transparent;
             this.lblUpdatingTotalRevenue.Font = new System.Drawing.Font("Bookman Old Style", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUpdatingTotalRevenue.ForeColor = System.Drawing.Color.White;
-            this.lblUpdatingTotalRevenue.Location = new System.Drawing.Point(60, 43);
+            this.lblUpdatingTotalRevenue.Location = new System.Drawing.Point(29, 43);
             this.lblUpdatingTotalRevenue.Name = "lblUpdatingTotalRevenue";
             this.lblUpdatingTotalRevenue.Size = new System.Drawing.Size(101, 38);
             this.lblUpdatingTotalRevenue.TabIndex = 11;
@@ -159,18 +151,6 @@
             this.label5.Size = new System.Drawing.Size(110, 23);
             this.label5.TabIndex = 10;
             this.label5.Text = "This Week";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Bookman Old Style", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(29, 43);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 38);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "₱";
             // 
             // label3
             // 
@@ -190,7 +170,6 @@
             this.guna2GradientPanel2.Controls.Add(this.guna2PictureBox3);
             this.guna2GradientPanel2.Controls.Add(this.lblUpdatingTotalTransactions);
             this.guna2GradientPanel2.Controls.Add(this.label8);
-            this.guna2GradientPanel2.Controls.Add(this.label9);
             this.guna2GradientPanel2.Controls.Add(this.label10);
             this.guna2GradientPanel2.FillColor = System.Drawing.Color.MediumBlue;
             this.guna2GradientPanel2.FillColor2 = System.Drawing.Color.RoyalBlue;
@@ -219,7 +198,7 @@
             this.lblUpdatingTotalTransactions.BackColor = System.Drawing.Color.Transparent;
             this.lblUpdatingTotalTransactions.Font = new System.Drawing.Font("Bookman Old Style", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUpdatingTotalTransactions.ForeColor = System.Drawing.Color.White;
-            this.lblUpdatingTotalTransactions.Location = new System.Drawing.Point(60, 43);
+            this.lblUpdatingTotalTransactions.Location = new System.Drawing.Point(31, 43);
             this.lblUpdatingTotalTransactions.Name = "lblUpdatingTotalTransactions";
             this.lblUpdatingTotalTransactions.Size = new System.Drawing.Size(101, 38);
             this.lblUpdatingTotalTransactions.TabIndex = 11;
@@ -236,18 +215,6 @@
             this.label8.Size = new System.Drawing.Size(172, 23);
             this.label8.TabIndex = 10;
             this.label8.Text = "Completed Sales";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Bookman Old Style", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(29, 43);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(39, 38);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "₱";
             // 
             // label10
             // 
@@ -267,7 +234,6 @@
             this.guna2GradientPanel4.Controls.Add(this.guna2PictureBox6);
             this.guna2GradientPanel4.Controls.Add(this.lblUpdatingAverageSales);
             this.guna2GradientPanel4.Controls.Add(this.label20);
-            this.guna2GradientPanel4.Controls.Add(this.label21);
             this.guna2GradientPanel4.Controls.Add(this.label22);
             this.guna2GradientPanel4.FillColor = System.Drawing.Color.DarkOrchid;
             this.guna2GradientPanel4.FillColor2 = System.Drawing.Color.Blue;
@@ -296,7 +262,7 @@
             this.lblUpdatingAverageSales.BackColor = System.Drawing.Color.Transparent;
             this.lblUpdatingAverageSales.Font = new System.Drawing.Font("Bookman Old Style", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUpdatingAverageSales.ForeColor = System.Drawing.Color.White;
-            this.lblUpdatingAverageSales.Location = new System.Drawing.Point(60, 43);
+            this.lblUpdatingAverageSales.Location = new System.Drawing.Point(31, 43);
             this.lblUpdatingAverageSales.Name = "lblUpdatingAverageSales";
             this.lblUpdatingAverageSales.Size = new System.Drawing.Size(101, 38);
             this.lblUpdatingAverageSales.TabIndex = 11;
@@ -313,18 +279,6 @@
             this.label20.Size = new System.Drawing.Size(164, 23);
             this.label20.TabIndex = 10;
             this.label20.Text = "Per Transaction";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.BackColor = System.Drawing.Color.Transparent;
-            this.label21.Font = new System.Drawing.Font("Bookman Old Style", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(29, 43);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(39, 38);
-            this.label21.TabIndex = 9;
-            this.label21.Text = "₱";
             // 
             // label22
             // 
@@ -372,8 +326,8 @@
             // guna2Panel2
             // 
             this.guna2Panel2.BorderRadius = 15;
-            this.guna2Panel2.Controls.Add(this.label12);
             this.guna2Panel2.Controls.Add(this.chartSalesByCategory);
+            this.guna2Panel2.Controls.Add(this.label12);
             this.guna2Panel2.FillColor = System.Drawing.Color.White;
             this.guna2Panel2.Location = new System.Drawing.Point(1025, 248);
             this.guna2Panel2.Name = "guna2Panel2";
@@ -389,23 +343,6 @@
             this.label12.Size = new System.Drawing.Size(369, 45);
             this.label12.TabIndex = 18;
             this.label12.Text = "Sales by Category";
-            // 
-            // chartSalesByCategory
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.chartSalesByCategory.ChartAreas.Add(chartArea2);
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.chartSalesByCategory.Legends.Add(legend2);
-            this.chartSalesByCategory.Location = new System.Drawing.Point(20, 67);
-            this.chartSalesByCategory.Name = "chartSalesByCategory";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartSalesByCategory.Series.Add(series2);
-            this.chartSalesByCategory.Size = new System.Drawing.Size(810, 513);
-            this.chartSalesByCategory.TabIndex = 0;
-            this.chartSalesByCategory.Text = "chart1";
             // 
             // btnPrintReport
             // 
@@ -435,6 +372,14 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
+            // 
+            // chartSalesByCategory
+            // 
+            this.chartSalesByCategory.Location = new System.Drawing.Point(34, 67);
+            this.chartSalesByCategory.Name = "chartSalesByCategory";
+            this.chartSalesByCategory.Size = new System.Drawing.Size(789, 496);
+            this.chartSalesByCategory.TabIndex = 19;
+            this.chartSalesByCategory.Text = "cartesianChart1";
             // 
             // UC_Reports
             // 
@@ -466,7 +411,6 @@
             this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartSalesByCategory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -481,19 +425,16 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblUpdatingTotalRevenue;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
         private System.Windows.Forms.Label lblUpdatingTotalTransactions;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel4;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox6;
         private System.Windows.Forms.Label lblUpdatingAverageSales;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
@@ -503,6 +444,6 @@
         private System.Windows.Forms.Label label11;
         private LiveCharts.WinForms.CartesianChart chartSalesTrendAnalysis;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartSalesByCategory;
+        private LiveCharts.WinForms.CartesianChart chartSalesByCategory;
     }
 }

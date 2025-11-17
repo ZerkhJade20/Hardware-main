@@ -121,7 +121,7 @@
   <data name="guna2PictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAD8QSURBVHhe7d15
+        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAD8QSURBVHhe7d15
         vCZXXefx7kAWBAREYBgE2WRrHJZWQvetU/2MyUQzCMjSiiF969Tt0A7R6IgiEEV6RhZR3HEbFAElL2VR
         ZFNZDENAQcISpNO3Tt1OkwTClpCdhGx3Xuf2NfP079S9Xec5p9bn8369vv+kc0/VOfXcp77Pc5+nassW
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYI6dtueiu2/ZsrpV/ncAADACO7PyESovfibV5s/TrPyU0uYq
@@ -394,7 +394,7 @@
         NfXvAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="guna2TextBox1.IconLeft" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="txtSearch.IconLeft" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAACd
         eQAAnXkBQ2G0TQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAC6JSURBVHhe7d1/

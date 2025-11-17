@@ -37,7 +37,10 @@
             this.btnPaintSupplies = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.panelProductsCon = new Guna.UI2.WinForms.Guna2Panel();
+            this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.guna2Panel1.SuspendLayout();
+            this.panelProductsCon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSafetyEquipment
@@ -190,11 +193,24 @@
             // 
             // panelProductsCon
             // 
+            this.panelProductsCon.Controls.Add(this.dgvProducts);
             this.panelProductsCon.Location = new System.Drawing.Point(4, 123);
             this.panelProductsCon.Name = "panelProductsCon";
             this.panelProductsCon.Size = new System.Drawing.Size(1442, 655);
             this.panelProductsCon.TabIndex = 29;
             this.panelProductsCon.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
+            // 
+            // dgvProducts
+            // 
+            this.dgvProducts.BackgroundColor = System.Drawing.Color.White;
+            this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvProducts.Location = new System.Drawing.Point(0, 0);
+            this.dgvProducts.Name = "dgvProducts";
+            this.dgvProducts.RowHeadersWidth = 51;
+            this.dgvProducts.RowTemplate.Height = 24;
+            this.dgvProducts.Size = new System.Drawing.Size(1442, 655);
+            this.dgvProducts.TabIndex = 0;
             // 
             // UC_Products
             // 
@@ -204,6 +220,8 @@
             this.Name = "UC_Products";
             this.Size = new System.Drawing.Size(1449, 794);
             this.guna2Panel1.ResumeLayout(false);
+            this.panelProductsCon.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -219,5 +237,6 @@
         private Guna.UI2.WinForms.Guna2Button btnPaintSupplies;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel panelProductsCon;
+        private System.Windows.Forms.DataGridView dgvProducts;
     }
 }
