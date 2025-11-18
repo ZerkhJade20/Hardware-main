@@ -63,11 +63,11 @@ namespace Hardware_main.UserControls
         private void LoadTrendChart()
         {
             string query = @"
-        SELECT DATENAME(week, DateCreated) AS [Week], 
-               SUM(TotalAmount) AS TotalSales
-        FROM tblTransactions
-        GROUP BY DATENAME(week, DateCreated)
-        ORDER BY MIN(DateCreated)";
+                            SELECT DATENAME(week, DateCreated) AS [Week], 
+                                   SUM(TotalAmount) AS TotalSales
+                            FROM tblTransactions
+                            GROUP BY DATENAME(week, DateCreated)
+                            ORDER BY MIN(DateCreated)";
 
             DataTable dt = DBHelper.ExecuteSelect(query);
 

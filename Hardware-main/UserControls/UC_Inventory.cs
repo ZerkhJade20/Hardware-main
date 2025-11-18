@@ -20,6 +20,8 @@ namespace Hardware_main.UserControls
         public UC_Inventory()
         {
             InitializeComponent();
+
+            
             dgvInventory.CellContentClick += dataGridView1_CellContentClick;
             LoadInventoryList();
             txtSearchInInventory.TextChanged += (s, e) => LoadInventoryList(txtSearchInInventory.Text);
@@ -28,14 +30,46 @@ namespace Hardware_main.UserControls
         }
         private void LoadInventoryList(string filter = "")
         {
-            string sql = "SELECT * FROM tblItems";
+            string sql = "SELECT ItemID, ItemName, SKU, Category, Quantity, Price, ReorderLevel, Status, DateAdded FROM tblItems";
             SqlParameter[] parameters = null;
+
             if (!string.IsNullOrWhiteSpace(filter))
             {
                 sql += " WHERE ItemName LIKE @filter OR SKU LIKE @filter OR Category LIKE @filter";
                 parameters = new[] { new SqlParameter("@filter", $"%{filter}%") };
             }
+
+            // 1. Load from database
             dgvInventory.DataSource = DBHelper.ExecuteSelect(sql, parameters);
+
+            // 2. Remove any previous Delete button column (avoid duplicates)
+            if (dgvInventory.Columns.Contains("Delete"))
+                dgvInventory.Columns.Remove("Delete");
+
+            // 3. Add Delete button column once
+            DataGridViewButtonColumn deleteBtn = new DataGridViewButtonColumn();
+            deleteBtn.Name = "Delete";
+            deleteBtn.HeaderText = "Delete";
+            deleteBtn.Text = "Delete";
+            deleteBtn.UseColumnTextForButtonValue = true;
+            deleteBtn.Width = 80;
+            dgvInventory.Columns.Insert(0, deleteBtn);
+
+            // 4. Disable auto-size so we can manually set widths
+            dgvInventory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+
+            // 5. Apply fixed widths for 1800px DataGridView
+            dgvInventory.Columns["ItemID"].Width = 100;
+            dgvInventory.Columns["ItemName"].Width = 400;
+            dgvInventory.Columns["SKU"].Width = 160;
+            dgvInventory.Columns["Category"].Width = 200;
+            dgvInventory.Columns["Quantity"].Width = 130;
+            dgvInventory.Columns["Price"].Width = 150;
+            dgvInventory.Columns["ReorderLevel"].Width = 140;
+            dgvInventory.Columns["Status"].Width = 170;
+            dgvInventory.Columns["DateAdded"].Width = 200;
+
+            // Total width ≈ 1800px including Delete column
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -132,7 +166,7 @@ namespace Hardware_main.UserControls
             }
         }
 
-       
+
 
         private void dgvInventory_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
@@ -149,7 +183,8 @@ namespace Hardware_main.UserControls
             int quantity = Convert.ToInt32(row.Cells["Quantity"].Value);
             decimal price = Convert.ToDecimal(row.Cells["Price"].Value);
             int reorderLevel = Convert.ToInt32(row.Cells["ReorderLevel"].Value);
-            string status = quantity > 0 ? "In Stock" : "Out of Stock";
+            String status = quantity > 0 ? "In Stock" : "Out of Stock";
+
 
             string sql = @"UPDATE tblItems SET ItemName=@Name, SKU=@SKU, Category=@Category, Quantity=@Quantity,
                        Price=@Price, ReorderLevel=@ReorderLevel, Status=@Status WHERE ItemID=@ItemID";
@@ -168,6 +203,8 @@ namespace Hardware_main.UserControls
             InventoryChanged?.Invoke();
 
         }
+
+
         private void dgvInventory_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
             

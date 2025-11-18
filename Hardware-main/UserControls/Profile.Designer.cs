@@ -49,6 +49,7 @@
             this.pbPicture.Name = "pbPicture";
             this.pbPicture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.pbPicture.Size = new System.Drawing.Size(289, 257);
+            this.pbPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPicture.TabIndex = 0;
             this.pbPicture.TabStop = false;
             // 
