@@ -336,6 +336,7 @@
             // 
             // chartSalesByCategory
             // 
+            this.chartSalesByCategory.BackColor = System.Drawing.Color.Transparent;
             this.chartSalesByCategory.Location = new System.Drawing.Point(34, 67);
             this.chartSalesByCategory.Name = "chartSalesByCategory";
             this.chartSalesByCategory.Size = new System.Drawing.Size(789, 496);

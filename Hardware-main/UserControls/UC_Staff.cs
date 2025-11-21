@@ -17,12 +17,16 @@ namespace Hardware_main.UserControls
         public UC_Staff()
         {
             InitializeComponent();
+            SetupStaffGrid();
             LoadStaffList();
             txtSearchInStaffs.TextChanged += (s, e) => SearchStaff(txtSearchInStaffs.Text);
+            SetStaffGridColumnWidths();
 
 
             panelAddNewStaff.Hide();
         }
+       
+
         private void LoadStaffList()
         {
             dgvStaff.DataSource = DBHelper.ExecuteSelect("SELECT * FROM tblStaff");
@@ -92,14 +96,13 @@ namespace Hardware_main.UserControls
 
         private void dgvStaff_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            // Ignore header row or invalid rows
-            if (e.RowIndex < 0 || e.ColumnIndex < 0)
-                return;
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
 
-            // Ignore the new row placeholder
-            if (dgvStaff.Rows[e.RowIndex].IsNewRow)
-                return;
+            // Ignore button column
+            if (dgvStaff.Columns[e.ColumnIndex].Name == "btnDelete") return;
+
             var row = dgvStaff.Rows[e.RowIndex];
+            if (row.IsNewRow) return;
 
             int id = Convert.ToInt32(row.Cells["StaffID"].Value);
             string name = row.Cells["Name"].Value?.ToString();
@@ -112,11 +115,12 @@ namespace Hardware_main.UserControls
 
             string sql = @"UPDATE tblStaff 
                    SET Name=@Name, Position=@Position, PhoneNumber=@Phone, 
-                       Email=@Email, Location=@Location, 
-                       HireDate=@HireDate, Status=@Status 
+                       Email=@Email, Location=@Location,
+                       HireDate=@HireDate, Status=@Status
                    WHERE StaffID=@ID";
-            SqlParameter[] parameters =
-   {
+
+            var parameters = new SqlParameter[]
+            {
         new SqlParameter("@ID", id),
         new SqlParameter("@Name", name),
         new SqlParameter("@Position", position),
@@ -125,20 +129,80 @@ namespace Hardware_main.UserControls
         new SqlParameter("@Location", location),
         new SqlParameter("@HireDate", hireDate),
         new SqlParameter("@Status", status)
-    };
+            };
 
             DBHelper.ExecuteNonQuery(sql, parameters);
         }
 
         private void dgvStaff_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
-            if (MessageBox.Show("Delete this staff member?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.No)
-                e.Cancel = true;
-            else
+            
+
+        }
+
+        private void dgvStaff_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvStaff.Columns[e.ColumnIndex].Name == "btnDelete")
             {
-                int id = Convert.ToInt32(e.Row.Cells["StaffID"].Value);
-                DBHelper.ExecuteNonQuery("DELETE FROM tblStaff WHERE StaffID=@ID", new SqlParameter("@ID", id));
+                int id = Convert.ToInt32(dgvStaff.Rows[e.RowIndex].Cells["StaffID"].Value);
+
+                if (MessageBox.Show("Delete this staff member?", "Confirm",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    DBHelper.ExecuteNonQuery(
+                        "DELETE FROM tblStaff WHERE StaffID=@ID",
+                        new SqlParameter("@ID", id)
+                    );
+
+                    dgvStaff.Rows.RemoveAt(e.RowIndex); // Remove from UI
+                }
             }
+        }
+        private void SetupStaffGrid()
+        {
+            if (!dgvStaff.Columns.Contains("btnDelete"))
+            {
+                DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+                btn.Name = "btnDelete";
+                btn.HeaderText = "";
+                btn.Text = "Delete";
+                btn.UseColumnTextForButtonValue = true;
+                btn.Width = 70;
+
+                dgvStaff.Columns.Add(btn);
+            }
+        }
+        private void SetStaffGridColumnWidths()
+        {
+            // Prevent errors if grid has no columns yet
+            if (dgvStaff.Columns.Count == 0) return;
+
+            // Total DataGridView Width = 1858
+            int totalWidth = 1858 - 20; // subtract scrollbar padding if needed
+
+            dgvStaff.RowHeadersWidth = 30;
+
+            // Assign fixed widths (adjust depending on your actual column names)
+            dgvStaff.Columns["StaffID"].Width = 120;
+            dgvStaff.Columns["Name"].Width = 300;
+            dgvStaff.Columns["Position"].Width = 180;
+            dgvStaff.Columns["PhoneNumber"].Width = 215;
+            dgvStaff.Columns["Email"].Width = 260;
+            dgvStaff.Columns["Location"].Width = 260;
+            dgvStaff.Columns["HireDate"].Width = 180;
+            dgvStaff.Columns["Status"].Width = 160;
+
+            // Row height
+            dgvStaff.RowTemplate.Height = 35;
+            dgvStaff.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            // Delete button column (fixed width)
+            if (dgvStaff.Columns.Contains("btnDelete"))
+                dgvStaff.Columns["btnDelete"].Width = 150;
+        }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
 
         }
     }

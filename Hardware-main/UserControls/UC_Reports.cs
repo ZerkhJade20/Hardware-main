@@ -63,25 +63,30 @@ namespace Hardware_main.UserControls
         private void LoadTrendChart()
         {
             string query = @"
-                            SELECT DATENAME(week, DateCreated) AS [Week], 
-                                   SUM(TotalAmount) AS TotalSales
-                            FROM tblTransactions
-                            GROUP BY DATENAME(week, DateCreated)
-                            ORDER BY MIN(DateCreated)";
+        SELECT 
+            DATEPART(WEEK, DateCreated) AS WeekNumber,
+            DATENAME(WEEK, DateCreated) AS [WeekName],
+            SUM(TotalAmount) AS TotalSales,
+            MIN(DateCreated) AS FirstDate
+        FROM tblTransactions
+        GROUP BY DATEPART(WEEK, DateCreated), DATENAME(WEEK, DateCreated)
+        ORDER BY FirstDate";   // Ensures left-to-right order
+
 
             DataTable dt = DBHelper.ExecuteSelect(query);
 
-            // Prepare collections
             var salesValues = new LiveCharts.ChartValues<decimal>();
             var weekLabels = new List<string>();
 
             foreach (DataRow row in dt.Rows)
             {
-                weekLabels.Add(row["Week"].ToString());
+                weekLabels.Add("Week " + row["WeekNumber"].ToString()); // LEFT → RIGHT
                 salesValues.Add(Convert.ToDecimal(row["TotalSales"]));
             }
 
             chartSalesTrendAnalysis.Series.Clear();
+            chartSalesTrendAnalysis.AxisX.Clear();
+            chartSalesTrendAnalysis.AxisY.Clear();
 
             chartSalesTrendAnalysis.Series = new LiveCharts.SeriesCollection
     {
@@ -89,18 +94,24 @@ namespace Hardware_main.UserControls
         {
             Title = "Total Sales",
             Values = salesValues,
-            PointGeometrySize = 10
+            PointGeometrySize = 10,
+            LineSmoothness = 1,
         }
+
     };
 
-            chartSalesTrendAnalysis.AxisX.Clear();
             chartSalesTrendAnalysis.AxisX.Add(new LiveCharts.Wpf.Axis
             {
                 Title = "Week",
-                Labels = weekLabels
+                Labels = weekLabels,
+                MinValue = 0,        // makes line start at index 0 (left)
+                Separator = new Separator
+                {
+                    Step = 1,       // one label per point
+                    IsEnabled = false
+                }
             });
 
-            chartSalesTrendAnalysis.AxisY.Clear();
             chartSalesTrendAnalysis.AxisY.Add(new LiveCharts.Wpf.Axis
             {
                 Title = "Sales",

@@ -69,7 +69,7 @@ namespace Hardware_main.UserControls
             dgvInventory.Columns["Status"].Width = 170;
             dgvInventory.Columns["DateAdded"].Width = 200;
 
-            // Total width ≈ 1800px including Delete column
+            
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -82,14 +82,18 @@ namespace Hardware_main.UserControls
             txtItemName.Clear();
             txtSKU.Clear();
             cmbCategory.SelectedIndex = -1;
-            nudQuantity.Value = 0;
-            nudPrice.Value = 0;
-            nudReorder.Value = 0;
+            nudQuantity.Minimum = 0;
+            nudQuantity.Maximum = int.MaxValue;
+            nudPrice.Minimum = 0;
+            nudPrice.Maximum = int.MaxValue;
+            nudReorder.Minimum = 0;
+            nudReorder.Maximum = int.MaxValue;
         }
 
 
         private void UC_Inventory_Load(object sender, EventArgs e)
         {
+            
             cmbCategory.Items.AddRange(new object[]
             {
                 "Electronics",

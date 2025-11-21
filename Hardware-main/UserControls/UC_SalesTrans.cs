@@ -42,20 +42,59 @@ namespace Hardware_main.UserControls
         public void LoadWeeklySalesChart()
         {
             var dt = DBHelper.ExecuteSelect(@"
-            SELECT DATEPART(WEEK, DateCreated) AS WeekNumber, SUM(TotalAmount) AS WeeklyTotal 
-            FROM tblTransactions GROUP BY DATEPART(WEEK, DateCreated) ORDER BY WeekNumber");
-            var weeks = dt.AsEnumerable().Select(r => "W" + r.Field<int>("WeekNumber")).ToArray();
-            var sales = dt.AsEnumerable().Select(r => r.Field<decimal>("WeeklyTotal")).ToArray();
+        SELECT DATEPART(WEEK, DateCreated) AS WeekNumber, 
+               SUM(TotalAmount) AS WeeklyTotal 
+        FROM tblTransactions 
+        GROUP BY DATEPART(WEEK, DateCreated) 
+        ORDER BY WeekNumber");
+
+            // Extract labels and values
+            var weeks = dt.AsEnumerable()
+                          .Select(r => "W" + r.Field<int>("WeekNumber"))
+                          .ToList();
+
+            var sales = dt.AsEnumerable()
+                          .Select(r => r.Field<decimal>("WeeklyTotal"))
+                          .ToList();
+
             chartWeeklySalesOverview.Series.Clear();
             chartWeeklySalesOverview.AxisX.Clear();
             chartWeeklySalesOverview.AxisY.Clear();
+
+            // Convert to ChartValues
+            var salesValues = new ChartValues<decimal>(sales);
+
+            // Line series instead of column series
             chartWeeklySalesOverview.Series = new SeriesCollection
+    {
+        new LineSeries
         {
-            new ColumnSeries { Title = "Weekly Sales", Values = new ChartValues<decimal>(sales) }
-        };
-            chartWeeklySalesOverview.AxisX.Add(new Axis { Title = "Week", Labels = weeks });
-            chartWeeklySalesOverview.AxisY.Add(new Axis { Title = "Sales", LabelFormatter = v => v.ToString("C") });
+            Title = "Weekly Sales",
+            Values = salesValues,
+            PointGeometrySize = 10,      // circle size
+            LineSmoothness = 0.3         // smooth curve
         }
+    };
+
+            chartWeeklySalesOverview.AxisX.Add(new Axis
+            {
+                Title = "Week",
+                Labels = weeks,               
+                MinValue = 0,        // makes line start at index 0 (left)
+                Separator = new Separator
+                {
+                    Step = 1,       // one label per point
+                    IsEnabled = false
+                }
+            });
+
+            chartWeeklySalesOverview.AxisY.Add(new Axis
+            {
+                Title = "Sales",
+                LabelFormatter = value => value.ToString("C")
+            });
+        }
+
         public void LoadTransactionHistory()
         {
             var dt = DBHelper.ExecuteSelect(@"SELECT TOP 100 TransactionID, CustomerName, TotalAmount, PaymentMethod, DateCreated 
@@ -73,6 +112,8 @@ namespace Hardware_main.UserControls
         }
         private void UC_SalesTrans_Load(object sender, EventArgs e)
         {
+            nudTotalAmmount.Minimum = 0;
+            nudTotalAmmount.Maximum = int.MaxValue;
             cmbPaymentMethod.Items.AddRange(new object[]
             {
                 "Cash",

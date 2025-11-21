@@ -37,6 +37,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.lvTransactionHistory = new System.Windows.Forms.ListView();
+            this.TransactionID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label6 = new System.Windows.Forms.Label();
             this.btnExport = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -53,20 +58,15 @@
             this.label19 = new System.Windows.Forms.Label();
             this.btnNewTransactions = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtCustomerName = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.nudTotalAmmount = new Guna.UI2.WinForms.Guna2NumericUpDown();
-            this.label14 = new System.Windows.Forms.Label();
-            this.cmbPaymentMethod = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.btnCreateTransaction = new Guna.UI2.WinForms.Guna2Button();
             this.btnTransactionCancel = new Guna.UI2.WinForms.Guna2Button();
-            this.TransactionID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnCreateTransaction = new Guna.UI2.WinForms.Guna2Button();
+            this.cmbPaymentMethod = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.nudTotalAmmount = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtCustomerName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel4.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
@@ -165,6 +165,7 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
+            this.lvTransactionHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvTransactionHistory.HideSelection = false;
             this.lvTransactionHistory.Location = new System.Drawing.Point(19, 41);
             this.lvTransactionHistory.Name = "lvTransactionHistory";
@@ -172,6 +173,31 @@
             this.lvTransactionHistory.TabIndex = 15;
             this.lvTransactionHistory.UseCompatibleStateImageBehavior = false;
             this.lvTransactionHistory.View = System.Windows.Forms.View.Details;
+            // 
+            // TransactionID
+            // 
+            this.TransactionID.Text = "Transaction ID";
+            this.TransactionID.Width = 200;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Customer Name";
+            this.columnHeader1.Width = 450;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Total Amount";
+            this.columnHeader2.Width = 317;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Payment Method";
+            this.columnHeader3.Width = 350;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Date Created";
+            this.columnHeader4.Width = 500;
             // 
             // label6
             // 
@@ -391,31 +417,100 @@
             this.guna2Panel1.Size = new System.Drawing.Size(554, 475);
             this.guna2Panel1.TabIndex = 20;
             // 
-            // label3
+            // btnTransactionCancel
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Bookman Old Style", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(19, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(300, 40);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "New Transaction";
+            this.btnTransactionCancel.Animated = true;
+            this.btnTransactionCancel.BackColor = System.Drawing.Color.Transparent;
+            this.btnTransactionCancel.BorderRadius = 10;
+            this.btnTransactionCancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTransactionCancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTransactionCancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTransactionCancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTransactionCancel.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnTransactionCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnTransactionCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnTransactionCancel.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(162)))), ((int)(((byte)(73)))));
+            this.btnTransactionCancel.Location = new System.Drawing.Point(198, 413);
+            this.btnTransactionCancel.Name = "btnTransactionCancel";
+            this.btnTransactionCancel.Size = new System.Drawing.Size(121, 39);
+            this.btnTransactionCancel.TabIndex = 27;
+            this.btnTransactionCancel.Text = "Cancel";
+            this.btnTransactionCancel.Click += new System.EventHandler(this.btnTransactionCancel_Click);
             // 
-            // label8
+            // btnCreateTransaction
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label8.Location = new System.Drawing.Point(22, 86);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(183, 23);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "Customer Name *";
+            this.btnCreateTransaction.Animated = true;
+            this.btnCreateTransaction.BackColor = System.Drawing.Color.Transparent;
+            this.btnCreateTransaction.BorderRadius = 10;
+            this.btnCreateTransaction.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCreateTransaction.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCreateTransaction.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCreateTransaction.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCreateTransaction.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
+            this.btnCreateTransaction.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnCreateTransaction.ForeColor = System.Drawing.Color.White;
+            this.btnCreateTransaction.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(88)))), ((int)(((byte)(12)))));
+            this.btnCreateTransaction.Location = new System.Drawing.Point(325, 413);
+            this.btnCreateTransaction.Name = "btnCreateTransaction";
+            this.btnCreateTransaction.Size = new System.Drawing.Size(208, 39);
+            this.btnCreateTransaction.TabIndex = 21;
+            this.btnCreateTransaction.Text = "Create Transaction";
+            this.btnCreateTransaction.Click += new System.EventHandler(this.btnCreateTransaction_Click);
+            // 
+            // cmbPaymentMethod
+            // 
+            this.cmbPaymentMethod.BackColor = System.Drawing.Color.Transparent;
+            this.cmbPaymentMethod.BorderRadius = 5;
+            this.cmbPaymentMethod.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPaymentMethod.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbPaymentMethod.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbPaymentMethod.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbPaymentMethod.ForeColor = System.Drawing.Color.Black;
+            this.cmbPaymentMethod.ItemHeight = 30;
+            this.cmbPaymentMethod.Location = new System.Drawing.Point(26, 333);
+            this.cmbPaymentMethod.Name = "cmbPaymentMethod";
+            this.cmbPaymentMethod.Size = new System.Drawing.Size(507, 36);
+            this.cmbPaymentMethod.TabIndex = 26;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label14.Location = new System.Drawing.Point(22, 293);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(189, 23);
+            this.label14.TabIndex = 25;
+            this.label14.Text = "Payment Method *";
+            // 
+            // nudTotalAmmount
+            // 
+            this.nudTotalAmmount.BackColor = System.Drawing.Color.Transparent;
+            this.nudTotalAmmount.BorderRadius = 5;
+            this.nudTotalAmmount.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nudTotalAmmount.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.nudTotalAmmount.Location = new System.Drawing.Point(26, 215);
+            this.nudTotalAmmount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.nudTotalAmmount.Name = "nudTotalAmmount";
+            this.nudTotalAmmount.Size = new System.Drawing.Size(507, 48);
+            this.nudTotalAmmount.TabIndex = 24;
+            this.nudTotalAmmount.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label10.Location = new System.Drawing.Point(22, 182);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(176, 23);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Total Ammount *";
             // 
             // txtCustomerName
             // 
@@ -441,125 +536,31 @@
             this.txtCustomerName.Size = new System.Drawing.Size(507, 48);
             this.txtCustomerName.TabIndex = 22;
             // 
-            // label10
+            // label8
             // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label10.Location = new System.Drawing.Point(22, 182);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(176, 23);
-            this.label10.TabIndex = 23;
-            this.label10.Text = "Total Ammount *";
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label8.Location = new System.Drawing.Point(22, 86);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(183, 23);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Customer Name *";
             // 
-            // nudTotalAmmount
+            // label3
             // 
-            this.nudTotalAmmount.BackColor = System.Drawing.Color.Transparent;
-            this.nudTotalAmmount.BorderRadius = 5;
-            this.nudTotalAmmount.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.nudTotalAmmount.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.nudTotalAmmount.Location = new System.Drawing.Point(26, 215);
-            this.nudTotalAmmount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.nudTotalAmmount.Name = "nudTotalAmmount";
-            this.nudTotalAmmount.Size = new System.Drawing.Size(507, 48);
-            this.nudTotalAmmount.TabIndex = 24;
-            this.nudTotalAmmount.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label14.Location = new System.Drawing.Point(22, 293);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(189, 23);
-            this.label14.TabIndex = 25;
-            this.label14.Text = "Payment Method *";
-            // 
-            // cmbPaymentMethod
-            // 
-            this.cmbPaymentMethod.BackColor = System.Drawing.Color.Transparent;
-            this.cmbPaymentMethod.BorderRadius = 5;
-            this.cmbPaymentMethod.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPaymentMethod.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbPaymentMethod.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbPaymentMethod.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbPaymentMethod.ForeColor = System.Drawing.Color.Black;
-            this.cmbPaymentMethod.ItemHeight = 30;
-            this.cmbPaymentMethod.Location = new System.Drawing.Point(26, 333);
-            this.cmbPaymentMethod.Name = "cmbPaymentMethod";
-            this.cmbPaymentMethod.Size = new System.Drawing.Size(507, 36);
-            this.cmbPaymentMethod.TabIndex = 26;
-            // 
-            // btnCreateTransaction
-            // 
-            this.btnCreateTransaction.Animated = true;
-            this.btnCreateTransaction.BackColor = System.Drawing.Color.Transparent;
-            this.btnCreateTransaction.BorderRadius = 10;
-            this.btnCreateTransaction.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnCreateTransaction.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnCreateTransaction.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnCreateTransaction.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCreateTransaction.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(115)))), ((int)(((byte)(22)))));
-            this.btnCreateTransaction.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnCreateTransaction.ForeColor = System.Drawing.Color.White;
-            this.btnCreateTransaction.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(88)))), ((int)(((byte)(12)))));
-            this.btnCreateTransaction.Location = new System.Drawing.Point(325, 413);
-            this.btnCreateTransaction.Name = "btnCreateTransaction";
-            this.btnCreateTransaction.Size = new System.Drawing.Size(208, 39);
-            this.btnCreateTransaction.TabIndex = 21;
-            this.btnCreateTransaction.Text = "Create Transaction";
-            this.btnCreateTransaction.Click += new System.EventHandler(this.btnCreateTransaction_Click);
-            // 
-            // btnTransactionCancel
-            // 
-            this.btnTransactionCancel.Animated = true;
-            this.btnTransactionCancel.BackColor = System.Drawing.Color.Transparent;
-            this.btnTransactionCancel.BorderRadius = 10;
-            this.btnTransactionCancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnTransactionCancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnTransactionCancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnTransactionCancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnTransactionCancel.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnTransactionCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnTransactionCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnTransactionCancel.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(162)))), ((int)(((byte)(73)))));
-            this.btnTransactionCancel.Location = new System.Drawing.Point(198, 413);
-            this.btnTransactionCancel.Name = "btnTransactionCancel";
-            this.btnTransactionCancel.Size = new System.Drawing.Size(121, 39);
-            this.btnTransactionCancel.TabIndex = 27;
-            this.btnTransactionCancel.Text = "Cancel";
-            this.btnTransactionCancel.Click += new System.EventHandler(this.btnTransactionCancel_Click);
-            // 
-            // TransactionID
-            // 
-            this.TransactionID.Text = "Transaction ID";
-            this.TransactionID.Width = 200;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Customer Name";
-            this.columnHeader1.Width = 400;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Total Amount";
-            this.columnHeader2.Width = 317;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Payment Method";
-            this.columnHeader3.Width = 300;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Date Created";
-            this.columnHeader4.Width = 500;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Bookman Old Style", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(19, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(300, 40);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "New Transaction";
             // 
             // UC_SalesTrans
             // 

@@ -18,6 +18,7 @@ namespace Hardware_main.UserControls
         public UC_Supplier()
         {
             InitializeComponent();
+            SetupSupplierGrid();
             LoadSupplierList();
             txtSearch.TextChanged += (s, e) => LoadSupplierList(txtSearch.Text);
 
@@ -36,6 +37,35 @@ namespace Hardware_main.UserControls
             }
             var dt = DBHelper.ExecuteSelect(sql, new SqlParameter("@filter", "%" + filter + "%"));
             dgvSupplier.DataSource = dt;
+
+            SetSupplierGridColumnWidths();
+
+
+        }
+        private void SetSupplierGridColumnWidths()
+        {
+            // Ensure the grid has columns before setting widths
+            if (dgvSupplier.Columns.Count == 0) return;
+
+            // Total usable width (subtract scrollbar)
+            int totalWidth = 1782 - 20;
+
+            dgvSupplier.RowHeadersWidth = 30;
+
+            // You can adjust these percentages as needed
+            dgvSupplier.Columns["SupplierID"].Width = 200;     
+            dgvSupplier.Columns["SupplierName"].Width = 340;   
+            dgvSupplier.Columns["Phone"].Width = 180;          
+            dgvSupplier.Columns["Email"].Width = 240;          
+            dgvSupplier.Columns["Location"].Width = 270;       
+            dgvSupplier.Columns["Status"].Width = 160;         
+            dgvSupplier.Columns["Rating"].Width = 160;
+            dgvSupplier.RowTemplate.Height = 35;
+            dgvSupplier.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            // Delete button column (fixed size)
+            if (dgvSupplier.Columns.Contains("btnDelete"))
+                dgvSupplier.Columns["btnDelete"].Width = 200;
         }
 
 
@@ -100,7 +130,10 @@ namespace Hardware_main.UserControls
         private void dgvSupplier_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
+            if (dgvSupplier.Columns[e.ColumnIndex].Name == "btnDelete") return;
+
             var row = dgvSupplier.Rows[e.RowIndex];
+
             int id = Convert.ToInt32(row.Cells["SupplierID"].Value);
             string name = row.Cells["SupplierName"].Value?.ToString() ?? "";
             string phone = row.Cells["Phone"].Value?.ToString() ?? "";
@@ -109,32 +142,64 @@ namespace Hardware_main.UserControls
             string status = row.Cells["Status"].Value?.ToString() ?? "";
             int rating = Convert.ToInt32(row.Cells["Rating"].Value ?? 0);
 
-            string sql = @"UPDATE tblSuppliers SET SupplierName=@name, Phone=@phone, Email=@email,
-                       Location=@loc, Status=@status, Rating=@rating WHERE SupplierID=@id";
+            string sql = @"UPDATE tblSuppliers 
+                   SET SupplierName=@name, Phone=@phone, Email=@email,
+                       Location=@loc, Status=@status, Rating=@rating 
+                   WHERE SupplierID=@id";
+
             var parameters = new SqlParameter[]
             {
-            new SqlParameter("@name", name),
-            new SqlParameter("@phone", phone),
-            new SqlParameter("@email", email),
-            new SqlParameter("@loc", loc),
-            new SqlParameter("@status", status),
-            new SqlParameter("@rating", rating),
-            new SqlParameter("@id", id)
+        new SqlParameter("@name", name),
+        new SqlParameter("@phone", phone),
+        new SqlParameter("@email", email),
+        new SqlParameter("@loc", loc),
+        new SqlParameter("@status", status),
+        new SqlParameter("@rating", rating),
+        new SqlParameter("@id", id)
             };
-            DBHelper.ExecuteNonQuery(sql, parameters);
 
+            DBHelper.ExecuteNonQuery(sql, parameters);
         }
 
         private void dgvSupplier_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
-            if (MessageBox.Show("Delete this supplier?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.No)
-                e.Cancel = true;
-            else
-            {
-                var id = Convert.ToInt32(e.Row.Cells["SupplierID"].Value);
-                DBHelper.ExecuteNonQuery("DELETE FROM tblSuppliers WHERE SupplierID=@id", new SqlParameter("@id", id));
-            }
+            
 
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dgvSupplier_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvSupplier.Columns["btnDelete"].Index && e.RowIndex >= 0)
+            {
+                int id = Convert.ToInt32(dgvSupplier.Rows[e.RowIndex].Cells["SupplierID"].Value);
+
+                if (MessageBox.Show("Delete this supplier?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    DBHelper.ExecuteNonQuery("DELETE FROM tblSuppliers WHERE SupplierID=@id",
+                        new SqlParameter("@id", id));
+
+                    dgvSupplier.Rows.RemoveAt(e.RowIndex); // remove from UI
+                }
+            }
+        }
+        private void SetupSupplierGrid()
+        {
+            if (!dgvSupplier.Columns.Contains("btnDelete"))
+            {
+                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+                btnDelete.Name = "btnDelete";
+                btnDelete.HeaderText = "";
+                btnDelete.Text = "Delete";
+                btnDelete.UseColumnTextForButtonValue = true;
+                btnDelete.Width = 70;
+
+                dgvSupplier.Columns.Add(btnDelete);
+            }
         }
     }
 }
