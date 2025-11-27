@@ -158,5 +158,10 @@ namespace Hardware_main.UserControls
         {
 
         }
+
+        private void lvLowStockAlert_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

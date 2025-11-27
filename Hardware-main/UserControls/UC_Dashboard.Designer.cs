@@ -294,6 +294,7 @@
             this.lvLowStockAlert.TabIndex = 12;
             this.lvLowStockAlert.UseCompatibleStateImageBehavior = false;
             this.lvLowStockAlert.View = System.Windows.Forms.View.List;
+            this.lvLowStockAlert.SelectedIndexChanged += new System.EventHandler(this.lvLowStockAlert_SelectedIndexChanged);
             // 
             // columnHeader4
             // 

@@ -47,7 +47,7 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1449, 100);
+            this.guna2Panel1.Size = new System.Drawing.Size(1918, 100);
             this.guna2Panel1.TabIndex = 0;
             // 
             // guna2Button3
@@ -62,7 +62,7 @@
             this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.guna2Button3.ForeColor = System.Drawing.Color.White;
             this.guna2Button3.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
-            this.guna2Button3.Location = new System.Drawing.Point(1250, 26);
+            this.guna2Button3.Location = new System.Drawing.Point(1720, 26);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(144, 45);
             this.guna2Button3.TabIndex = 2;
@@ -110,9 +110,9 @@
             // panelWorkerContainer
             // 
             this.panelWorkerContainer.BackColor = System.Drawing.Color.White;
-            this.panelWorkerContainer.Location = new System.Drawing.Point(0, 161);
+            this.panelWorkerContainer.Location = new System.Drawing.Point(23, 118);
             this.panelWorkerContainer.Name = "panelWorkerContainer";
-            this.panelWorkerContainer.Size = new System.Drawing.Size(1449, 733);
+            this.panelWorkerContainer.Size = new System.Drawing.Size(1869, 851);
             this.panelWorkerContainer.TabIndex = 1;
             this.panelWorkerContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
             // 
@@ -124,9 +124,10 @@
             // 
             // WorkerUI
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(1449, 894);
+            this.ClientSize = new System.Drawing.Size(1918, 1000);
             this.Controls.Add(this.panelWorkerContainer);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

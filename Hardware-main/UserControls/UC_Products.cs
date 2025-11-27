@@ -35,19 +35,7 @@ namespace Hardware_main.UserControls
         {
             inventoryCtrl.InventoryChanged += () => LoadProducts();
         }
-        private void btnAddToCart_Click(object sender, EventArgs e)
-        {
-            if (dgvProducts.CurrentRow == null) return;
-            DataRowView drv = dgvProducts.CurrentRow.DataBoundItem as DataRowView;
-            if (drv == null) return;
-
-            int itemId = (int)drv["ItemID"];
-            string name = (string)drv["ItemName"];
-            decimal price = (decimal)drv["Price"];
-            int quantity = 1; // or prompt user
-
-            // Raise event or integrate with Cart UserControl accordingly
-        }
+        
 
 
 
@@ -111,8 +99,6 @@ namespace Hardware_main.UserControls
                 // 3. Refresh product list
                 LoadProducts();
             }
-
-
         }
         private void DecreaseProductQuantity(int productId, int qty)
         {
@@ -134,8 +120,9 @@ namespace Hardware_main.UserControls
             }
         }
 
+        private void UC_Products_Load(object sender, EventArgs e)
+        {
 
-
-
+        }
     }
 }
