@@ -148,7 +148,7 @@ namespace Hardware_main.UserControls
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Make sure clicked column is Delete button column, e.g. "Delete"
+            
             if (dgvInventory.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
                 // Confirm deletion
@@ -159,7 +159,7 @@ namespace Hardware_main.UserControls
                 try
                 {
                     DBHelper.ExecuteNonQuery(sql, new SqlParameter("@ItemID", itemId));
-                    // Remove row from DataGridView (refresh your grid instead for consistency)
+                    // Remove row from DataGridView (refresh the grid instead for consistency)
                     LoadInventoryList();
                     InventoryChanged?.Invoke();
                 }
