@@ -20,6 +20,7 @@ namespace Hardware_main.UserControls
         public UC_Cart(UC_Products products)
         {
             InitializeComponent();
+            
             _products = products;
             RefreshCart();
             // Add the Remove button column to the DataGridView
@@ -33,7 +34,7 @@ namespace Hardware_main.UserControls
                 dgvCart.Columns.Add(removeButtonColumn);
             }
         }
-        // Fix for circular dependency
+           // Fix for circular dependency
         public void SetProducts(UC_Products products)
         {
             _products = products;
@@ -75,15 +76,54 @@ namespace Hardware_main.UserControls
                     {
                         DataTable dt = new DataTable();
                         da.Fill(dt);
-                        dgvCart.DataSource = dt;  // Bind to your DataGridView
+                        dgvCart.DataSource = dt;
                     }
                 }
+
+                // IMPORTANT — update total amount here
+                UpdateTotalAmount();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error refreshing cart: {ex.Message}");
             }
         }
+
+
+        private void UpdateTotalAmount()
+        {
+            decimal total = 0;
+
+            foreach (DataGridViewRow row in dgvCart.Rows)
+            {
+                if (row.Cells["Price"].Value != null && row.Cells["Quantity"].Value != null)
+                {
+                    decimal price = Convert.ToDecimal(row.Cells["Price"].Value);
+                    int qty = Convert.ToInt32(row.Cells["Quantity"].Value);
+
+                    total += price * qty;
+                }
+            }
+
+            lblTotal.Text = "Total Amount: ₱" + total.ToString("N2");
+        }
+
+
+        public void LoadCartItems()
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = "SELECT ID, ProductID, Name, Price, Quantity FROM Cart";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                dgvCart.DataSource = dt;
+            }
+
+            UpdateTotalAmount();  // ← ADD THIS
+        }
+
 
         private void UC_Cart_Load(object sender, EventArgs e)
         {
@@ -96,7 +136,74 @@ namespace Hardware_main.UserControls
 
         private void btnCheckout_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // 1️⃣ Get total amount from label
+                decimal totalAmount = 0m;
+                string text = lblTotal.Text.Replace("Total Amount: ₱", "").Trim();
+                decimal.TryParse(text, out totalAmount);
+
+                if (totalAmount <= 0)
+                {
+                    MessageBox.Show("Cart is empty.");
+                    return;
+                }
+
+                // 2️⃣ Insert transaction
+                string insertSql = @"
+            INSERT INTO tblTransactions (TotalAmount, DateCreated)
+            VALUES (@amount, GETDATE())";
+
+                DBHelper.ExecuteNonQuery(insertSql,
+                    new SqlParameter("@amount", totalAmount)
+                );
+
+                // 3️⃣ Clear cart
+                DBHelper.ExecuteNonQuery("DELETE FROM Cart");
+                RefreshCart();
+
+                MessageBox.Show("Checkout completed!");
+
+                // 4️⃣ Update all user controls in frmMain
+                UpdateParentFormControls();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Checkout failed: " + ex.Message);
+            }
         }
+
+        private void UpdateParentFormControls()
+        {
+            // Find parent form (frmMain)
+            frmMain mainForm = this.FindForm() as frmMain;
+            if (mainForm == null) return;
+
+            // DASHBOARD
+            if (mainForm.dashboardUC != null)
+            {
+                mainForm.dashboardUC.LoadTotalSales();
+                mainForm.dashboardUC.LoadSalesChart();
+            }
+
+            // SALES & TRANSACTIONS
+            if (mainForm.salesUC != null)
+            {
+                mainForm.salesUC.LoadTransactionSummary();
+                mainForm.salesUC.LoadWeeklySalesChart();
+            }
+
+            // REPORTS
+            if (mainForm.reportsUC != null)
+            {
+                mainForm.reportsUC.UpdateLabels();       // ✅ Your existing method
+                mainForm.reportsUC.LoadTrendChart();     // Trend chart update
+            }
+        }
+
+
+
+
 
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -110,27 +217,31 @@ namespace Hardware_main.UserControls
         {
             if (dgvCart.Columns[e.ColumnIndex].Name == "Remove" && e.RowIndex >= 0)
             {
+                // Get the Cart row ID
+                int cartId = Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["ID"].Value);
                 int productId = Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["ProductID"].Value);
 
                 try
                 {
-                    // 1. Delete from Cart table
+                    // 1. Delete ONLY this row
                     using (SqlConnection con = new SqlConnection(connectionString))
                     {
                         con.Open();
-                        string deleteQuery = "DELETE FROM Cart WHERE ProductID = @ProductID";
+                        string deleteQuery = "DELETE FROM Cart WHERE ID = @ID";
                         using (SqlCommand cmd = new SqlCommand(deleteQuery, con))
                         {
-                            cmd.Parameters.AddWithValue("@ProductID", productId);
+                            cmd.Parameters.AddWithValue("@ID", cartId);
                             cmd.ExecuteNonQuery();
                         }
                     }
-                    // 2. Increase quantity in tblItems (restore stock)
+
+                    // 2. Increase stock
                     IncreaseProductQuantity(productId, 1);
-                    // 3. Refresh cart's DataGridView
+
+                    // 3. Refresh views
                     RefreshCart();
-                    // 4. Refresh product's DataGridView
                     _products.LoadProducts();
+
                     MessageBox.Show("Item removed from cart and stock restored!");
                 }
                 catch (Exception ex)
@@ -139,6 +250,7 @@ namespace Hardware_main.UserControls
                 }
             }
         }
+
         // Helper method to increase product quantity (reverse of DecreaseProductQuantity)
         private void IncreaseProductQuantity(int productId, int qty)
         {

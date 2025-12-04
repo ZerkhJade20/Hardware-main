@@ -47,7 +47,7 @@
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
             this.guna2Panel1.Location = new System.Drawing.Point(3, 3);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1866, 114);
+            this.guna2Panel1.Size = new System.Drawing.Size(1700, 114);
             this.guna2Panel1.TabIndex = 28;
             // 
             // guna2Button1
@@ -58,11 +58,12 @@
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(1649, 30);
+            this.guna2Button1.Location = new System.Drawing.Point(1455, 30);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(180, 45);
             this.guna2Button1.TabIndex = 1;
             this.guna2Button1.Text = "guna2Button1";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // guna2TextBox1
             // 
@@ -83,15 +84,15 @@
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PlaceholderText = "";
             this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(1566, 37);
+            this.guna2TextBox1.Size = new System.Drawing.Size(1390, 37);
             this.guna2TextBox1.TabIndex = 0;
             // 
             // panelProductsCon
             // 
             this.panelProductsCon.Controls.Add(this.dgvProducts);
-            this.panelProductsCon.Location = new System.Drawing.Point(4, 152);
+            this.panelProductsCon.Location = new System.Drawing.Point(18, 123);
             this.panelProductsCon.Name = "panelProductsCon";
-            this.panelProductsCon.Size = new System.Drawing.Size(1847, 678);
+            this.panelProductsCon.Size = new System.Drawing.Size(1620, 527);
             this.panelProductsCon.TabIndex = 29;
             this.panelProductsCon.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
             // 
@@ -109,7 +110,7 @@
             this.dgvProducts.ReadOnly = true;
             this.dgvProducts.RowHeadersWidth = 51;
             this.dgvProducts.RowTemplate.Height = 24;
-            this.dgvProducts.Size = new System.Drawing.Size(1847, 678);
+            this.dgvProducts.Size = new System.Drawing.Size(1620, 527);
             this.dgvProducts.TabIndex = 0;
             this.dgvProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellContentClick);
             // 
@@ -129,7 +130,7 @@
             this.Controls.Add(this.panelProductsCon);
             this.Controls.Add(this.guna2Panel1);
             this.Name = "UC_Products";
-            this.Size = new System.Drawing.Size(1869, 851);
+            this.Size = new System.Drawing.Size(1667, 665);
             this.Load += new System.EventHandler(this.UC_Products_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.panelProductsCon.ResumeLayout(false);

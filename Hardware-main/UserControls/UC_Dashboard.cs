@@ -31,7 +31,7 @@ namespace Hardware_main.UserControls
             LoadRecentTransactions();
             LoadSalesChart();
         }
-        private void LoadTotalSales()
+        public void LoadTotalSales()
         {
             var result = DBHelper.ExecuteScalar("SELECT ISNULL(SUM(TotalAmount),0) FROM tblTransactions");
             decimal totalSales = (result != DBNull.Value) ? Convert.ToDecimal(result) : 0m;
@@ -95,7 +95,7 @@ namespace Hardware_main.UserControls
         lvRecentTransactions.Items.Add(item);
     }
 }
-        private void LoadSalesChart()
+        public void LoadSalesChart()
         {
             string sql = @"
                         SELECT DATEPART(WEEK, DateCreated) AS WeekNumber, SUM(TotalAmount) AS WeeklySales

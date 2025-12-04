@@ -139,5 +139,10 @@ namespace Hardware_main.UserControls
         {
 
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

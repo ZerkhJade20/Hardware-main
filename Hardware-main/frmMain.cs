@@ -19,6 +19,10 @@ namespace Hardware_main
         private int userID;
         private string username;
         private byte[] photo;
+        public UC_Dashboard dashboardUC { get; private set; }
+        public UC_SalesTrans salesUC { get; private set; }
+        public UC_Reports reportsUC { get; private set; }
+
 
 
         public frmMain(int userID, string username, byte[] photo)
@@ -28,6 +32,14 @@ namespace Hardware_main
             this.username = username;
             this.photo = photo;
             LoadUserData();
+            dashboardUC = new UC_Dashboard();
+            salesUC = new UC_SalesTrans();
+            reportsUC = new UC_Reports();
+
+            // Example: add to panels
+            panelContainer.Controls.Add(dashboardUC);
+            panelContainer.Controls.Add(salesUC);
+            panelContainer.Controls.Add(reportsUC);
 
 
             UC_Dashboard uC_Dashboard = new UC_Dashboard();

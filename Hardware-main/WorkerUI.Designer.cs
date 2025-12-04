@@ -47,7 +47,7 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1918, 100);
+            this.guna2Panel1.Size = new System.Drawing.Size(1700, 100);
             this.guna2Panel1.TabIndex = 0;
             // 
             // guna2Button3
@@ -110,9 +110,9 @@
             // panelWorkerContainer
             // 
             this.panelWorkerContainer.BackColor = System.Drawing.Color.White;
-            this.panelWorkerContainer.Location = new System.Drawing.Point(23, 118);
+            this.panelWorkerContainer.Location = new System.Drawing.Point(12, 123);
             this.panelWorkerContainer.Name = "panelWorkerContainer";
-            this.panelWorkerContainer.Size = new System.Drawing.Size(1869, 851);
+            this.panelWorkerContainer.Size = new System.Drawing.Size(1667, 665);
             this.panelWorkerContainer.TabIndex = 1;
             this.panelWorkerContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
             // 
@@ -124,10 +124,9 @@
             // 
             // WorkerUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(249)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(1918, 1000);
+            this.ClientSize = new System.Drawing.Size(1700, 800);
             this.Controls.Add(this.panelWorkerContainer);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

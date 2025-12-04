@@ -39,7 +39,7 @@ namespace Hardware_main.UserControls
             LoadTrendChart();
             LoadCategoryChart();
         }
-        private void UpdateLabels()
+        public void UpdateLabels()
         {
             // Total Revenue: Sum TotalAmount from tblTransactions.
             string queryRevenue = "SELECT SUM(TotalAmount) FROM tblTransactions";
@@ -60,7 +60,7 @@ namespace Hardware_main.UserControls
             }
             
         }
-        private void LoadTrendChart()
+        public void LoadTrendChart()
         {
             string query = @"
         SELECT 
