@@ -13,18 +13,18 @@ namespace Hardware_main.UserControls
 {
     public partial class UC_Products : UserControl
     {
-        public delegate void AddToCartHandler(int productID, string name, decimal price);
-        public event AddToCartHandler OnAddToCart;
         private UC_Cart _cart;
+        private string connectionString = "Data Source=ZERKH\\SQLEXPRESS;Initial Catalog=InventoryDB;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
         public UC_Products(UC_Cart cart)
         {
             InitializeComponent();
             _cart = cart;
             LoadProducts();
-
-            
-
-
+        }
+        // Fix for circular dependency
+        public void SetCart(UC_Cart cart)
+        {
+            _cart = cart;
         }
         public void LoadProducts()
         {
@@ -87,35 +87,50 @@ namespace Hardware_main.UserControls
             if (dgvProducts.Columns[e.ColumnIndex].Name == "Add" && e.RowIndex >= 0)
             {
                 int productId = Convert.ToInt32(dgvProducts.Rows[e.RowIndex].Cells["ItemID"].Value);
-                string productName = dgvProducts.Rows[e.RowIndex].Cells["ItemName"].Value.ToString();
+                string productName = Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["ItemName"].Value);
                 decimal price = Convert.ToDecimal(dgvProducts.Rows[e.RowIndex].Cells["Price"].Value);
 
-                // 1. Add/update item in the Cart
-                _cart.AddItemToCart(productId, productName, price);
+                try
+                {
+                    // 1. Decrease quantity in database (only if sufficient stock)
+                    int rowsAffected = DecreaseProductQuantity(productId, 1);
+                    if (rowsAffected == 0)
+                    {
+                        MessageBox.Show("Insufficient stock for this item.");
+                        return;
+                    }
 
-                // 2. Decrease quantity in database
-                DecreaseProductQuantity(productId, 1);
+                    // 2. Add item to cart (this now handles the DB insert in UC_Cart)
+                    _cart.AddItemToCart(productId, productName, price);
 
-                // 3. Refresh product list
-                LoadProducts();
+                    // 3. Refresh cart's DataGridView from database
+                    _cart.RefreshCart();
+
+                    // 4. Refresh product list
+                    LoadProducts();
+
+                    MessageBox.Show("Product added to cart!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error adding to cart: {ex.Message}");
+                }
             }
         }
-        private void DecreaseProductQuantity(int productId, int qty)
+        private int DecreaseProductQuantity(int productId, int qty)
         {
-            using (SqlConnection con = new SqlConnection("Data Source=ZERKH\\SQLEXPRESS;Initial Catalog=InventoryDB;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-
                 string query = @"
-            UPDATE tblItems 
-            SET Quantity = Quantity - @qty 
-            WHERE ItemID = @id AND Quantity >= @qty";
-
+                    UPDATE tblItems 
+                    SET Quantity = Quantity - @qty 
+                    WHERE ItemID = @id AND Quantity >= @qty";
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     cmd.Parameters.AddWithValue("@qty", qty);
                     cmd.Parameters.AddWithValue("@id", productId);
-                    cmd.ExecuteNonQuery();
+                    return cmd.ExecuteNonQuery();
                 }
             }
         }

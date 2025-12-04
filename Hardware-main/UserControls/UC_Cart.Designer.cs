@@ -38,10 +38,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.lvCart = new System.Windows.Forms.ListView();
+            this.dgvCart = new System.Windows.Forms.DataGridView();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -153,26 +155,37 @@
             // 
             // guna2Panel3
             // 
-            this.guna2Panel3.Controls.Add(this.lvCart);
+            this.guna2Panel3.Controls.Add(this.dgvCart);
             this.guna2Panel3.Location = new System.Drawing.Point(12, 132);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(1836, 468);
             this.guna2Panel3.TabIndex = 3;
             // 
-            // lvCart
+            // dgvCart
             // 
-            this.lvCart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvCart.HideSelection = false;
-            this.lvCart.Location = new System.Drawing.Point(0, 0);
-            this.lvCart.Name = "lvCart";
-            this.lvCart.Size = new System.Drawing.Size(1836, 468);
-            this.lvCart.TabIndex = 0;
-            this.lvCart.UseCompatibleStateImageBehavior = false;
+            this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Remove});
+            this.dgvCart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCart.Location = new System.Drawing.Point(0, 0);
+            this.dgvCart.Name = "dgvCart";
+            this.dgvCart.RowHeadersWidth = 51;
+            this.dgvCart.Size = new System.Drawing.Size(1836, 468);
+            this.dgvCart.TabIndex = 0;
+            this.dgvCart.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCart_CellContentClick);
+            // 
+            // Remove
+            // 
+            this.Remove.HeaderText = "Remove";
+            this.Remove.MinimumWidth = 6;
+            this.Remove.Name = "Remove";
+            this.Remove.Text = "Remove";
+            this.Remove.UseColumnTextForButtonValue = true;
+            this.Remove.Width = 125;
             // 
             // UC_Cart
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(251)))));
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel2);
@@ -185,6 +198,7 @@
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             this.guna2Panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -200,6 +214,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTotalValue;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private System.Windows.Forms.ListView lvCart;
+        private System.Windows.Forms.DataGridView dgvCart;
+        private System.Windows.Forms.DataGridViewButtonColumn Remove;
     }
 }

@@ -134,6 +134,7 @@
             this.Name = "WorkerUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WorkerUI";
+            this.Load += new System.EventHandler(this.WorkerUI_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

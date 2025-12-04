@@ -19,16 +19,18 @@ namespace Hardware_main
         public WorkerUI()
         {
             InitializeComponent();
-            cartControl = new UC_Cart();
-            productsControl = new UC_Products(cartControl);
+            // 1. Create both controls with nulls
+            cartControl = new UC_Cart(null);
+            productsControl = new UC_Products(null);
 
+            // 2. Connect them properly
+            cartControl.SetProducts(productsControl);
+            productsControl.SetCart(cartControl);
+
+            // 3. Load product UI by default
             addUserControl(productsControl);
-
-            UC_Cart uC_Cart = new UC_Cart();
-            UC_Products uC_Products = new UC_Products(uC_Cart);
-            addUserControl(uC_Products);
         }
-        
+
         private void addUserControl(UserControl userControl)
         {
             userControl.Dock = DockStyle.Fill;
@@ -36,7 +38,7 @@ namespace Hardware_main
             panelWorkerContainer.Controls.Add(userControl);
             userControl.BringToFront();
         }
-        
+
         private void guna2Panel2_Paint(object sender, PaintEventArgs e)
         {
 
@@ -44,20 +46,22 @@ namespace Hardware_main
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            UC_Cart uC_Cart = new UC_Cart();
-            UC_Products uC_Products = new UC_Products(uC_Cart);
-            addUserControl(uC_Products);
+            addUserControl(productsControl);
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            UC_Cart uC_Cart = new UC_Cart();
-            addUserControl(uC_Cart);
+            addUserControl(cartControl);
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void WorkerUI_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

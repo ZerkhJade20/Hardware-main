@@ -72,6 +72,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AdminAccountDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CartItem.cs" />
     <Compile Include="Checkout.cs">
       <SubType>Form</SubType>
     </Compile>

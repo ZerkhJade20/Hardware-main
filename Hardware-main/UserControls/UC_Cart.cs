@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,137 +14,80 @@ namespace Hardware_main.UserControls
 {
     public partial class UC_Cart : UserControl
     {
-        private DataTable cartTable; // Internal table to hold cart items
 
-        public UC_Cart()
+        private string connectionString = "Data Source=ZERKH\\SQLEXPRESS;Initial Catalog=InventoryDB;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+        private UC_Products _products;  // Reference to UC_Products for refreshing
+        public UC_Cart(UC_Products products)
         {
             InitializeComponent();
-            InitializeCartTable();
-            SetupListView();
-        }
-
-        // Initialize the DataTable for cart items (only called once in constructor)
-        private void InitializeCartTable()
-        {
-            cartTable = new DataTable();
-            cartTable.Columns.Add("ItemID", typeof(int));
-            cartTable.Columns.Add("ItemName", typeof(string));
-            cartTable.Columns.Add("Price", typeof(decimal));
-            cartTable.Columns.Add("Quantity", typeof(int));
-            cartTable.Columns.Add("Total", typeof(decimal)); // Calculated as Price * Quantity
-            // Set primary key to enable Find() for existing items
-            cartTable.PrimaryKey = new DataColumn[] { cartTable.Columns["ItemID"] };
-        }
-
-        // Set up the ListView (lvCart) - called in constructor
-        private void SetupListView()
-        {
-            // Configure ListView properties (ensure View=Details in designer)
-            lvCart.View = View.Details;
-            lvCart.FullRowSelect = true;
-            lvCart.GridLines = true;
-
-            // Add columns
-            lvCart.Columns.Add("ItemName", "Name", 150);
-            lvCart.Columns.Add("Price", "Price", 100);
-            lvCart.Columns.Add("Quantity", "Quantity", 80);
-            lvCart.Columns.Add("Total", "Total", 100);
-        }
-
-        // Refresh the ListView by clearing and re-adding items from DataTable
-        private void RefreshListView()
-        {
-            lvCart.Items.Clear();
-            foreach (DataRow row in cartTable.Rows)
+            _products = products;
+            RefreshCart();
+            // Add the Remove button column to the DataGridView
+            if (dgvCart.Columns["Remove"] == null)
             {
-                ListViewItem item = new ListViewItem(row["ItemName"].ToString());
-                item.SubItems.Add(row["Price"].ToString());
-                item.SubItems.Add(row["Quantity"].ToString());
-                item.SubItems.Add(row["Total"].ToString());
-                // Store ItemID in Tag for easy access (e.g., for removal)
-                item.Tag = row["ItemID"];
-                lvCart.Items.Add(item);
+                DataGridViewButtonColumn removeButtonColumn = new DataGridViewButtonColumn();
+                removeButtonColumn.Name = "Remove";
+                removeButtonColumn.HeaderText = "Remove";
+                removeButtonColumn.Text = "Remove";
+                removeButtonColumn.UseColumnTextForButtonValue = true;
+                dgvCart.Columns.Add(removeButtonColumn);
             }
         }
-
-        // Method called by UC_Products to add an item to the cart
+        // Fix for circular dependency
+        public void SetProducts(UC_Products products)
+        {
+            _products = products;
+        }
+        // Method called by UC_Products to add an item to the cart (inserts into DB)
         public void AddItemToCart(int productId, string productName, decimal price)
         {
-            // Debug: Confirm this method is called (remove in production)
-            MessageBox.Show($"Adding to cart: ID={productId}, Name={productName}, Price={price}");
             try
             {
-                // Check if the item already exists in the cart
-                DataRow existingRow = cartTable.Rows.Find(productId);
-                if (existingRow != null)
+                using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    // Increment quantity and update total
-                    int currentQty = (int)existingRow["Quantity"];
-                    existingRow["Quantity"] = currentQty + 1;
-                    existingRow["Total"] = (decimal)existingRow["Price"] * (int)existingRow["Quantity"];
+                    con.Open();
+                    string insertQuery = "INSERT INTO Cart (ProductID, Name, Price, Quantity) VALUES (@ProductID, @Name, @Price, 1)";
+                    using (SqlCommand cmd = new SqlCommand(insertQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@ProductID", productId);
+                        cmd.Parameters.AddWithValue("@Name", productName);
+                        cmd.Parameters.AddWithValue("@Price", price);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
-                else
-                {
-                    // Add new row
-                    DataRow newRow = cartTable.NewRow();
-                    newRow["ItemID"] = productId;
-                    newRow["ItemName"] = productName;
-                    newRow["Price"] = price;
-                    newRow["Quantity"] = 1;
-                    newRow["Total"] = price * 1;
-                    cartTable.Rows.Add(newRow);
-                }
-                // Refresh the ListView to reflect changes
-                RefreshListView();
+                // Note: RefreshCart is called separately in UC_Products after this
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error adding to cart: {ex.Message}");
             }
         }
-
-        // Optional: Method to remove an item from the cart (called by btnRemove)
-        public void RemoveItemFromCart(int productId)
+        // Method to refresh the cart's DataGridView from the database
+        public void RefreshCart()
         {
             try
             {
-                DataRow rowToRemove = cartTable.Rows.Find(productId);
-                if (rowToRemove != null)
+                using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    cartTable.Rows.Remove(rowToRemove);
-                    RefreshListView();
+                    con.Open();
+                    string query = "SELECT ID, ProductID, Name, Price, Quantity FROM Cart";
+                    using (SqlDataAdapter da = new SqlDataAdapter(query, con))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        dgvCart.DataSource = dt;  // Bind to your DataGridView
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error removing from cart: {ex.Message}");
-            }
-        }
-
-        // Optional: Clear the entire cart
-        public void ClearCart()
-        {
-            cartTable.Clear();
-            RefreshListView();
-        }
-
-        // Handle Remove button click (assumes btnRemove is added in designer next to lvCart)
-        private void btnRemove_Click(object sender, EventArgs e)
-        {
-            if (lvCart.SelectedItems.Count > 0)
-            {
-                int productId = (int)lvCart.SelectedItems[0].Tag;
-                RemoveItemFromCart(productId);
-            }
-            else
-            {
-                MessageBox.Show("Please select an item to remove.");
+                MessageBox.Show($"Error refreshing cart: {ex.Message}");
             }
         }
 
         private void UC_Cart_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void checkoutContainer_Paint(object sender, PaintEventArgs e)
@@ -160,6 +104,58 @@ namespace Hardware_main.UserControls
 
         private void lvCart_SelectedIndexChanged(object sender, EventArgs e)
         {
+        }
+
+        private void dgvCart_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvCart.Columns[e.ColumnIndex].Name == "Remove" && e.RowIndex >= 0)
+            {
+                int productId = Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["ProductID"].Value);
+
+                try
+                {
+                    // 1. Delete from Cart table
+                    using (SqlConnection con = new SqlConnection(connectionString))
+                    {
+                        con.Open();
+                        string deleteQuery = "DELETE FROM Cart WHERE ProductID = @ProductID";
+                        using (SqlCommand cmd = new SqlCommand(deleteQuery, con))
+                        {
+                            cmd.Parameters.AddWithValue("@ProductID", productId);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    // 2. Increase quantity in tblItems (restore stock)
+                    IncreaseProductQuantity(productId, 1);
+                    // 3. Refresh cart's DataGridView
+                    RefreshCart();
+                    // 4. Refresh product's DataGridView
+                    _products.LoadProducts();
+                    MessageBox.Show("Item removed from cart and stock restored!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error removing from cart: {ex.Message}");
+                }
+            }
+        }
+        // Helper method to increase product quantity (reverse of DecreaseProductQuantity)
+        private void IncreaseProductQuantity(int productId, int qty)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                string query = @"
+                    UPDATE tblItems 
+                    SET Quantity = Quantity + @qty 
+                    WHERE ItemID = @id";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@qty", qty);
+                    cmd.Parameters.AddWithValue("@id", productId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }
