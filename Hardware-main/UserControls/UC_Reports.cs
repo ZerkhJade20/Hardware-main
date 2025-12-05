@@ -23,20 +23,23 @@ namespace Hardware_main.UserControls
 
     public partial class UC_Reports : UserControl
     {
-        private PrintDocument printDocument;
-        private PrintPreviewDialog previewDialog;
+        private PrintDocument printDocument = new PrintDocument();
+        private Bitmap controlBitmap;
         public UC_Reports()
         {
             InitializeComponent();
             LoadReportData();
-            printDocument = new PrintDocument();
             printDocument.PrintPage += printDocument1_PrintPage;
-
-            previewDialog = new PrintPreviewDialog();
-            previewDialog.Document = printDocument;
-            previewDialog.Width = 1000;
-            previewDialog.Height = 800;
             btnPrintReport.Click += BtnPrint_Click;
+
+
+        }
+
+        private Bitmap CaptureUserControl(UserControl control)
+        {
+            Bitmap bmp = new Bitmap(control.Width, control.Height);
+            control.DrawToBitmap(bmp, new Rectangle(0, 0, control.Width, control.Height));
+            return bmp;
         }
         public static void RefreshReport()
         {
@@ -173,51 +176,13 @@ namespace Hardware_main.UserControls
         }
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            try
+            PrintPreviewDialog preview = new PrintPreviewDialog
             {
-                using (SaveFileDialog sfd = new SaveFileDialog())
-                {
-                    sfd.Filter = "PDF File|*.pdf";
-                    sfd.FileName = "Report.pdf";
-
-                    if (sfd.ShowDialog() != DialogResult.OK) return;
-
-                    using (System.IO.FileStream stream = new System.IO.FileStream(sfd.FileName, System.IO.FileMode.Create))
-                    {
-                        // Create PDF document
-                        iTextSharp.text.Document pdfDoc = new iTextSharp.text.Document(iTextSharp.text.PageSize.A4, 20, 20, 20, 20);
-                        iTextSharp.text.pdf.PdfWriter.GetInstance(pdfDoc, stream);
-                        pdfDoc.Open();
-
-                        // 2Capture UC labels
-                        Bitmap labelsBmp = new Bitmap(this.Width, this.Height);
-                        this.DrawToBitmap(labelsBmp, new Rectangle(0, 0, this.Width, this.Height));
-
-                        using (System.IO.MemoryStream ms = new System.IO.MemoryStream())
-                        {
-                            labelsBmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                            iTextSharp.text.Image pdfImage = iTextSharp.text.Image.GetInstance(ms.ToArray());
-
-                            // Scale image to fit page width
-                            if (pdfImage.Width > pdfDoc.PageSize.Width - pdfDoc.LeftMargin - pdfDoc.RightMargin)
-                            {
-                                pdfImage.ScaleToFit(pdfDoc.PageSize.Width - pdfDoc.LeftMargin - pdfDoc.RightMargin,
-                                                    pdfDoc.PageSize.Height - pdfDoc.TopMargin - pdfDoc.BottomMargin);
-                            }
-
-                            pdfDoc.Add(pdfImage);
-                        }
-
-                        pdfDoc.Close();
-                    }
-
-                    MessageBox.Show("PDF generated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error generating PDF: " + ex.Message);
-            }
+                Document = printDocument,
+                Width = 1200,
+                Height = 800
+            };
+            preview.ShowDialog();
         }
 
         private void chartSalesTrendAnalysis_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
@@ -227,49 +192,155 @@ namespace Hardware_main.UserControls
 
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
-            // Capture entire UserControl into a bitmap
-            Bitmap bmp = new Bitmap(this.Width, this.Height);
-            this.DrawToBitmap(bmp, new Rectangle(0, 0, this.Width, this.Height));
+            DataTable dtTrend = DBHelper.ExecuteSelect(@"
+                                                        SELECT DATEPART(WEEK, DateCreated) AS WeekNumber, SUM(TotalAmount) AS TotalSales
+                                                        FROM tblTransactions
+                                                        GROUP BY DATEPART(WEEK, DateCreated)
+                                                        ORDER BY WeekNumber");
 
-            float scale = Math.Min((float)e.MarginBounds.Width / bmp.Width,
-                                   (float)e.MarginBounds.Height / bmp.Height);
+            DataTable dtCategory = DBHelper.ExecuteSelect(@"
+                                                           SELECT Category, SUM(Price * Quantity) AS TotalValue
+                                                           FROM tblItems
+                                                           GROUP BY Category");
 
-            int printWidth = (int)(bmp.Width * scale);
-            int printHeight = (int)(bmp.Height * scale);
+            Graphics g = e.Graphics;
+            int pageWidth = e.PageBounds.Width;
+            int margin = 40;
+            int currentY = margin;
 
-            e.Graphics.DrawImage(bmp, e.MarginBounds.Left, e.MarginBounds.Top, printWidth, printHeight);
+            Font headerFont = new Font("Arial", 20, FontStyle.Bold);
+            Font subHeaderFont = new Font("Arial", 12, FontStyle.Regular);
+            Font tableHeaderFont = new Font("Arial", 11, FontStyle.Bold);
+            Font tableFont = new Font("Arial", 10, FontStyle.Regular);
+            Brush brush = Brushes.Black;
+            Pen tablePen = new Pen(Color.Black, 1);
+
+            string header = "Sales Report";
+            SizeF headerSize = g.MeasureString(header, headerFont);
+            g.DrawString(header, headerFont, brush, (pageWidth - headerSize.Width) / 2, currentY);
+            currentY += (int)headerSize.Height + 10;
+
+            string dateText = "Date: " + DateTime.Now.ToString("yyyy-MM-dd");
+            SizeF dateSize = g.MeasureString(dateText, subHeaderFont);
+            g.DrawString(dateText, subHeaderFont, brush, (pageWidth - dateSize.Width) / 2, currentY);
+            currentY += (int)dateSize.Height + 20;
+
+            int summaryBoxWidth = (pageWidth - margin * 2) / 3;
+            int summaryHeight = 40;
+
+            Rectangle revenueRect = new Rectangle(margin, currentY, summaryBoxWidth, summaryHeight);
+            Rectangle transRect = new Rectangle(margin + summaryBoxWidth, currentY, summaryBoxWidth, summaryHeight);
+            Rectangle avgRect = new Rectangle(margin + summaryBoxWidth * 2, currentY, summaryBoxWidth, summaryHeight);
+
+            g.DrawRectangle(tablePen, revenueRect);
+            g.DrawRectangle(tablePen, transRect);
+            g.DrawRectangle(tablePen, avgRect);
+
+            StringFormat centerFormat = new StringFormat();
+            centerFormat.Alignment = StringAlignment.Center;
+            centerFormat.LineAlignment = StringAlignment.Center;
+
+            g.DrawString("Total Revenue\n" + lblUpdatingTotalRevenue.Text, subHeaderFont, brush, revenueRect, centerFormat);
+            g.DrawString("Total Transactions\n" + lblUpdatingTotalTransactions.Text, subHeaderFont, brush, transRect, centerFormat);
+            g.DrawString("Average Sales\n" + lblUpdatingAverageSales.Text, subHeaderFont, brush, avgRect, centerFormat);
+
+            currentY += summaryHeight + 30;
+
+            g.DrawString("Sales Trend Over Weeks", subHeaderFont, brush, margin, currentY);
+            currentY += 25;
+
+            int tableX = margin;
+            int tableWidth = pageWidth - margin * 2;
+            int colWeekWidth = 100;
+            int colSalesWidth = tableWidth - colWeekWidth;
+
+            g.DrawRectangle(tablePen, tableX, currentY, colWeekWidth, 25);
+            g.DrawRectangle(tablePen, tableX + colWeekWidth, currentY, colSalesWidth, 25);
+            g.DrawString("Week", tableHeaderFont, brush, new Rectangle(tableX, currentY, colWeekWidth, 25), centerFormat);
+            g.DrawString("Total Sales", tableHeaderFont, brush, new Rectangle(tableX + colWeekWidth, currentY, colSalesWidth, 25), centerFormat);
+            currentY += 25;
+
+            foreach (DataRow row in dtTrend.Rows)
+            {
+                g.DrawRectangle(tablePen, tableX, currentY, colWeekWidth, 25);
+                g.DrawRectangle(tablePen, tableX + colWeekWidth, currentY, colSalesWidth, 25);
+
+                g.DrawString("Week " + row["WeekNumber"], tableFont, brush, new Rectangle(tableX, currentY, colWeekWidth, 25), centerFormat);
+                g.DrawString(Convert.ToDecimal(row["TotalSales"]).ToString("C"), tableFont, brush, new Rectangle(tableX + colWeekWidth, currentY, colSalesWidth, 25), centerFormat);
+
+                currentY += 25;
+            }
+
+            currentY += 20;
+
+            g.DrawString("Sales by Category", subHeaderFont, brush, margin, currentY);
+            currentY += 25;
+
+            int colCategoryWidth = 200;
+            int colValueWidth = tableWidth - colCategoryWidth;
+
+            g.DrawRectangle(tablePen, tableX, currentY, colCategoryWidth, 25);
+            g.DrawRectangle(tablePen, tableX + colCategoryWidth, currentY, colValueWidth, 25);
+            g.DrawString("Category", tableHeaderFont, brush, new Rectangle(tableX, currentY, colCategoryWidth, 25), centerFormat);
+            g.DrawString("Total Sales", tableHeaderFont, brush, new Rectangle(tableX + colCategoryWidth, currentY, colValueWidth, 25), centerFormat);
+            currentY += 25;
+
+            foreach (DataRow row in dtCategory.Rows)
+            {
+                g.DrawRectangle(tablePen, tableX, currentY, colCategoryWidth, 25);
+                g.DrawRectangle(tablePen, tableX + colCategoryWidth, currentY, colValueWidth, 25);
+
+                g.DrawString(row["Category"].ToString(), tableFont, brush, new Rectangle(tableX, currentY, colCategoryWidth, 25), centerFormat);
+                g.DrawString(Convert.ToDecimal(row["TotalValue"]).ToString("C"), tableFont, brush, new Rectangle(tableX + colCategoryWidth, currentY, colValueWidth, 25), centerFormat);
+
+                currentY += 25;
+            }
+
+            e.HasMorePages = false;
         }
+        private Bitmap CaptureCartesianChart(LiveCharts.WinForms.CartesianChart chart)
+        {
+            Bitmap bmp = new Bitmap(chart.Width, chart.Height);
+            chart.DrawToBitmap(bmp, new Rectangle(0, 0, chart.Width, chart.Height));
+            return bmp;
+        }
+
+
+        private List<(double X, double Y)> GetLiveChartPoints()
+        {
+            var points = new List<(double X, double Y)>();
+
+            foreach (var series in chartSalesTrendAnalysis.Series)
+            {
+                foreach (var val in series.Values)
+                {
+                    if (val is decimal decValue)
+                    {
+                        int xIndex = series.Values.IndexOf(val);
+                        points.Add((xIndex, (double)decValue));
+                    }
+                    else if (val is ObservablePoint obs)
+                    {
+                        points.Add((obs.X, obs.Y));
+                    }
+                }
+            }
+
+            return points;
+        }
+
+
+
+
+
         private Bitmap CaptureControl(Control control)
         {
             Bitmap bmp = new Bitmap(control.Width, control.Height);
             control.DrawToBitmap(bmp, new Rectangle(0, 0, control.Width, control.Height));
             return bmp;
         }
-        // Capture CartesianChart (LiveCharts WPF)
-        private Bitmap CaptureCartesianChart(LiveCharts.Wpf.CartesianChart chart)
-        {
-            chart.Update(true, true); // Force redraw
+       
 
-            int width = (int)chart.ActualWidth;
-            int height = (int)chart.ActualHeight;
-            if (width == 0 || height == 0)
-            {
-                width = chart.Width > 0 ? (int)chart.Width : 938; // fallback size
-                height = chart.Height > 0 ? (int)chart.Height : 513;
-            }
-
-            RenderTargetBitmap rtb = new RenderTargetBitmap(width, height, 96, 96, System.Windows.Media.PixelFormats.Pbgra32);
-            rtb.Render(chart);
-
-            PngBitmapEncoder encoder = new PngBitmapEncoder();
-            encoder.Frames.Add(BitmapFrame.Create(rtb));
-
-            using (MemoryStream ms = new MemoryStream())
-            {
-                encoder.Save(ms);
-                return new Bitmap(ms);
-            }
-        }
 
         // Capture WinForms Chart
         private Bitmap CaptureWinFormsChart(System.Windows.Forms.DataVisualization.Charting.Chart chart)
