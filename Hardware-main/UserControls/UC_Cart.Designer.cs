@@ -57,7 +57,7 @@
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
             this.guna2Panel1.Location = new System.Drawing.Point(3, 3);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1330, 85);
+            this.guna2Panel1.Size = new System.Drawing.Size(1325, 85);
             this.guna2Panel1.TabIndex = 0;
             // 
             // label2
@@ -95,7 +95,7 @@
             this.guna2Panel2.Controls.Add(this.label3);
             this.guna2Panel2.Location = new System.Drawing.Point(3, 467);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1301, 196);
+            this.guna2Panel2.Size = new System.Drawing.Size(1325, 196);
             this.guna2Panel2.TabIndex = 2;
             // 
             // lblTotalValue
@@ -124,11 +124,11 @@
             this.btnCheckout.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(85)))), ((int)(((byte)(40)))));
             this.btnCheckout.Image = ((System.Drawing.Image)(resources.GetObject("btnCheckout.Image")));
             this.btnCheckout.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCheckout.ImageOffset = new System.Drawing.Point(500, 0);
+            this.btnCheckout.ImageOffset = new System.Drawing.Point(450, 0);
             this.btnCheckout.ImageSize = new System.Drawing.Size(30, 30);
             this.btnCheckout.Location = new System.Drawing.Point(26, 95);
             this.btnCheckout.Name = "btnCheckout";
-            this.btnCheckout.Size = new System.Drawing.Size(1283, 73);
+            this.btnCheckout.Size = new System.Drawing.Size(1285, 73);
             this.btnCheckout.TabIndex = 4;
             this.btnCheckout.Text = "Proceed to Checkout";
             this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click);
@@ -174,7 +174,10 @@
             this.dgvCart.RowHeadersWidth = 51;
             this.dgvCart.Size = new System.Drawing.Size(1330, 367);
             this.dgvCart.TabIndex = 0;
+            this.dgvCart.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvCart_CellBeginEdit);
             this.dgvCart.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCart_CellContentClick);
+            this.dgvCart.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCart_CellValueChanged);
+            this.dgvCart.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvCart_EditingControlShowing);
             // 
             // Remove
             // 
@@ -190,7 +193,7 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.BackColor = System.Drawing.Color.Transparent;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(1081, 26);
+            this.lblTotal.Location = new System.Drawing.Point(939, 31);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(218, 31);
             this.lblTotal.TabIndex = 9;

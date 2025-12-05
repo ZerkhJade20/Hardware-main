@@ -48,7 +48,52 @@ namespace Hardware_main.UserControls
         {
             inventoryCtrl.InventoryChanged += () => LoadProducts();
         }
-        
+        public void AddItemToCart(int productId)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+
+                    // Check if item already exists in cart
+                    string checkQuery = "SELECT Quantity FROM Cart WHERE ProductID = @ProductID";
+                    using (SqlCommand checkCmd = new SqlCommand(checkQuery, con))
+                    {
+                        checkCmd.Parameters.AddWithValue("@ProductID", productId);
+                        var result = checkCmd.ExecuteScalar();
+
+                        if (result != null)
+                        {
+                            int qty = Convert.ToInt32(result) + 1;
+                            string updateQuery = "UPDATE Cart SET Quantity = @qty WHERE ProductID = @ProductID";
+                            using (SqlCommand updateCmd = new SqlCommand(updateQuery, con))
+                            {
+                                updateCmd.Parameters.AddWithValue("@qty", qty);
+                                updateCmd.Parameters.AddWithValue("@ProductID", productId);
+                                updateCmd.ExecuteNonQuery();
+                            }
+
+                            return;
+                        }
+                    }
+
+                    // Insert new cart item
+                    string insertQuery = "INSERT INTO Cart (ProductID, Quantity) VALUES (@ProductID, 1)";
+                    using (SqlCommand cmd = new SqlCommand(insertQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@ProductID", productId);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error adding to cart: {ex.Message}");
+            }
+        }
+
+
 
 
 
@@ -114,7 +159,7 @@ namespace Hardware_main.UserControls
                     }
 
                     // 2. Add item to cart (this now handles the DB insert in UC_Cart)
-                    _cart.AddItemToCart(productId, productName, price);
+                    _cart.AddItemToCart(productId);
 
                     // 3. Refresh cart's DataGridView from database
                     _cart.RefreshCart();

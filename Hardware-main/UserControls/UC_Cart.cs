@@ -23,16 +23,7 @@ namespace Hardware_main.UserControls
             
             _products = products;
             RefreshCart();
-            // Add the Remove button column to the DataGridView
-            if (dgvCart.Columns["Remove"] == null)
-            {
-                DataGridViewButtonColumn removeButtonColumn = new DataGridViewButtonColumn();
-                removeButtonColumn.Name = "Remove";
-                removeButtonColumn.HeaderText = "Remove";
-                removeButtonColumn.Text = "Remove";
-                removeButtonColumn.UseColumnTextForButtonValue = true;
-                dgvCart.Columns.Add(removeButtonColumn);
-            }
+            
         }
            // Fix for circular dependency
         public void SetProducts(UC_Products products)
@@ -42,29 +33,52 @@ namespace Hardware_main.UserControls
             // Note: RefreshCart is called separately in UC_Products after this
         }
         // Method called by UC_Products to add an item to the cart (inserts into DB)
-        public void AddItemToCart(int productId, string productName, decimal price)
+        public void AddItemToCart(int productId)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     con.Open();
-                    string insertQuery = "INSERT INTO Cart (ProductID, Name, Price, Quantity) VALUES (@ProductID, @Name, @Price, 1)";
+
+                    // Check if item already exists in cart
+                    string checkQuery = "SELECT Quantity FROM Cart WHERE ProductID = @ProductID";
+                    using (SqlCommand checkCmd = new SqlCommand(checkQuery, con))
+                    {
+                        checkCmd.Parameters.AddWithValue("@ProductID", productId);
+                        var result = checkCmd.ExecuteScalar();
+
+                        if (result != null)
+                        {
+                            int qty = Convert.ToInt32(result) + 1;
+                            string updateQuery = "UPDATE Cart SET Quantity = @qty WHERE ProductID = @ProductID";
+                            using (SqlCommand updateCmd = new SqlCommand(updateQuery, con))
+                            {
+                                updateCmd.Parameters.AddWithValue("@qty", qty);
+                                updateCmd.Parameters.AddWithValue("@ProductID", productId);
+                                updateCmd.ExecuteNonQuery();
+                            }
+
+                            return;
+                        }
+                    }
+
+                    // Insert new cart item
+                    string insertQuery = "INSERT INTO Cart (ProductID, Quantity) VALUES (@ProductID, 1)";
                     using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                     {
                         cmd.Parameters.AddWithValue("@ProductID", productId);
-                        cmd.Parameters.AddWithValue("@Name", productName);
-                        cmd.Parameters.AddWithValue("@Price", price);
                         cmd.ExecuteNonQuery();
                     }
                 }
-                
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error adding to cart: {ex.Message}");
             }
         }
+
+
         // Method to refresh the cart's DataGridView from the database
         public void RefreshCart()
         {
@@ -73,7 +87,18 @@ namespace Hardware_main.UserControls
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     con.Open();
-                    string query = "SELECT ID, ProductID, Name, Price, Quantity FROM Cart";
+                    string query = @"
+                                    SELECT 
+                                        c.ID AS CartID,
+                                        c.ProductID,
+                                        i.ItemName,
+                                        i.SKU,
+                                        i.Category,
+                                        i.Price,
+                                        c.Quantity
+                                    FROM Cart c
+                                    INNER JOIN tblItems i ON c.ProductID = i.ItemID";
+
                     using (SqlDataAdapter da = new SqlDataAdapter(query, con))
                     {
                         DataTable dt = new DataTable();
@@ -81,14 +106,50 @@ namespace Hardware_main.UserControls
                         dgvCart.DataSource = dt;
                     }
                 }
-                // IMPORTANT — update total amount here
+
+                // Remove duplicate Remove buttons if refreshing
+                if (dgvCart.Columns.Contains("Remove"))
+                    dgvCart.Columns.Remove("Remove");
+
+                // Add Remove button column
+                DataGridViewButtonColumn removeBtn = new DataGridViewButtonColumn();
+                removeBtn.Name = "Remove";
+                removeBtn.HeaderText = "Remove";
+                removeBtn.Text = "Remove";
+                removeBtn.UseColumnTextForButtonValue = true;
+                dgvCart.Columns.Add(removeBtn);
+
+                // Apply sizing
+                SetupCartGridColumns();
+
                 UpdateTotalAmount();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error refreshing cart: {ex.Message}");
+                MessageBox.Show("Error refreshing cart: " + ex.Message);
             }
         }
+
+        private void SetupCartGridColumns()
+        {
+            if (dgvCart.Columns.Count == 0)
+                return;
+
+            dgvCart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+
+            dgvCart.Columns["CartID"].Width = 70;
+            dgvCart.Columns["ProductID"].Width = 80;
+            dgvCart.Columns["ItemName"].Width = 264;
+            dgvCart.Columns["SKU"].Width = 100;
+            dgvCart.Columns["Category"].Width = 170;
+            dgvCart.Columns["Price"].Width = 100;
+            dgvCart.Columns["Quantity"].Width = 80;
+
+            if (dgvCart.Columns.Contains("Remove"))
+                dgvCart.Columns["Remove"].Width = 80;
+        }
+
+
 
 
         private void UpdateTotalAmount()
@@ -101,13 +162,13 @@ namespace Hardware_main.UserControls
                 {
                     decimal price = Convert.ToDecimal(row.Cells["Price"].Value);
                     int qty = Convert.ToInt32(row.Cells["Quantity"].Value);
-
                     total += price * qty;
                 }
             }
 
             lblTotal.Text = "Total Amount: ₱" + total.ToString("N2");
         }
+
 
 
         public void LoadCartItems()
@@ -216,32 +277,32 @@ namespace Hardware_main.UserControls
 
         private void dgvCart_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvCart.Columns[e.ColumnIndex].Name == "Remove" && e.RowIndex >= 0)
+            if (e.RowIndex < 0) return; // Ignore header clicks
+
+            if (dgvCart.Columns[e.ColumnIndex].Name == "Remove")
             {
-                // Get the Cart row ID
-                int cartId = Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["ID"].Value);
+                int cartId = Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["CartID"].Value);
                 int productId = Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["ProductID"].Value);
 
                 try
                 {
-                    // 1. Delete ONLY this row
+                    // 1. Delete only this row from Cart
                     using (SqlConnection con = new SqlConnection(connectionString))
                     {
                         con.Open();
-                        string deleteQuery = "DELETE FROM Cart WHERE ID = @ID";
+                        string deleteQuery = "DELETE FROM Cart WHERE ID = @CartID";
                         using (SqlCommand cmd = new SqlCommand(deleteQuery, con))
                         {
-                            cmd.Parameters.AddWithValue("@ID", cartId);
+                            cmd.Parameters.AddWithValue("@CartID", cartId);
                             cmd.ExecuteNonQuery();
                         }
                     }
 
-                    // 2. Increase stock
+                    // 2. Optional: Restore stock in tblItems
                     IncreaseProductQuantity(productId, 1);
 
-                    // 3. Refresh views
+                    // 3. Refresh cart
                     RefreshCart();
-                    _products.LoadProducts();
 
                     MessageBox.Show("Item removed from cart and stock restored!");
                 }
@@ -251,6 +312,7 @@ namespace Hardware_main.UserControls
                 }
             }
         }
+
 
         // Helper method to increase product quantity (reverse of DecreaseProductQuantity)
         private void IncreaseProductQuantity(int productId, int qty)
@@ -268,6 +330,92 @@ namespace Hardware_main.UserControls
                     cmd.Parameters.AddWithValue("@id", productId);
                     cmd.ExecuteNonQuery();
                 }
+            }
+        }
+        private int previousQuantity = 0;
+        private void dgvCart_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (dgvCart.CurrentCell.ColumnIndex == dgvCart.Columns["Quantity"].Index)
+            {
+                TextBox tb = e.Control as TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress -= Quantity_KeyPress;
+                    tb.KeyPress += Quantity_KeyPress;
+                }
+            }
+        }
+        private void Quantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+        private bool suppressEvent = false;
+
+        private void dgvCart_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            if (dgvCart.Columns[e.ColumnIndex].Name != "Quantity") return;
+
+            try
+            {
+                var row = dgvCart.Rows[e.RowIndex];
+
+                int cartId = Convert.ToInt32(row.Cells["CartID"].Value);
+                int productId = Convert.ToInt32(row.Cells["ProductID"].Value);
+                int newQty = Convert.ToInt32(row.Cells["Quantity"].Value);
+
+                if (newQty <= 0)
+                {
+                    MessageBox.Show("Quantity must be at least 1.");
+                    row.Cells["Quantity"].Value = previousQuantity;
+                    return;
+                }
+
+                int difference = newQty - previousQuantity;
+
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+
+                    // 1️⃣ Update Cart table
+                    string updateCart = "UPDATE Cart SET Quantity = @Q WHERE ID = @CartID";
+                    using (SqlCommand cmd = new SqlCommand(updateCart, con))
+                    {
+                        cmd.Parameters.AddWithValue("@Q", newQty);
+                        cmd.Parameters.AddWithValue("@CartID", cartId);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // 2️⃣ Update tblItems stock based on difference
+                    string updateItem = @"
+                UPDATE tblItems 
+                SET Quantity = Quantity - @difference 
+                WHERE ItemID = @id";
+
+                    using (SqlCommand cmd = new SqlCommand(updateItem, con))
+                    {
+                        cmd.Parameters.AddWithValue("@difference", difference);
+                        cmd.Parameters.AddWithValue("@id", productId);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                UpdateTotalAmount();
+                previousQuantity = newQty; // set new baseline
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating quantity / stock: " + ex.Message);
+            }
+        }
+
+
+        private void dgvCart_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (dgvCart.Columns[e.ColumnIndex].Name == "Quantity")
+            {
+                previousQuantity = Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["Quantity"].Value);
             }
         }
     }
