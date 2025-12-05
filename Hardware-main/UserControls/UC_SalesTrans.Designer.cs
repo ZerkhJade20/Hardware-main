@@ -43,7 +43,6 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label6 = new System.Windows.Forms.Label();
-            this.btnExport = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.lblTotalSales = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -211,24 +210,6 @@
             this.label6.Size = new System.Drawing.Size(255, 28);
             this.label6.TabIndex = 14;
             this.label6.Text = "Transaction History";
-            // 
-            // btnExport
-            // 
-            this.btnExport.Animated = true;
-            this.btnExport.BorderRadius = 20;
-            this.btnExport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnExport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnExport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnExport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnExport.FillColor = System.Drawing.Color.Gray;
-            this.btnExport.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(88)))), ((int)(((byte)(12)))));
-            this.btnExport.Location = new System.Drawing.Point(1380, 16);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(218, 55);
-            this.btnExport.TabIndex = 16;
-            this.btnExport.Text = "Export";
             // 
             // guna2GradientPanel1
             // 
@@ -571,7 +552,6 @@
             this.Controls.Add(this.guna2GradientPanel3);
             this.Controls.Add(this.guna2GradientPanel2);
             this.Controls.Add(this.guna2GradientPanel1);
-            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.guna2Panel5);
             this.Controls.Add(this.guna2Panel4);
             this.Controls.Add(this.label2);
@@ -608,7 +588,6 @@
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2Button btnExport;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private System.Windows.Forms.Label lblTotalSales;
         private System.Windows.Forms.Label label4;

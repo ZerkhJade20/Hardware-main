@@ -108,7 +108,7 @@
             this.txtSearchInStaffs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSearchInStaffs.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSearchInStaffs.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearchInStaffs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtSearchInStaffs.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.txtSearchInStaffs.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearchInStaffs.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtSearchInStaffs.IconLeft")));
             this.txtSearchInStaffs.IconLeftSize = new System.Drawing.Size(30, 30);
@@ -227,7 +227,7 @@
             this.cmbStaffStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStaffStatus.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbStaffStatus.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbStaffStatus.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbStaffStatus.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.cmbStaffStatus.ForeColor = System.Drawing.Color.Black;
             this.cmbStaffStatus.ItemHeight = 39;
             this.cmbStaffStatus.Location = new System.Drawing.Point(356, 373);
@@ -252,7 +252,7 @@
             this.dtpStaffHireDate.BorderRadius = 10;
             this.dtpStaffHireDate.Checked = true;
             this.dtpStaffHireDate.FillColor = System.Drawing.Color.White;
-            this.dtpStaffHireDate.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpStaffHireDate.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.dtpStaffHireDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.dtpStaffHireDate.Location = new System.Drawing.Point(26, 373);
             this.dtpStaffHireDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -283,7 +283,7 @@
             this.txtStaffLocation.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtStaffLocation.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtStaffLocation.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtStaffLocation.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtStaffLocation.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.txtStaffLocation.ForeColor = System.Drawing.Color.Black;
             this.txtStaffLocation.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtStaffLocation.Location = new System.Drawing.Point(28, 282);
@@ -315,7 +315,7 @@
             this.txtStaffEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtStaffEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtStaffEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtStaffEmail.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtStaffEmail.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.txtStaffEmail.ForeColor = System.Drawing.Color.Black;
             this.txtStaffEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtStaffEmail.Location = new System.Drawing.Point(356, 193);
@@ -347,7 +347,7 @@
             this.txtStaffPhone.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtStaffPhone.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtStaffPhone.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtStaffPhone.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtStaffPhone.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.txtStaffPhone.ForeColor = System.Drawing.Color.Black;
             this.txtStaffPhone.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtStaffPhone.Location = new System.Drawing.Point(27, 193);
@@ -377,7 +377,7 @@
             this.cmbStaffPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStaffPosition.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbStaffPosition.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbStaffPosition.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbStaffPosition.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.cmbStaffPosition.ForeColor = System.Drawing.Color.Black;
             this.cmbStaffPosition.ItemHeight = 39;
             this.cmbStaffPosition.Location = new System.Drawing.Point(356, 108);
@@ -406,7 +406,7 @@
             this.txtStaffName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtStaffName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtStaffName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtStaffName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtStaffName.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.txtStaffName.ForeColor = System.Drawing.Color.Black;
             this.txtStaffName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtStaffName.Location = new System.Drawing.Point(26, 105);

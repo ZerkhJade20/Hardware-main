@@ -33,6 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.lblTotalValue = new System.Windows.Forms.Label();
             this.btnCheckout = new Guna.UI2.WinForms.Guna2Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvCart = new System.Windows.Forms.DataGridView();
             this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.lblTotal = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -98,6 +98,17 @@
             this.guna2Panel2.Size = new System.Drawing.Size(1325, 196);
             this.guna2Panel2.TabIndex = 2;
             // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(939, 31);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(218, 31);
+            this.lblTotal.TabIndex = 9;
+            this.lblTotal.Text = "Order Summary";
+            // 
             // lblTotalValue
             // 
             this.lblTotalValue.AutoSize = true;
@@ -124,7 +135,7 @@
             this.btnCheckout.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(85)))), ((int)(((byte)(40)))));
             this.btnCheckout.Image = ((System.Drawing.Image)(resources.GetObject("btnCheckout.Image")));
             this.btnCheckout.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCheckout.ImageOffset = new System.Drawing.Point(450, 0);
+            this.btnCheckout.ImageOffset = new System.Drawing.Point(300, 0);
             this.btnCheckout.ImageSize = new System.Drawing.Size(30, 30);
             this.btnCheckout.Location = new System.Drawing.Point(26, 95);
             this.btnCheckout.Name = "btnCheckout";
@@ -187,17 +198,6 @@
             this.Remove.Text = "Remove";
             this.Remove.UseColumnTextForButtonValue = true;
             this.Remove.Width = 125;
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(939, 31);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(218, 31);
-            this.lblTotal.TabIndex = 9;
-            this.lblTotal.Text = "Order Summary";
             // 
             // UC_Cart
             // 

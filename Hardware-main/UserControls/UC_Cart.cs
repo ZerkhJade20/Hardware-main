@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Printing;
 
 namespace Hardware_main.UserControls
 {
@@ -19,8 +20,7 @@ namespace Hardware_main.UserControls
         private UC_Products _products;  // Reference to UC_Products for refreshing
         public UC_Cart(UC_Products products)
         {
-            InitializeComponent();
-            
+            InitializeComponent();           
             _products = products;
             RefreshCart();
             

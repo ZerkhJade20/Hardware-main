@@ -50,8 +50,7 @@ namespace Hardware_main.UserControls
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-             frmAdminLogin frmAdminLogin = new frmAdminLogin();
-            frmAdminLogin.ShowDialog();
+             Application.Exit();
         }
 
         private void Profile_Load(object sender, EventArgs e)
