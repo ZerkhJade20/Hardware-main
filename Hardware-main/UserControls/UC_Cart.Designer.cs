@@ -57,7 +57,7 @@
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
             this.guna2Panel1.Location = new System.Drawing.Point(3, 3);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1661, 85);
+            this.guna2Panel1.Size = new System.Drawing.Size(1330, 85);
             this.guna2Panel1.TabIndex = 0;
             // 
             // label2
@@ -95,7 +95,7 @@
             this.guna2Panel2.Controls.Add(this.label3);
             this.guna2Panel2.Location = new System.Drawing.Point(3, 467);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1613, 184);
+            this.guna2Panel2.Size = new System.Drawing.Size(1301, 196);
             this.guna2Panel2.TabIndex = 2;
             // 
             // lblTotalValue
@@ -128,7 +128,7 @@
             this.btnCheckout.ImageSize = new System.Drawing.Size(30, 30);
             this.btnCheckout.Location = new System.Drawing.Point(26, 95);
             this.btnCheckout.Name = "btnCheckout";
-            this.btnCheckout.Size = new System.Drawing.Size(1542, 73);
+            this.btnCheckout.Size = new System.Drawing.Size(1283, 73);
             this.btnCheckout.TabIndex = 4;
             this.btnCheckout.Text = "Proceed to Checkout";
             this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click);
@@ -160,7 +160,7 @@
             this.guna2Panel3.Controls.Add(this.dgvCart);
             this.guna2Panel3.Location = new System.Drawing.Point(3, 94);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(1661, 367);
+            this.guna2Panel3.Size = new System.Drawing.Size(1330, 367);
             this.guna2Panel3.TabIndex = 3;
             // 
             // dgvCart
@@ -172,7 +172,7 @@
             this.dgvCart.Location = new System.Drawing.Point(0, 0);
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.RowHeadersWidth = 51;
-            this.dgvCart.Size = new System.Drawing.Size(1661, 367);
+            this.dgvCart.Size = new System.Drawing.Size(1330, 367);
             this.dgvCart.TabIndex = 0;
             this.dgvCart.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCart_CellContentClick);
             // 
@@ -190,7 +190,7 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.BackColor = System.Drawing.Color.Transparent;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(1117, 31);
+            this.lblTotal.Location = new System.Drawing.Point(1081, 26);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(218, 31);
             this.lblTotal.TabIndex = 9;
@@ -198,13 +198,14 @@
             // 
             // UC_Cart
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(251)))));
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.Name = "UC_Cart";
-            this.Size = new System.Drawing.Size(1667, 665);
+            this.Size = new System.Drawing.Size(1336, 666);
             this.Load += new System.EventHandler(this.UC_Cart_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();

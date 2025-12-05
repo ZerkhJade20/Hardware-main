@@ -30,6 +30,19 @@ namespace Hardware_main.UserControls
         {
             var dt = DBHelper.ExecuteSelect("SELECT * FROM tblItems WHERE Status='In Stock'");
             dgvProducts.DataSource = dt;
+            // 4. Disable auto-size so we can manually set widths
+            dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+
+            // 5. Apply fixed widths for 1800px DataGridView
+            dgvProducts.Columns["ItemID"].Width = 70;
+            dgvProducts.Columns["ItemName"].Width = 150;
+            dgvProducts.Columns["SKU"].Width = 100;
+            dgvProducts.Columns["Category"].Width = 70;
+            dgvProducts.Columns["Quantity"].Width = 70;
+            dgvProducts.Columns["Price"].Width = 90;
+            dgvProducts.Columns["ReorderLevel"].Width = 50;
+            dgvProducts.Columns["Status"].Width = 100;
+            dgvProducts.Columns["DateAdded"].Width = 200;
         }
         public void SubscribeToInventory(UC_Inventory inventoryCtrl)
         {

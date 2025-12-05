@@ -38,6 +38,8 @@ namespace Hardware_main.UserControls
         public void SetProducts(UC_Products products)
         {
             _products = products;
+            
+            // Note: RefreshCart is called separately in UC_Products after this
         }
         // Method called by UC_Products to add an item to the cart (inserts into DB)
         public void AddItemToCart(int productId, string productName, decimal price)
@@ -56,7 +58,7 @@ namespace Hardware_main.UserControls
                         cmd.ExecuteNonQuery();
                     }
                 }
-                // Note: RefreshCart is called separately in UC_Products after this
+                
             }
             catch (Exception ex)
             {
@@ -79,7 +81,6 @@ namespace Hardware_main.UserControls
                         dgvCart.DataSource = dt;
                     }
                 }
-
                 // IMPORTANT — update total amount here
                 UpdateTotalAmount();
             }

@@ -84,7 +84,7 @@
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PlaceholderText = "";
             this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(1390, 37);
+            this.guna2TextBox1.Size = new System.Drawing.Size(1279, 37);
             this.guna2TextBox1.TabIndex = 0;
             // 
             // panelProductsCon
@@ -92,7 +92,7 @@
             this.panelProductsCon.Controls.Add(this.dgvProducts);
             this.panelProductsCon.Location = new System.Drawing.Point(18, 123);
             this.panelProductsCon.Name = "panelProductsCon";
-            this.panelProductsCon.Size = new System.Drawing.Size(1620, 527);
+            this.panelProductsCon.Size = new System.Drawing.Size(1299, 527);
             this.panelProductsCon.TabIndex = 29;
             this.panelProductsCon.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
             // 
@@ -110,7 +110,7 @@
             this.dgvProducts.ReadOnly = true;
             this.dgvProducts.RowHeadersWidth = 51;
             this.dgvProducts.RowTemplate.Height = 24;
-            this.dgvProducts.Size = new System.Drawing.Size(1620, 527);
+            this.dgvProducts.Size = new System.Drawing.Size(1299, 527);
             this.dgvProducts.TabIndex = 0;
             this.dgvProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellContentClick);
             // 
@@ -122,15 +122,16 @@
             this.Add.ReadOnly = true;
             this.Add.Text = "Add";
             this.Add.UseColumnTextForButtonValue = true;
-            this.Add.Width = 125;
+            this.Add.Width = 50;
             // 
             // UC_Products
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelProductsCon);
             this.Controls.Add(this.guna2Panel1);
             this.Name = "UC_Products";
-            this.Size = new System.Drawing.Size(1667, 665);
+            this.Size = new System.Drawing.Size(1330, 666);
             this.Load += new System.EventHandler(this.UC_Products_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.panelProductsCon.ResumeLayout(false);
@@ -144,7 +145,7 @@
         private Guna.UI2.WinForms.Guna2Panel panelProductsCon;
         private System.Windows.Forms.DataGridView dgvProducts;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private System.Windows.Forms.DataGridViewButtonColumn Add;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private System.Windows.Forms.DataGridViewButtonColumn Add;
     }
 }
