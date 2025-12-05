@@ -31,11 +31,12 @@ namespace Hardware_main.UserControls
             LoadRecentTransactions();
             LoadSalesChart();
         }
+        
         public void LoadTotalSales()
         {
             var result = DBHelper.ExecuteScalar("SELECT ISNULL(SUM(TotalAmount),0) FROM tblTransactions");
             decimal totalSales = (result != DBNull.Value) ? Convert.ToDecimal(result) : 0m;
-            lblTotalSalesUpdate.Text = totalSales.ToString("C2"); // Currency format
+            lblTotalSalesUpdate.Text = totalSales.ToString("C2"); 
         }
         private void LoadTotalTransactions()
         {
@@ -62,7 +63,6 @@ namespace Hardware_main.UserControls
                 item.SubItems.Add(reorder.ToString());
                 item.SubItems.Add(remaining.ToString());
 
-                // 🔴 Highlight LOW STOCK
                 if (remaining <= 5 || qty <= reorder)
                 {
                     item.ForeColor = Color.Red;
@@ -81,20 +81,20 @@ namespace Hardware_main.UserControls
                 string sql = @" SELECT TOP 20 TransactionID, CustomerName, TotalAmount, PaymentMethod, DateCreated 
                     FROM tblTransactions ORDER BY DateCreated DESC";
 
-    DataTable dt = DBHelper.ExecuteSelect(sql);
-    lvRecentTransactions.Items.Clear();
+                DataTable dt = DBHelper.ExecuteSelect(sql);
+                lvRecentTransactions.Items.Clear();
 
-    foreach (DataRow row in dt.Rows)
-    {
-        var item = new ListViewItem(row["TransactionID"].ToString());
-        item.SubItems.Add(row["CustomerName"].ToString());
-        item.SubItems.Add(Convert.ToDecimal(row["TotalAmount"]).ToString("C2"));
-        item.SubItems.Add(row["PaymentMethod"].ToString());  // NEW
-        item.SubItems.Add(Convert.ToDateTime(row["DateCreated"]).ToString("g"));
+                foreach (DataRow row in dt.Rows)
+                {
+                    var item = new ListViewItem(row["TransactionID"].ToString());
+                    item.SubItems.Add(row["CustomerName"].ToString());
+                    item.SubItems.Add(Convert.ToDecimal(row["TotalAmount"]).ToString("C2"));
+                    item.SubItems.Add(row["PaymentMethod"].ToString());  
+                    item.SubItems.Add(Convert.ToDateTime(row["DateCreated"]).ToString("g"));
 
-        lvRecentTransactions.Items.Add(item);
-    }
-}
+                    lvRecentTransactions.Items.Add(item);
+                }
+            }
         public void LoadSalesChart()
         {
             string sql = @"
@@ -118,7 +118,7 @@ namespace Hardware_main.UserControls
             Title = "Weekly Sales",
             Values = new ChartValues<decimal>(sales),
             PointGeometrySize = 10,
-            LineSmoothness = 1, // straight lines (optional)
+            LineSmoothness = 1, 
         }
     };
 
@@ -126,10 +126,10 @@ namespace Hardware_main.UserControls
             {
                 Title = "Week",
                 Labels = weeks,
-                MinValue = 0,        // makes line start at index 0 (left)
+                MinValue = 0,        
                 Separator = new Separator
                 {
-                    Step = 1,       // one label per point
+                    Step = 1,       
                     IsEnabled = false
                 }
             });

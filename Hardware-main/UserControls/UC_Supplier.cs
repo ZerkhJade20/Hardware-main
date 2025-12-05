@@ -22,11 +22,7 @@ namespace Hardware_main.UserControls
             LoadSupplierList();
             txtSearch.TextChanged += (s, e) => LoadSupplierList(txtSearch.Text);
 
-
-
-
             panelAddNewSupplier.Hide();
-
         }
         private void LoadSupplierList(string filter = "")
         {
@@ -39,20 +35,14 @@ namespace Hardware_main.UserControls
             dgvSupplier.DataSource = dt;
 
             SetSupplierGridColumnWidths();
-
-
         }
         private void SetSupplierGridColumnWidths()
-        {
-            // Ensure the grid has columns before setting widths
+        {           
             if (dgvSupplier.Columns.Count == 0) return;
-
-            // Total usable width (subtract scrollbar)
             int totalWidth = 1782 - 20;
 
             dgvSupplier.RowHeadersWidth = 30;
 
-            // You can adjust these percentages as needed
             dgvSupplier.Columns["SupplierID"].Width = 200;     
             dgvSupplier.Columns["SupplierName"].Width = 340;   
             dgvSupplier.Columns["Phone"].Width = 180;          
@@ -63,23 +53,17 @@ namespace Hardware_main.UserControls
             dgvSupplier.RowTemplate.Height = 35;
             dgvSupplier.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
-            // Delete button column (fixed size)
             if (dgvSupplier.Columns.Contains("btnDelete"))
                 dgvSupplier.Columns["btnDelete"].Width = 200;
         }
-
-
-
         private void label6_Click(object sender, EventArgs e)
         {
 
         }
-
         private void guna2TextBox4_TextChanged(object sender, EventArgs e)
         {
 
         }
-
         private void UC_Supplier_Load(object sender, EventArgs e)
         {
             cmbStatus.Items.AddRange(new object[]
@@ -95,7 +79,6 @@ namespace Hardware_main.UserControls
             panelAddNewSupplier.Show();
 
         }
-
         private void btnAddSupp_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtSupplierName.Text))
@@ -121,12 +104,10 @@ namespace Hardware_main.UserControls
 
             panelAddNewSupplier.Hide();
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             panelAddNewSupplier.Hide();
         }
-
         private void dgvSupplier_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -149,29 +130,25 @@ namespace Hardware_main.UserControls
 
             var parameters = new SqlParameter[]
             {
-        new SqlParameter("@name", name),
-        new SqlParameter("@phone", phone),
-        new SqlParameter("@email", email),
-        new SqlParameter("@loc", loc),
-        new SqlParameter("@status", status),
-        new SqlParameter("@rating", rating),
-        new SqlParameter("@id", id)
+            new SqlParameter("@name", name),
+            new SqlParameter("@phone", phone),
+            new SqlParameter("@email", email),
+            new SqlParameter("@loc", loc),
+            new SqlParameter("@status", status),
+            new SqlParameter("@rating", rating),
+            new SqlParameter("@id", id)
             };
 
             DBHelper.ExecuteNonQuery(sql, parameters);
         }
 
         private void dgvSupplier_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
-        {
-            
-
+        {           
         }
-
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
         private void dgvSupplier_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dgvSupplier.Columns["btnDelete"].Index && e.RowIndex >= 0)
@@ -183,7 +160,7 @@ namespace Hardware_main.UserControls
                     DBHelper.ExecuteNonQuery("DELETE FROM tblSuppliers WHERE SupplierID=@id",
                         new SqlParameter("@id", id));
 
-                    dgvSupplier.Rows.RemoveAt(e.RowIndex); // remove from UI
+                    dgvSupplier.Rows.RemoveAt(e.RowIndex);
                 }
             }
         }

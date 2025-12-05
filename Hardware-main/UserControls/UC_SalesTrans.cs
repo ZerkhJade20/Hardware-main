@@ -19,7 +19,7 @@ namespace Hardware_main.UserControls
     public partial class UC_SalesTrans : UserControl
     {
         public event Action SalesDataChanged;
-        private int currentUserId = 1; // Set properly per logged in user
+        private int currentUserId = 1; 
         public UC_SalesTrans()
         {
             InitializeComponent();
@@ -42,13 +42,12 @@ namespace Hardware_main.UserControls
         public void LoadWeeklySalesChart()
         {
             var dt = DBHelper.ExecuteSelect(@"
-        SELECT DATEPART(WEEK, DateCreated) AS WeekNumber, 
-               SUM(TotalAmount) AS WeeklyTotal 
-        FROM tblTransactions 
-        GROUP BY DATEPART(WEEK, DateCreated) 
-        ORDER BY WeekNumber");
-
-            // Extract labels and values
+                                            SELECT DATEPART(WEEK, DateCreated) AS WeekNumber, 
+                                                   SUM(TotalAmount) AS WeeklyTotal 
+                                            FROM tblTransactions 
+                                            GROUP BY DATEPART(WEEK, DateCreated) 
+                                            ORDER BY WeekNumber");
+           
             var weeks = dt.AsEnumerable()
                           .Select(r => "W" + r.Field<int>("WeekNumber"))
                           .ToList();
@@ -61,18 +60,16 @@ namespace Hardware_main.UserControls
             chartWeeklySalesOverview.AxisX.Clear();
             chartWeeklySalesOverview.AxisY.Clear();
 
-            // Convert to ChartValues
             var salesValues = new ChartValues<decimal>(sales);
 
-            // Line series instead of column series
             chartWeeklySalesOverview.Series = new SeriesCollection
     {
         new LineSeries
         {
             Title = "Weekly Sales",
             Values = salesValues,
-            PointGeometrySize = 10,      // circle size
-            LineSmoothness = 0.3         // smooth curve
+            PointGeometrySize = 10,      
+            LineSmoothness = 0.3         
         }
     };
 
@@ -80,10 +77,10 @@ namespace Hardware_main.UserControls
             {
                 Title = "Week",
                 Labels = weeks,               
-                MinValue = 0,        // makes line start at index 0 (left)
+                MinValue = 0,        
                 Separator = new Separator
                 {
-                    Step = 1,       // one label per point
+                    Step = 1,       
                     IsEnabled = false
                 }
             });

@@ -57,7 +57,7 @@ namespace Hardware_main
                                 byte[] photo = reader["Photo"] as byte[];
 
                                 MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                // Redirect based on role
+                                // redirect based sa role
                                 if (role == "Admin")
                                 {
                                     frmMain adminForm = new frmMain(userID, dbUsername, photo);

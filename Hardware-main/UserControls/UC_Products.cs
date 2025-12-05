@@ -20,8 +20,7 @@ namespace Hardware_main.UserControls
             InitializeComponent();
             _cart = cart;
             LoadProducts();
-        }
-        // Fix for circular dependency
+        }       
         public void SetCart(UC_Cart cart)
         {
             _cart = cart;
@@ -30,10 +29,10 @@ namespace Hardware_main.UserControls
         {
             var dt = DBHelper.ExecuteSelect("SELECT * FROM tblItems WHERE Status='In Stock'");
             dgvProducts.DataSource = dt;
-            // 4. Disable auto-size so we can manually set widths
+
             dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
 
-            // 5. Apply fixed widths for 1800px DataGridView
+
             dgvProducts.Columns["ItemID"].Width = 70;
             dgvProducts.Columns["ItemName"].Width = 150;
             dgvProducts.Columns["SKU"].Width = 100;
@@ -43,8 +42,7 @@ namespace Hardware_main.UserControls
             dgvProducts.Columns["ReorderLevel"].Width = 50;
             dgvProducts.Columns["Status"].Width = 100;
             dgvProducts.Columns["DateAdded"].Width = 200;
-        }
-        
+        }       
 
         public void SubscribeToInventory(UC_Inventory inventoryCtrl)
         {
@@ -58,7 +56,6 @@ namespace Hardware_main.UserControls
                 {
                     con.Open();
 
-                    // Check if item already exists in cart
                     string checkQuery = "SELECT Quantity FROM Cart WHERE ProductID = @ProductID";
                     using (SqlCommand checkCmd = new SqlCommand(checkQuery, con))
                     {
@@ -80,7 +77,6 @@ namespace Hardware_main.UserControls
                         }
                     }
 
-                    // Insert new cart item
                     string insertQuery = "INSERT INTO Cart (ProductID, Quantity) VALUES (@ProductID, 1)";
                     using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                     {
@@ -94,15 +90,6 @@ namespace Hardware_main.UserControls
                 MessageBox.Show($"Error adding to cart: {ex.Message}");
             }
         }
-
-
-
-
-
-
-
-
-
         private void guna2Panel2_Paint(object sender, PaintEventArgs e)
         {
 
@@ -116,7 +103,6 @@ namespace Hardware_main.UserControls
            
 
         }
-
         private void guna2Button5_Click(object sender, EventArgs e)
         {
             
@@ -151,22 +137,17 @@ namespace Hardware_main.UserControls
                 decimal price = Convert.ToDecimal(dgvProducts.Rows[e.RowIndex].Cells["Price"].Value);
 
                 try
-                {
-                    // 1. Decrease quantity in database (only if sufficient stock)
+                {                    
                     int rowsAffected = DecreaseProductQuantity(productId, 1);
                     if (rowsAffected == 0)
                     {
                         MessageBox.Show("Insufficient stock for this item.");
                         return;
                     }
-
-                    // 2. Add item to cart (this now handles the DB insert in UC_Cart)
                     _cart.AddItemToCart(productId);
 
-                    // 3. Refresh cart's DataGridView from database
                     _cart.RefreshCart();
 
-                    // 4. Refresh product list
                     LoadProducts();
 
                     MessageBox.Show("Product added to cart!");
@@ -212,13 +193,13 @@ namespace Hardware_main.UserControls
         private void LiveSearch(string keyword)
         {
             string query = @"
-        SELECT * FROM tblItems 
-        WHERE Status='In Stock'
-        AND (
-            ItemName LIKE @key OR
-            SKU LIKE @key OR
-            Category LIKE @key
-        )";
+                            SELECT * FROM tblItems 
+                            WHERE Status='In Stock'
+                            AND (
+                                ItemName LIKE @key OR
+                                SKU LIKE @key OR
+                                Category LIKE @key
+                            )";
 
             var dt = DBHelper.ExecuteSelect(query, new SqlParameter("@key", "%" + keyword + "%"));
             dgvProducts.DataSource = dt;
@@ -235,7 +216,7 @@ namespace Hardware_main.UserControls
         }
         public void RefreshProducts()
         {
-            LoadProducts();   // Reload from database
+            LoadProducts();   
         }
     }
 }

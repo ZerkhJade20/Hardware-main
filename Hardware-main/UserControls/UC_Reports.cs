@@ -40,7 +40,6 @@ namespace Hardware_main.UserControls
         }
         public static void RefreshReport()
         {
-            // Call on instance.
         }
         public void LoadReportData()
         {
@@ -50,15 +49,14 @@ namespace Hardware_main.UserControls
         }
         public void UpdateLabels()
         {
-            // Total Revenue: Sum TotalAmount from tblTransactions.
             string queryRevenue = "SELECT SUM(TotalAmount) FROM tblTransactions";
             DataTable dtRevenue = DBHelper.ExecuteSelect(queryRevenue);
             lblUpdatingTotalRevenue.Text = " " + (dtRevenue.Rows.Count > 0 && dtRevenue.Rows[0][0] != DBNull.Value ? dtRevenue.Rows[0][0].ToString() : "0");
-            // Total Transactions.
+
             string queryTrans = "SELECT COUNT(*) FROM tblTransactions";
             DataTable dtTrans = DBHelper.ExecuteSelect(queryTrans);
             lblUpdatingTotalTransactions.Text = " " + dtTrans.Rows[0][0].ToString();
-            // Average Sale.
+
             string queryAvg = "SELECT AVG(TotalAmount) FROM tblTransactions";
             DataTable dtAvg = DBHelper.ExecuteSelect(queryAvg);
 
@@ -66,22 +64,19 @@ namespace Hardware_main.UserControls
             {
                 decimal average = Convert.ToDecimal(dtAvg.Rows[0][0]);
                 lblUpdatingAverageSales.Text = " " + average.ToString("0.00");
-            }
-            
+            }         
         }
         public void LoadTrendChart()
         {
             string query = @"
-        SELECT 
-            DATEPART(WEEK, DateCreated) AS WeekNumber,
-            DATENAME(WEEK, DateCreated) AS [WeekName],
-            SUM(TotalAmount) AS TotalSales,
-            MIN(DateCreated) AS FirstDate
-        FROM tblTransactions
-        GROUP BY DATEPART(WEEK, DateCreated), DATENAME(WEEK, DateCreated)
-        ORDER BY FirstDate";   // Ensures left-to-right order
-
-
+                            SELECT 
+                                DATEPART(WEEK, DateCreated) AS WeekNumber,
+                                DATENAME(WEEK, DateCreated) AS [WeekName],
+                                SUM(TotalAmount) AS TotalSales,
+                                MIN(DateCreated) AS FirstDate
+                            FROM tblTransactions
+                            GROUP BY DATEPART(WEEK, DateCreated), DATENAME(WEEK, DateCreated)
+                            ORDER BY FirstDate";  
             DataTable dt = DBHelper.ExecuteSelect(query);
 
             var salesValues = new LiveCharts.ChartValues<decimal>();
@@ -89,7 +84,7 @@ namespace Hardware_main.UserControls
 
             foreach (DataRow row in dt.Rows)
             {
-                weekLabels.Add("Week " + row["WeekNumber"].ToString()); // LEFT → RIGHT
+                weekLabels.Add("Week " + row["WeekNumber"].ToString()); 
                 salesValues.Add(Convert.ToDecimal(row["TotalSales"]));
             }
 
@@ -113,10 +108,10 @@ namespace Hardware_main.UserControls
             {
                 Title = "Week",
                 Labels = weekLabels,
-                MinValue = 0,        // makes line start at index 0 (left)
+                MinValue = 0,        
                 Separator = new Separator
                 {
-                    Step = 1,       // one label per point
+                    Step = 1,       
                     IsEnabled = false
                 }
             });
@@ -130,9 +125,9 @@ namespace Hardware_main.UserControls
         private void LoadCategoryChart()
         {
             string query = @"
-        SELECT Category, SUM(Price * Quantity) AS TotalValue
-        FROM tblItems
-        GROUP BY Category";
+                            SELECT Category, SUM(Price * Quantity) AS TotalValue
+                            FROM tblItems
+                            GROUP BY Category";
 
             DataTable dt = DBHelper.ExecuteSelect(query);
 
@@ -168,20 +163,14 @@ namespace Hardware_main.UserControls
                 LabelFormatter = value => value.ToString("C")
             });
         }
-
-
-
-
         private void BtnPrint_Click(object sender, EventArgs e)
         {
 
         }
-
         private void UC_Reports_Load(object sender, EventArgs e)
         {
 
         }
-
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             try
@@ -195,12 +184,12 @@ namespace Hardware_main.UserControls
 
                     using (System.IO.FileStream stream = new System.IO.FileStream(sfd.FileName, System.IO.FileMode.Create))
                     {
-                        // 1️⃣ Create PDF document
+                        // Create PDF document
                         iTextSharp.text.Document pdfDoc = new iTextSharp.text.Document(iTextSharp.text.PageSize.A4, 20, 20, 20, 20);
                         iTextSharp.text.pdf.PdfWriter.GetInstance(pdfDoc, stream);
                         pdfDoc.Open();
 
-                        // 2️⃣ Capture UC labels (optional: just labels panel or the whole UC)
+                        // 2Capture UC labels
                         Bitmap labelsBmp = new Bitmap(this.Width, this.Height);
                         this.DrawToBitmap(labelsBmp, new Rectangle(0, 0, this.Width, this.Height));
 
@@ -242,7 +231,6 @@ namespace Hardware_main.UserControls
             Bitmap bmp = new Bitmap(this.Width, this.Height);
             this.DrawToBitmap(bmp, new Rectangle(0, 0, this.Width, this.Height));
 
-            // Optionally scale to fit page
             float scale = Math.Min((float)e.MarginBounds.Width / bmp.Width,
                                    (float)e.MarginBounds.Height / bmp.Height);
 

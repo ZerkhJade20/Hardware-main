@@ -38,15 +38,12 @@ namespace Hardware_main.UserControls
                 sql += " WHERE ItemName LIKE @filter OR SKU LIKE @filter OR Category LIKE @filter";
                 parameters = new[] { new SqlParameter("@filter", $"%{filter}%") };
             }
-
-            // 1. Load from database
+           
             dgvInventory.DataSource = DBHelper.ExecuteSelect(sql, parameters);
-
-            // 2. Remove any previous Delete button column (avoid duplicates)
+            
             if (dgvInventory.Columns.Contains("Delete"))
                 dgvInventory.Columns.Remove("Delete");
-
-            // 3. Add Delete button column once
+            
             DataGridViewButtonColumn deleteBtn = new DataGridViewButtonColumn();
             deleteBtn.Name = "Delete";
             deleteBtn.HeaderText = "Delete";
@@ -55,10 +52,8 @@ namespace Hardware_main.UserControls
             deleteBtn.Width = 80;
             dgvInventory.Columns.Insert(0, deleteBtn);
 
-            // 4. Disable auto-size so we can manually set widths
             dgvInventory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
 
-            // 5. Apply fixed widths for 1800px DataGridView
             dgvInventory.Columns["ItemID"].Width = 100;
             dgvInventory.Columns["ItemName"].Width = 400;
             dgvInventory.Columns["SKU"].Width = 160;
@@ -110,8 +105,7 @@ namespace Hardware_main.UserControls
         }
 
         private void btnClose_Click(object sender, EventArgs e)
-        {
-            // Validate required inputs
+        {           
             if (string.IsNullOrWhiteSpace(txtItemName.Text) || string.IsNullOrWhiteSpace(txtSKU.Text) || cmbCategory.SelectedIndex == -1)
             {
                 MessageBox.Show("Fill all required fields (name, SKU, category).");
@@ -136,7 +130,7 @@ namespace Hardware_main.UserControls
                 MessageBox.Show("Item added successfully.");
                 guna2Panel4.Visible = false;
                 LoadInventoryList();
-                InventoryChanged?.Invoke();  // Notify worker UI to refresh
+                InventoryChanged?.Invoke();  // papasok na sa worker ui
             }
 
         }
@@ -151,7 +145,6 @@ namespace Hardware_main.UserControls
             
             if (dgvInventory.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                // Confirm deletion
                 if (MessageBox.Show("Delete this item?", "Confirm Delete", MessageBoxButtons.YesNo) != DialogResult.Yes)
                     return;
                 int itemId = Convert.ToInt32(dgvInventory.Rows[e.RowIndex].Cells["ItemID"].Value);
@@ -159,7 +152,6 @@ namespace Hardware_main.UserControls
                 try
                 {
                     DBHelper.ExecuteNonQuery(sql, new SqlParameter("@ItemID", itemId));
-                    // Remove row from DataGridView (refresh the grid instead for consistency)
                     LoadInventoryList();
                     InventoryChanged?.Invoke();
                 }
@@ -169,9 +161,6 @@ namespace Hardware_main.UserControls
                 }
             }
         }
-
-
-
         private void dgvInventory_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -207,14 +196,11 @@ namespace Hardware_main.UserControls
             InventoryChanged?.Invoke();
 
         }
-
-
         private void dgvInventory_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
             
 
         }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
            

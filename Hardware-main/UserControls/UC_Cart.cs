@@ -17,22 +17,18 @@ namespace Hardware_main.UserControls
     {
 
         private string connectionString = "Data Source=ZERKH\\SQLEXPRESS;Initial Catalog=InventoryDB;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
-        private UC_Products _products;  // Reference to UC_Products for refreshing
+        private UC_Products _products;  
         public UC_Cart(UC_Products products)
         {
             InitializeComponent();           
             _products = products;
-            RefreshCart();
-            
+            RefreshCart();          
         }
-           // Fix for circular dependency
         public void SetProducts(UC_Products products)
         {
             _products = products;
-            
-            // Note: RefreshCart is called separately in UC_Products after this
+                        
         }
-        // Method called by UC_Products to add an item to the cart (inserts into DB)
         public void AddItemToCart(int productId)
         {
             try
@@ -41,7 +37,6 @@ namespace Hardware_main.UserControls
                 {
                     con.Open();
 
-                    // Check if item already exists in cart
                     string checkQuery = "SELECT Quantity FROM Cart WHERE ProductID = @ProductID";
                     using (SqlCommand checkCmd = new SqlCommand(checkQuery, con))
                     {
@@ -63,7 +58,6 @@ namespace Hardware_main.UserControls
                         }
                     }
 
-                    // Insert new cart item
                     string insertQuery = "INSERT INTO Cart (ProductID, Quantity) VALUES (@ProductID, 1)";
                     using (SqlCommand cmd = new SqlCommand(insertQuery, con))
                     {
@@ -77,9 +71,6 @@ namespace Hardware_main.UserControls
                 MessageBox.Show($"Error adding to cart: {ex.Message}");
             }
         }
-
-
-        // Method to refresh the cart's DataGridView from the database
         public void RefreshCart()
         {
             try
@@ -107,11 +98,9 @@ namespace Hardware_main.UserControls
                     }
                 }
 
-                // Remove duplicate Remove buttons if refreshing
                 if (dgvCart.Columns.Contains("Remove"))
                     dgvCart.Columns.Remove("Remove");
 
-                // Add Remove button column
                 DataGridViewButtonColumn removeBtn = new DataGridViewButtonColumn();
                 removeBtn.Name = "Remove";
                 removeBtn.HeaderText = "Remove";
@@ -119,7 +108,6 @@ namespace Hardware_main.UserControls
                 removeBtn.UseColumnTextForButtonValue = true;
                 dgvCart.Columns.Add(removeBtn);
 
-                // Apply sizing
                 SetupCartGridColumns();
 
                 UpdateTotalAmount();
@@ -148,10 +136,6 @@ namespace Hardware_main.UserControls
             if (dgvCart.Columns.Contains("Remove"))
                 dgvCart.Columns["Remove"].Width = 80;
         }
-
-
-
-
         private void UpdateTotalAmount()
         {
             decimal total = 0;
@@ -168,9 +152,6 @@ namespace Hardware_main.UserControls
 
             lblTotal.Text = "Total Amount: ₱" + total.ToString("N2");
         }
-
-
-
         public void LoadCartItems()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -183,7 +164,7 @@ namespace Hardware_main.UserControls
                 dgvCart.DataSource = dt;
             }
 
-            UpdateTotalAmount();  // ← ADD THIS
+            UpdateTotalAmount();  
         }
 
 
@@ -200,7 +181,6 @@ namespace Hardware_main.UserControls
         {
             try
             {
-                // 1️⃣ Get total amount from label
                 decimal totalAmount = 0m;
                 string text = lblTotal.Text.Replace("Total Amount: ₱", "").Trim();
                 decimal.TryParse(text, out totalAmount);
@@ -210,23 +190,18 @@ namespace Hardware_main.UserControls
                     MessageBox.Show("Cart is empty.");
                     return;
                 }
-
-                // 2️⃣ Insert transaction
                 string insertSql = @"
-            INSERT INTO tblTransactions (TotalAmount, DateCreated)
-            VALUES (@amount, GETDATE())";
+                                    INSERT INTO tblTransactions (TotalAmount, DateCreated)
+                                    VALUES (@amount, GETDATE())";
 
                 DBHelper.ExecuteNonQuery(insertSql,
                     new SqlParameter("@amount", totalAmount)
                 );
 
-                // 3️⃣ Clear cart
                 DBHelper.ExecuteNonQuery("DELETE FROM Cart");
                 RefreshCart();
 
                 MessageBox.Show("Checkout completed!");
-
-                // 4️⃣ Update all user controls in frmMain
                 UpdateParentFormControls();
             }
             catch (Exception ex)
@@ -237,47 +212,36 @@ namespace Hardware_main.UserControls
 
         private void UpdateParentFormControls()
         {
-            // Find parent form (frmMain)
             frmMain mainForm = this.FindForm() as frmMain;
             if (mainForm == null) return;
 
-            // DASHBOARD
             if (mainForm.dashboardUC != null)
             {
                 mainForm.dashboardUC.LoadTotalSales();
                 mainForm.dashboardUC.LoadSalesChart();
             }
 
-            // SALES & TRANSACTIONS
             if (mainForm.salesUC != null)
             {
                 mainForm.salesUC.LoadTransactionSummary();
                 mainForm.salesUC.LoadWeeklySalesChart();
             }
 
-            // REPORTS
             if (mainForm.reportsUC != null)
             {
-                mainForm.reportsUC.UpdateLabels();       // ✅ Your existing method
-                mainForm.reportsUC.LoadTrendChart();     // Trend chart update
+                mainForm.reportsUC.UpdateLabels();      
+                mainForm.reportsUC.LoadTrendChart();     
             }
         }
-
-
-
-
-
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
         }
-
         private void lvCart_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
-
         private void dgvCart_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0) return; // Ignore header clicks
+            if (e.RowIndex < 0) return; 
 
             if (dgvCart.Columns[e.ColumnIndex].Name == "Remove")
             {
@@ -286,7 +250,6 @@ namespace Hardware_main.UserControls
 
                 try
                 {
-                    // 1. Delete only this row from Cart
                     using (SqlConnection con = new SqlConnection(connectionString))
                     {
                         con.Open();
@@ -298,10 +261,8 @@ namespace Hardware_main.UserControls
                         }
                     }
 
-                    // 2. Optional: Restore stock in tblItems
                     IncreaseProductQuantity(productId, 1);
 
-                    // 3. Refresh cart
                     RefreshCart();
 
                     MessageBox.Show("Item removed from cart and stock restored!");
@@ -312,9 +273,6 @@ namespace Hardware_main.UserControls
                 }
             }
         }
-
-
-        // Helper method to increase product quantity (reverse of DecreaseProductQuantity)
         private void IncreaseProductQuantity(int productId, int qty)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -378,7 +336,6 @@ namespace Hardware_main.UserControls
                 {
                     con.Open();
 
-                    // 1️⃣ Update Cart table
                     string updateCart = "UPDATE Cart SET Quantity = @Q WHERE ID = @CartID";
                     using (SqlCommand cmd = new SqlCommand(updateCart, con))
                     {
@@ -387,11 +344,10 @@ namespace Hardware_main.UserControls
                         cmd.ExecuteNonQuery();
                     }
 
-                    // 2️⃣ Update tblItems stock based on difference
                     string updateItem = @"
-                UPDATE tblItems 
-                SET Quantity = Quantity - @difference 
-                WHERE ItemID = @id";
+                                        UPDATE tblItems 
+                                        SET Quantity = Quantity - @difference 
+                                        WHERE ItemID = @id";
 
                     using (SqlCommand cmd = new SqlCommand(updateItem, con))
                     {
@@ -402,7 +358,7 @@ namespace Hardware_main.UserControls
                 }
 
                 UpdateTotalAmount();
-                previousQuantity = newQty; // set new baseline
+                previousQuantity = newQty; 
             }
             catch (Exception ex)
             {

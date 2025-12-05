@@ -22,9 +22,6 @@ namespace Hardware_main
         public UC_Dashboard dashboardUC { get; private set; }
         public UC_SalesTrans salesUC { get; private set; }
         public UC_Reports reportsUC { get; private set; }
-
-
-
         public frmMain(int userID, string username, byte[] photo)
         {
             InitializeComponent();
@@ -36,7 +33,6 @@ namespace Hardware_main
             salesUC = new UC_SalesTrans();
             reportsUC = new UC_Reports();
 
-            // Example: add to panels
             panelContainer.Controls.Add(dashboardUC);
             panelContainer.Controls.Add(salesUC);
             panelContainer.Controls.Add(reportsUC);
@@ -49,7 +45,6 @@ namespace Hardware_main
         public frmMain()
         {
         }
-
         private void LoadUserData()
         {
             lblUserName.Text = username;
@@ -62,7 +57,7 @@ namespace Hardware_main
             }
             else
             {
-                pbProfilePic.Image = null; // Or set a default image
+                pbProfilePic.Image = null; 
             }
         }
 
@@ -136,10 +131,8 @@ namespace Hardware_main
             LoadUserData();
         }
         public void UpdateProfile(Image image, string name)
-        {
-            // Update the PictureBox with the new image.
+        {            
             pbProfilePic.Image = image;
-            // Update the Label with the new name.
             lblUserName.Text = name;
         }
         private void frmMain_Load(object sender, EventArgs e)
