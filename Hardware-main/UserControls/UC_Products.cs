@@ -44,6 +44,8 @@ namespace Hardware_main.UserControls
             dgvProducts.Columns["Status"].Width = 100;
             dgvProducts.Columns["DateAdded"].Width = 200;
         }
+        
+
         public void SubscribeToInventory(UC_Inventory inventoryCtrl)
         {
             inventoryCtrl.InventoryChanged += () => LoadProducts();
@@ -201,6 +203,39 @@ namespace Hardware_main.UserControls
         private void guna2Button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            LiveSearch(txtSearch.Text.Trim());
+        }
+        private void LiveSearch(string keyword)
+        {
+            string query = @"
+        SELECT * FROM tblItems 
+        WHERE Status='In Stock'
+        AND (
+            ItemName LIKE @key OR
+            SKU LIKE @key OR
+            Category LIKE @key
+        )";
+
+            var dt = DBHelper.ExecuteSelect(query, new SqlParameter("@key", "%" + keyword + "%"));
+            dgvProducts.DataSource = dt;
+        }
+        public void LoadInventoryList()
+        {
+            var dt = DBHelper.ExecuteSelect("SELECT * FROM tblItems");
+            dgvProducts.DataSource = dt;
+        }
+
+        private void btnADD_Click(object sender, EventArgs e)
+        {
+            RefreshProducts();
+        }
+        public void RefreshProducts()
+        {
+            LoadProducts();   // Reload from database
         }
     }
 }
